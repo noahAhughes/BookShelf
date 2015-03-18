@@ -1,9 +1,8 @@
 
 $(function() {
-    var startupView = "About";
+    var startupView = "BookList";
 
-    // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
-    // DevExpress.devices.current({ platform: "generic" });
+    DevExpress.devices.current({ platform: "ios", version: [7] });
 
     if(DevExpress.devices.real().platform === "win8") {
         $("body").css("background-color", "#000");

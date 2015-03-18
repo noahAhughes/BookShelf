@@ -49,6 +49,12 @@
     <Content Include="layouts\Split\SplitLayout.css" />
     <Content Include="layouts\Split\SplitLayout.html" />
     <Content Include="layouts\Split\SplitLayout.js" />
+    <Content Include="views\BookList.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\BookList.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\readme.txt" />
   </ItemGroup>
   <ItemGroup>

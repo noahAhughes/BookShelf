@@ -34,6 +34,17 @@
     // Enable partial CORS support for IE < 10    
     $.support.cors = true;
     
-    BookShelf.db = new DevExpress.data.ODataContext(serviceConfig.db);
+    BookShelf.db = {
+        books: [{
+            title: "War and Peace",
+            author: "Lev Tolstoy"
+        }, {
+            title: "Crime and Punishment",
+            author: "Fyodor Dostoyevsky"
+        }, {
+            title: "Quiet Flows the Don",
+            author: "Mikhail Sholohov"
+        }]
+    };
 
 }());

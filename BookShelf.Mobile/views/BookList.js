@@ -1,8 +1,13 @@
 ﻿BookShelf.BookList = function (params) {
 
+    var booksSource = new DevExpress.data.DataSource({
+        store: BookShelf.db.books
+    });
+
     var viewModel = {
-        dataSource: {
-            store: BookShelf.db.books
+        booksSource: booksSource,
+        viewShown: function() {
+            booksSource.reload();
         }
     };
 

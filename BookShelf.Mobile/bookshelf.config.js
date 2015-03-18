@@ -5,15 +5,31 @@ window.BookShelf = $.extend(true, window.BookShelf, {
     "layoutSet": "navbar",
     "navigation": [
       {
-          "title": "Books",
-          "onExecute": "#BookList",
-          "icon": "bookmark"
+        "title": "Books",
+        "onExecute": "#BookList",
+        "icon": "bookmark"
       },
       {
         "title": "About",
         "onExecute": "#About",
         "icon": "info"
-      }      
-    ]
+      }
+    ],
+    "commandMapping": {
+      "ios-header-toolbar": {
+        "defaults": {
+          "showIcon": false,
+          "location": "after"
+        },
+        "commands": [
+          {
+            "id": "addBook"
+          },
+          {
+              "id": "saveBook"
+          }
+        ]
+      }
+    }
   }
 });

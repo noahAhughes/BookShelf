@@ -58,10 +58,10 @@
     <Content Include="views\BookAdd.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\BookDetail.dxview">
+    <Content Include="views\BookDetails.dxview">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\BookDetail.js">
+    <Content Include="views\BookDetails.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\BookList.dxview">

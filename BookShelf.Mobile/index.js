@@ -6,12 +6,12 @@ $(function() {
         $("body").css("background-color", "#000");
     }
 
-    $(document).on("deviceready", function () {
+    $(document).on("deviceready", function() {
         navigator.splashscreen.hide();
-        if (window.devextremeaddon) {
+        if(window.devextremeaddon) {
             window.devextremeaddon.setup();
         }
-        $(document).on("backbutton", function () {
+        $(document).on("backbutton", function() {
             DevExpress.processHardwareBackButton();
         });
     });
@@ -24,7 +24,7 @@ $(function() {
     }
 
     function exitApp() {
-        switch (DevExpress.devices.real().platform) {
+        switch(DevExpress.devices.real().platform) {
             case "tizen":
                 tizen.application.getCurrentApplication().exit();
                 break;

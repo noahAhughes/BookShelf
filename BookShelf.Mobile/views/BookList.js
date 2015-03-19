@@ -1,4 +1,4 @@
-﻿BookShelf.BookList = function (params) {
+﻿BookShelf.BookList = function(params) {
 
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books,
@@ -14,7 +14,7 @@
 
     var viewModel = {
         source: source,
-        
+
         viewShown: function() {
             source.reload();
         }

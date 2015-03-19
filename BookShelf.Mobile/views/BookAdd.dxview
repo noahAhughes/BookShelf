@@ -1,7 +1,7 @@
-<div data-options="dxView : { name: 'BookAdd', title: 'Add Book' } " >
-    <div data-bind="dxCommand: { onExecute: save, id: 'saveBook', type: 'default', title: 'Save', icon: 'save', disabled: invalid } "></div>
+<div data-options="dxView : { name: 'BookAdd', title: 'Add Book' }">
+    <div data-bind="dxCommand: { onExecute: save, id: 'saveBook', type: 'default', title: 'Save', icon: 'save', disabled: invalid }"></div>
     <div data-bind="dxCommand: { onExecute: cancel, id: 'back', title: 'Cancel', icon: 'close' }"></div>
-    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="dx-fieldset">
             <div class="dx-field">
                 <div class="dx-field-label">Title</div>
@@ -15,6 +15,6 @@
                     <div data-bind="dxTextBox: { placeholder: 'Lev Tolstoy', value: book.author, valueChangeEvent: 'keyup' }"></div>
                 </div>
             </div>
-        </div>         
+        </div>
     </div>
 </div>

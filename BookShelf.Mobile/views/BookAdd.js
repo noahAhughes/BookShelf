@@ -1,4 +1,4 @@
-﻿BookShelf.BookAdd = function (params) {
+﻿BookShelf.BookAdd = function(params, viewInfo) {
 
     var title = ko.observable();
     var author = ko.observable();
@@ -8,17 +8,22 @@
             title: title,
             author: author
         },
+        invalid: ko.computed(function() {
+            return !title();
+        }),
         save: function() {
             BookShelf.db.books.push({
                 title: title(),
                 author: author()
             });
 
-            BookShelf.app.navigate("BookList", { target: "back" });
+            BookShelf.app.viewCache.removeView(viewInfo.key);
+            BookShelf.app.back();
         },
-        invalid: ko.computed(function() {
-            return !title();
-        })
+        cancel: function() {
+            BookShelf.app.viewCache.removeView(viewInfo.key);
+            BookShelf.app.back();
+        }
     };
 
     return viewModel;

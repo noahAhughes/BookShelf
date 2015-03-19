@@ -1,7 +1,5 @@
 
 $(function() {
-    var startupView = "BookList";
-
     DevExpress.devices.current({ platform: "ios", version: [7] });
 
     if(DevExpress.devices.real().platform === "win8") {
@@ -47,9 +45,10 @@ $(function() {
     });
 
     $(window).unload(function() {
-        BookShelf.app.saveState();
+        //BookShelf.app.saveState();
     });
 
+    var startupView = "BookList";
     BookShelf.app.router.register(":view/:id", { view: startupView, id: undefined });
     BookShelf.app.on("navigatingBack", onNavigatingBack);
     BookShelf.app.navigate();

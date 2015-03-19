@@ -1,5 +1,5 @@
-<div data-options="dxView : { name: 'BookDetail', title: '' } " >
-    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+<div data-options="dxView : { name: 'BookDetails', title: '' }">
+    <div data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="dx-fieldset">
             <div class="dx-field">
                 <div class="dx-field-label">Title</div>

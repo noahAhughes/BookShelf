@@ -1,4 +1,4 @@
-﻿BookShelf.BookDetail = function(params, viewInfo) {
+﻿BookShelf.BookDetails = function(params, viewInfo) {
 
     var book = $.grep(BookShelf.db.books, function(book) {
         return book.id == params.id;

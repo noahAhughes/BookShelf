@@ -5,13 +5,17 @@
     })[0];
 
     var viewModel = {
-        title: ko.observable(book.title),
-        author: ko.observable(book.author),
+        book: {
+            title: ko.observable(book.title),
+            author: ko.observable(book.author)
+        },
 
         back: function() {
             BookShelf.app.viewCache.removeView(viewInfo.key);
             BookShelf.app.back();
-        }
+        },
+
+        title: book.title
     };
 
     return viewModel;

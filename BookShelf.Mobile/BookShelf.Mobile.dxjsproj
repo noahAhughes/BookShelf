@@ -21,6 +21,9 @@
     <Content Include="bookshelf.config.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="css\styles.css">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="index.html" />
     <Content Include="index.css" />
     <Content Include="cordova.js" />
@@ -53,6 +56,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\BookAdd.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\BookDetail.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\BookDetail.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\BookList.dxview">

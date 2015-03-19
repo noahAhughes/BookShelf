@@ -36,12 +36,15 @@
     
     BookShelf.db = {
         books: [{
+            id: 1,
             title: "War and Peace",
             author: "Lev Tolstoy"
         }, {
+            id: 2,
             title: "Crime and Punishment",
             author: "Fyodor Dostoyevsky"
         }, {
+            id: 3,
             title: "Quiet Flows the Don",
             author: "Mikhail Sholohov"
         }]

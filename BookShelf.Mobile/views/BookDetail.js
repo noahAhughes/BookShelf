@@ -10,11 +10,6 @@
             author: ko.observable(book.author)
         },
 
-        back: function() {
-            BookShelf.app.viewCache.removeView(viewInfo.key);
-            BookShelf.app.back();
-        },
-
         title: book.title
     };
 

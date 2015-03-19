@@ -1,5 +1,4 @@
 <div data-options="dxView : { name: 'BookDetail', title: '' } " >
-    <div data-bind="dxCommand: { onExecute: back, id: 'back', title: 'Back', type: 'back' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div class="dx-fieldset">
             <div class="dx-field">

@@ -15,7 +15,7 @@
     var viewModel = {
         source: source,
 
-        viewShown: function() {
+        viewShowing: function() {
             source.reload();
         }
     };

@@ -1,8 +1,6 @@
 ﻿BookShelf.BookDetails = function(params, viewInfo) {
 
-    var book = $.grep(BookShelf.db.books, function(book) {
-        return book.id == params.id;
-    })[0];
+    var book = BookShelf.db.findBook(params.id);
 
     var viewModel = {
         book: {

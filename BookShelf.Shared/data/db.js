@@ -47,7 +47,16 @@
             id: 3,
             title: "Quiet Flows the Don",
             author: "Mikhail Sholohov"
-        }]
+        }],
+
+        findBook: function(id) {
+            return $.grep(this.books, function(book) {
+                return book.id == id;
+            })[0];
+        },
+        deleteBook: function(id) {
+            this.books.splice($.inArray(this.findBook(id), this.books), 1);
+        }
     };
 
 }());

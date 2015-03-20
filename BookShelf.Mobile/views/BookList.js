@@ -14,6 +14,9 @@
 
     var viewModel = {
         source: source,
+        deleteBook: function(args) {
+            BookShelf.db.deleteBook(args.itemData.id);
+        },
 
         viewShowing: function() {
             source.reload();

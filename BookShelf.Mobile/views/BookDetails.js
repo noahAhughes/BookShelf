@@ -3,12 +3,22 @@
     var book = BookShelf.db.findBook(params.id);
 
     var viewModel = {
+
         book: {
-            title: ko.observable(book.title),
-            author: ko.observable(book.author)
+            id: book.id,
+            title: ko.observable(),
+            author: ko.observable()
         },
 
-        title: book.title
+        title: ko.observable(),
+        
+        viewShowing: function() {
+            this.book.title(book.title);
+            this.book.author(book.author);
+
+            this.title(book.title);
+        }
+
     };
 
     return viewModel;

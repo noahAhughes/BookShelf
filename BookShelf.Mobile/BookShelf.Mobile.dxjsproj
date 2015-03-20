@@ -64,6 +64,12 @@
     <Content Include="views\BookDetails.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\BookEdit.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\BookEdit.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\BookList.dxview">
       <SubType>Content</SubType>
     </Content>

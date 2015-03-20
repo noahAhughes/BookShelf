@@ -35,6 +35,7 @@
         viewShowing: function() {
             this.resetBook();
         }
+
     };
 
     return viewModel;

@@ -1,5 +1,5 @@
 <div data-options="dxView : { name: 'BookList', title: 'Books' }">
-    <div data-options="dxCommand: { id: 'addBook', onExecute: '#BookAdd', icon: 'plus' }"></div>
+    <div data-options="dxCommand: { id: 'addBook', onExecute: '#BookAdd', icon: 'plus', modal: true }"></div>
     <div class="books-list-view" data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="books-list" data-bind="dxList: { dataSource: source, pullRefreshEnabled: true }">
             <div data-options="dxTemplate: { name: 'item' }" data-bind="dxAction: '#BookDetails/{id}'">

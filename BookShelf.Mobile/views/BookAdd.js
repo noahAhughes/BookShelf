@@ -1,12 +1,18 @@
 ﻿BookShelf.BookAdd = function(params) {
 
-    var title = ko.observable();
-    var author = ko.observable();
+    var title = ko.observable(),
+        author = ko.observable();
 
     var viewModel = {
+
         book: {
             title: title,
             author: author
+        },
+
+        resetBook: function() {
+            title("");
+            author("");
         },
         
         invalid: ko.computed(function() {
@@ -19,11 +25,15 @@
                 author: author()
             });
 
-            BookShelf.app.navigate("BookList", { root: true });
+            BookShelf.app.back();
         },
 
         cancel: function() {
             BookShelf.app.back();
+        },
+
+        viewShowing: function() {
+            this.resetBook();
         }
     };
 

@@ -1,6 +1,6 @@
 ﻿BookShelf.BookEdit = function(params) {
 
-    var book = BookShelf.db.findBook(params.id);
+    var book = BookShelf.db.books.get(params.id);
 
     var title = ko.observable(book.title),
         author = ko.observable(book.author);
@@ -19,6 +19,7 @@
         save: function() {
             book.title = title();
             book.author = author();
+            BookShelf.db.books.update(book);
 
             BookShelf.app.back();
         }

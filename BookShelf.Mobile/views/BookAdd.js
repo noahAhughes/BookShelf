@@ -20,7 +20,7 @@
         }),
 
         save: function() {
-            BookShelf.db.books.push({
+            BookShelf.db.books.add({
                 title: title(),
                 author: author()
             });

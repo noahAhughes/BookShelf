@@ -1,7 +1,7 @@
 ﻿BookShelf.BookList = function(params) {
 
     var source = new DevExpress.data.DataSource({
-        store: BookShelf.db.books,
+        store: BookShelf.db.books.getAll(),
         map: function(book) {
             return {
                 id: book.id,
@@ -17,7 +17,7 @@
         source: source,
 
         deleteBook: function(args) {
-            BookShelf.db.deleteBook(args.itemData.id);
+            BookShelf.db.books.remove(args.itemData.id);
         },
 
         viewShowing: function() {

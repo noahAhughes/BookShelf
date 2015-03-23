@@ -1,6 +1,6 @@
 ﻿BookShelf.BookDetails = function(params, viewInfo) {
 
-    var book = BookShelf.db.findBook(params.id);
+    var book = BookShelf.db.books.get(params.id);
 
     var viewModel = {
 

@@ -2,6 +2,7 @@
 
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books.getAll(),
+        filter: params.filter,
         map: function(book) {
             return {
                 id: book.id,

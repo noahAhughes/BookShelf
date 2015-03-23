@@ -5,3 +5,7 @@
 .dx-button-default .dx-button-content {
     font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+.books-list, .books-list-partial {
+    height: 100%;
+}

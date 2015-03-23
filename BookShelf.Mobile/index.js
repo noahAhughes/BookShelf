@@ -48,7 +48,7 @@ $(function() {
         //BookShelf.app.saveState();
     });
 
-    var startupView = "BookList";
+    var startupView = "ReadingList";
     BookShelf.app.router.register(":view/:id", { view: startupView, id: undefined });
     BookShelf.app.on("navigatingBack", onNavigatingBack);
     BookShelf.app.navigate();

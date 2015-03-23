@@ -1,0 +1,5 @@
+<div data-options="dxView: { name: 'LaterList', title: 'Books To Read' } ">
+    <div class="later-books-list-view" data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div data-options="dxViewPlaceholder: { viewName: 'BookList' }" class="books-list"></div>
+    </div>
+</div>

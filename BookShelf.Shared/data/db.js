@@ -46,11 +46,14 @@
     var demoBooks = [{
         id: 1,
         title: "War and Peace",
-        author: "Lev Tolstoy"
+        author: "Lev Tolstoy",
+        startDate: new Date(2010, 1, 1),
+        finishDate: new Date(2012, 1, 1)
     }, {
         id: 2,
         title: "Crime and Punishment",
-        author: "Fyodor Dostoyevsky"
+        author: "Fyodor Dostoyevsky",
+        startDate: new Date(2011, 1, 1)
     }, {
         id: 3,
         title: "Quiet Flows the Don",

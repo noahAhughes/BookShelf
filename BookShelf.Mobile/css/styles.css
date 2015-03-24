@@ -9,3 +9,50 @@
 .books-list, .books-list-partial {
     height: 100%;
 }
+
+.dx-radio-value-container {
+    padding: 5px 10px 4px 0;
+}
+
+.dx-radiobutton-icon {
+    width: 26px;
+    height: 26px;
+}
+
+.dx-radiobutton-icon:before {
+    width: 24px;
+    height: 24px;
+}
+
+.dx-radiobutton-checked .dx-radiobutton-icon:after {
+    margin: -19px 0 0 5px;
+    width: 14px;
+    height: 14px;
+}
+
+.dx-lookup-popup-wrapper .dx-popup-title {
+    border-bottom: 1px solid #ababab;
+    padding: 7px 0;
+    height: 43px;
+}
+
+.dx-lookup-popup-wrapper .dx-popup-content {
+    top: 44px;
+}
+
+.dx-lookup-popup-wrapper .dx-list { 
+    background: #EFEFF4;
+    padding-top: 35px;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item:first-child {
+    border-top: 1px solid #c8c8c8;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item:last-child {
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item {
+    background: #fff;
+}

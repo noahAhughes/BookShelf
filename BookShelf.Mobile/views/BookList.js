@@ -17,6 +17,13 @@
 
         source: source,
 
+        addBook: function() {
+            BookShelf.app.navigate({
+                view: "BookAdd",
+                status: params.status || BookShelf.db.bookStatus.later
+            }, { modal: true });
+        },
+
         deleteBook: function(args) {
             BookShelf.db.books.remove(args.itemData.id);
         },

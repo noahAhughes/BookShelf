@@ -61,7 +61,12 @@
     }];
     
     BookShelf.db = {
-        books: Store("books", demoBooks)
+        books: Store("books", demoBooks),
+        bookStatus: {
+            reading: "Reading",
+            later: "To Read",
+            finished: "Finished"
+        }
     };
 
 }());

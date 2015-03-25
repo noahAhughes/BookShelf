@@ -1,0 +1,42 @@
+<div data-options="dxView : { name: 'BookForm', title: 'BookForm' }">
+    <div data-bind="dxCommand: { onExecute: save, id: 'saveBook', type: 'default', title: 'Save', icon: 'save', disabled: invalid }"></div>
+
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Title</div>
+            <div class="dx-field-value">
+                <div data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input' }"></div>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Author</div>
+            <div class="dx-field-value">
+                <div data-bind="dxTextBox: { placeholder: 'Lev Tolstoy', value: book.author, valueChangeEvent: 'input' }"></div>
+            </div>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Status</div>
+            <div class="dx-field-value">
+                <div data-bind="dxLookup: { items: statuses, value: book.status, fullScreen: true, searchEnabled: false, title: 'Status' }"></div>
+            </div>
+        </div>
+        <!-- ko if: book.showStartDate -->
+        <div class="dx-field">
+            <div class="dx-field-label">Start Date</div>
+            <div class="dx-field-value">
+                <div data-bind="dxDateBox: { value: book.startDate, showClearButton: false }"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: book.showFinishDate -->
+        <div class="dx-field">
+            <div class="dx-field-label">Finish Date</div>
+            <div class="dx-field-value">
+                <div data-bind="dxDateBox: { value: book.finishDate, showClearButton: false }"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

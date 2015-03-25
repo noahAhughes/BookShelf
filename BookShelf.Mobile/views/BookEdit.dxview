@@ -1,19 +1,5 @@
 <div data-options="dxView : { name: 'BookEdit', title: 'Edit Book' }">
-    <div data-bind="dxCommand: { onExecute: save, id: 'saveBook', type: 'default', title: 'Save', icon: 'save', disabled: invalid }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
-        <div class="dx-fieldset">
-            <div class="dx-field">
-                <div class="dx-field-label">Title</div>
-                <div class="dx-field-value">
-                    <div data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input' }"></div>
-                </div>
-            </div>
-            <div class="dx-field">
-                <div class="dx-field-label">Author</div>
-                <div class="dx-field-value">
-                    <div data-bind="dxTextBox: { placeholder: 'Lev Tolstoy', value: book.author, valueChangeEvent: 'input' }"></div>
-                </div>
-            </div>
-        </div>
+        <div data-options="dxViewPlaceholder: { viewName: 'BookForm' }"></div>
     </div>
 </div>

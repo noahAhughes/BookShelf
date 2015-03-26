@@ -1,6 +1,6 @@
 
 $(function() {
-    DevExpress.devices.current({ platform: "ios", version: [7] });
+    DevExpress.devices.current({ platform: "ios", version: [7], deviceType: "phone" });
 
     if(DevExpress.devices.real().platform === "win8") {
         $("body").css("background-color", "#000");

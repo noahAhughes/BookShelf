@@ -19,7 +19,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Status</div>
             <div class="dx-field-value">
-                <div data-bind="dxLookup: { items: statuses, value: book.status, fullScreen: true, searchEnabled: false, title: 'Status' }"></div>
+                <div data-bind="dxLookup: { items: statuses, value: book.status, searchEnabled: false, title: 'Status' }"></div>
             </div>
         </div>
         <!-- ko if: book.showStartDate -->

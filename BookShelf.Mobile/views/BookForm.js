@@ -1,4 +1,4 @@
-﻿BookShelf.BookForm = function (params) {
+﻿BookShelf.BookForm = function(params) {
 
     var book = BookShelf.db.books.get(params.id) || {};
 
@@ -8,11 +8,11 @@
             : (!!book.startDate ? BookShelf.db.bookStatus.reading : BookShelf.db.bookStatus.later);
     };
 
-    var title = ko.observable(book.title),
-        author = ko.observable(book.author),
-        status = ko.observable(params.status || getStatus(book)),
-        startDate = ko.observable(book.startDate || new Date()),
-        finishDate = ko.observable(book.finishDate || new Date());
+    var title = ko.observable(),
+        author = ko.observable(),
+        status = ko.observable(),
+        startDate = ko.observable(),
+        finishDate = ko.observable();
 
     var showStartDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.reading || status() === BookShelf.db.bookStatus.finished;
@@ -27,6 +27,7 @@
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
 
         book: {
+            id: book.id,
             title: title,
             author: author,
             status: status,
@@ -48,6 +49,18 @@
                 startDate: showStartDate() ? startDate() : null,
                 finishDate: showFinishDate() ? finishDate() : null
             };
+        },
+
+        prepareBook: function() {
+            this.book.title(book.title);
+            this.book.author(book.author);
+            this.book.status(getStatus(book));
+            this.book.startDate(book.startDate);
+            this.book.finishDate(book.finishDate);
+        },
+
+        viewShowing: function() {
+            this.prepareBook();
         }
 
     };

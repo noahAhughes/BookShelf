@@ -5,6 +5,9 @@
         resetBook: function() {
             this.book.title("");
             this.book.author("");
+            this.book.status(params.status);
+            this.book.startDate(new Date());
+            this.book.finishDate(new Date());
         },
 
         save: function() {

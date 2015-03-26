@@ -1,25 +1,10 @@
-﻿BookShelf.BookDetails = function(params, viewInfo) {
+﻿BookShelf.BookDetails = function(params) {
+    var viewModel = BookShelf.BookForm(params);
 
-    var book = BookShelf.db.books.get(params.id);
-
-    var viewModel = {
-
-        book: {
-            id: book.id,
-            title: ko.observable(),
-            author: ko.observable()
-        },
-
-        title: ko.observable(),
-        
-        viewShowing: function() {
-            this.book.title(book.title);
-            this.book.author(book.author);
-
-            this.title(book.title);
-        }
-
-    };
+    viewModel.title = viewModel.book.title;
+    viewModel.dateFormatter = function(date) {
+        return Globalize.format(date, 'MM/dd/yyyy');
+    }
 
     return viewModel;
 };

@@ -6,11 +6,24 @@
     // Enable partial CORS support for IE < 10    
     $.support.cors = true;
 
+    if(window.JSON && !window.JSON.dateParser) {
+        var reISO = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
+
+        JSON.dateParser = function(key, value) {
+            if(typeof value === 'string') {
+                var matched = reISO.exec(value);
+                if(matched)
+                    return new Date(value);
+            }
+            return value;
+        };
+    }
+
     var Store = function(name, defaultItems) {
         var storage = window.localStorage;
 
         var read = function() {
-            return JSON.parse(storage.getItem(name));
+            return JSON.parse(storage.getItem(name), JSON.dateParser);
         };
         var save = function() {
             storage.setItem(name, JSON.stringify(items));
@@ -59,7 +72,7 @@
         title: "Quiet Flows the Don",
         author: "Mikhail Sholohov"
     }];
-    
+
     BookShelf.db = {
         books: Store("books", demoBooks),
         bookStatus: {

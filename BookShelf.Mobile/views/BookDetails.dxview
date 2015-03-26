@@ -15,5 +15,29 @@
                 </div>
             </div>
         </div>
+        <div class="dx-fieldset">
+            <div class="dx-field">
+                <div class="dx-field-label">Status</div>
+                <div class="dx-field-value">
+                    <div data-bind="text: book.status"></div>
+                </div>
+            </div>
+            <!-- ko if: book.showStartDate -->
+            <div class="dx-field">
+                <div class="dx-field-label">Start Date</div>
+                <div class="dx-field-value">
+                    <div data-bind="text: dateFormatter(book.startDate())"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: book.showFinishDate -->
+            <div class="dx-field">
+                <div class="dx-field-label">Finish Date</div>
+                <div class="dx-field-value">
+                    <div data-bind="text: dateFormatter(book.finishDate())"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
     </div>
 </div>

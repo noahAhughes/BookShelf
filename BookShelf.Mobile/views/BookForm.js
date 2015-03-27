@@ -12,7 +12,8 @@
         author = ko.observable(),
         status = ko.observable(),
         startDate = ko.observable(),
-        finishDate = ko.observable();
+        finishDate = ko.observable(),
+        notes = ko.observable();
 
     var showStartDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.reading || status() === BookShelf.db.bookStatus.finished;
@@ -20,6 +21,11 @@
 
     var showFinishDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.finished;
+    });
+
+    var notesHtml = ko.computed(function() {
+        var converter = new Showdown.converter();
+        return converter.makeHtml(notes() || "");
     });
 
     var viewModel = {
@@ -34,7 +40,9 @@
             showStartDate: showStartDate,
             startDate: startDate,
             showFinishDate: showFinishDate,
-            finishDate: finishDate
+            finishDate: finishDate,
+            notes: notes,
+            notesHtml: notesHtml
         },
 
         invalid: ko.computed(function() {
@@ -47,7 +55,8 @@
                 title: title(),
                 author: author(),
                 startDate: showStartDate() ? startDate() : null,
-                finishDate: showFinishDate() ? finishDate() : null
+                finishDate: showFinishDate() ? finishDate() : null,
+                notes: notes()
             };
         },
 
@@ -57,6 +66,7 @@
             this.book.status(getStatus(book));
             this.book.startDate(book.startDate);
             this.book.finishDate(book.finishDate);
+            this.book.notes(book.notes);
         },
 
         viewShowing: function() {

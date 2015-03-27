@@ -46,6 +46,9 @@
     <Content Include="css\dx.win8.white.css" />
     <Content Include="css\dx.tizen.black.css" />
     <Content Include="css\dx.tizen.white.css" />
+    <Content Include="js\Showdown.min.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
   </ItemGroup>

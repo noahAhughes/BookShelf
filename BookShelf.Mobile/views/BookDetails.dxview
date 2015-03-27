@@ -1,41 +1,49 @@
 <div data-options="dxView : { name: 'BookDetails', title: '' }">
     <div data-bind="dxCommand: { onExecute: '#BookEdit/{book.id}', id: 'editBook', title: 'Edit', icon: 'edit' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
-        <div class="dx-fieldset">
-            <div class="dx-field">
-                <div class="dx-field-label">Title</div>
-                <div class="dx-field-value">
-                    <div data-bind="text: book.title"></div>
+        <div data-bind="dxScrollView: { }">
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Title</div>
+                    <div class="dx-field-value">
+                        <div data-bind="text: book.title"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Author</div>
+                    <div class="dx-field-value">
+                        <div data-bind="text: book.author"></div>
+                    </div>
                 </div>
             </div>
-            <div class="dx-field">
-                <div class="dx-field-label">Author</div>
-                <div class="dx-field-value">
-                    <div data-bind="text: book.author"></div>
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Status</div>
+                    <div class="dx-field-value">
+                        <div data-bind="text: book.status"></div>
+                    </div>
                 </div>
+                <!-- ko if: book.showStartDate -->
+                <div class="dx-field">
+                    <div class="dx-field-label">Start Date</div>
+                    <div class="dx-field-value">
+                        <div data-bind="text: dateFormatter(book.startDate())"></div>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: book.showFinishDate -->
+                <div class="dx-field">
+                    <div class="dx-field-label">Finish Date</div>
+                    <div class="dx-field-value">
+                        <div data-bind="text: dateFormatter(book.finishDate())"></div>
+                    </div>
+                </div>
+                <!-- /ko -->
             </div>
-        </div>
-        <div class="dx-fieldset">
-            <div class="dx-field">
-                <div class="dx-field-label">Status</div>
-                <div class="dx-field-value">
-                    <div data-bind="text: book.status"></div>
-                </div>
-            </div>
-            <!-- ko if: book.showStartDate -->
-            <div class="dx-field">
-                <div class="dx-field-label">Start Date</div>
-                <div class="dx-field-value">
-                    <div data-bind="text: dateFormatter(book.startDate())"></div>
-                </div>
-            </div>
-            <!-- /ko -->
-            <!-- ko if: book.showFinishDate -->
-            <div class="dx-field">
-                <div class="dx-field-label">Finish Date</div>
-                <div class="dx-field-value">
-                    <div data-bind="text: dateFormatter(book.finishDate())"></div>
-                </div>
+            <!-- ko if: book.notes -->
+            <div class="dx-fieldset book-notes-fieldset">
+                <div class="dx-fieldset-header">Notes</div>
+                <div class="dx-field book-notes" data-bind="html: book.notesHtml"></div>
             </div>
             <!-- /ko -->
         </div>

@@ -1,6 +1,5 @@
 <div data-options="dxView : { name: 'BookForm', title: 'BookForm' }">
     <div data-bind="dxCommand: { onExecute: save, id: 'saveBook', type: 'default', title: 'Save', icon: 'save', disabled: invalid }"></div>
-
     <div class="dx-fieldset">
         <div class="dx-field">
             <div class="dx-field-label">Title</div>
@@ -38,5 +37,13 @@
             </div>
         </div>
         <!-- /ko -->
+    </div>
+    <div class="dx-fieldset book-notes-fieldset">
+        <div class="dx-fieldset-header">Notes</div>
+        <div class="dx-field">
+            <div class="dx-field-value">
+                <div data-bind="dxTextArea: { value: book.notes, height: 250 }"></div>
+            </div>
+        </div>
     </div>
 </div>

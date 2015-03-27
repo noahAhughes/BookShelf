@@ -10,6 +10,34 @@
     height: 100%;
 }
 
+.book-notes-fieldset {
+    margin-top: 60px;
+}
+
+.book-notes-fieldset .dx-field-value {
+    width: 100% !important;
+    padding-left: 0;
+}
+
+.book-notes-fieldset .dx-textarea .dx-texteditor-input {
+    padding-left: 8px;
+}
+
+.book-notes {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 0;
+}
+
+.book-notes h1 {
+    margin: 10px 0;
+}
+
+.book-notes ul {
+    padding-left: 20px;
+}
+
+
 .dx-radio-value-container {
     padding: 5px 10px 4px 0;
 }

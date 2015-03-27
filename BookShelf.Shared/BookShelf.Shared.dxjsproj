@@ -24,8 +24,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\logo.png" />
-    <Content Include="js\dx.all.js" />
-    <Content Include="js\dx.all.debug.js" />
     <Content Include="js\localization\dx.all.de.js" />
     <Content Include="js\localization\dx.all.ja.js" />
     <Content Include="js\localization\dx.all.ru.js" />

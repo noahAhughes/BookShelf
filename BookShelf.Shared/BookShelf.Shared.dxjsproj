@@ -24,8 +24,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\logo.png" />
-    <Content Include="js\dx.all.js" />
-    <Content Include="js\dx.all.debug.js" />
     <Content Include="js\localization\dx.all.de.js" />
     <Content Include="js\localization\dx.all.ja.js" />
     <Content Include="js\localization\dx.all.ru.js" />
@@ -33,19 +31,6 @@
     <Content Include="js\jquery-1.11.2.min.js" />
     <Content Include="js\jquery-2.1.3.min.js" />
     <Content Include="js\knockout-3.3.0.js" />
-    <Content Include="css\dx.spa.css" />
-    <Content Include="css\dx.common.css" />
-    <Content Include="css\dx.dark.css" />
-    <Content Include="css\dx.light.css" />
-    <Content Include="css\dx.android.holo-dark.css" />
-    <Content Include="css\dx.android.holo-light.css" />
-    <Content Include="css\dx.android5.light.css" />
-    <Content Include="css\dx.ios.default.css" />
-    <Content Include="css\dx.ios7.default.css" />
-    <Content Include="css\dx.win8.black.css" />
-    <Content Include="css\dx.win8.white.css" />
-    <Content Include="css\dx.tizen.black.css" />
-    <Content Include="css\dx.tizen.white.css" />
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
   </ItemGroup>

@@ -38,6 +38,15 @@
         </div>
         <!-- /ko -->
     </div>
+    <div class="dx-fieldset book-rating-fieldset">
+        <div class="dx-fieldset-header">Rating</div>
+        <div class="dx-field">
+            <div class="dx-field-value">
+                <div id="book-rating"></div>
+                <div class="book-rating-text" data-bind="text: book.rating() || '—', css: book.ratingClass"></div>
+            </div>
+        </div>
+    </div>
     <div class="dx-fieldset book-notes-fieldset">
         <div class="dx-fieldset-header">Notes</div>
         <div class="dx-field">

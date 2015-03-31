@@ -20,10 +20,28 @@
     <Content Include="bookshelf.shared.config.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="css\fonts\raty.eot">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\raty.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\raty.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\raty.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\jquery.raty.css">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="data\db.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\logo.png" />
+    <Content Include="js\jquery.raty.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="js\localization\dx.all.de.js" />
     <Content Include="js\localization\dx.all.ja.js" />
     <Content Include="js\localization\dx.all.ru.js" />
@@ -52,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
+    <Folder Include="css\fonts\" />
     <Folder Include="data\" />
     <Folder Include="images\" />
     <Folder Include="js\" />

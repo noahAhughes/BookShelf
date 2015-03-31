@@ -84,3 +84,46 @@
 .dx-lookup-popup-wrapper .dx-list-item {
     background: #fff;
 }
+
+.book-rating-fieldset {
+    margin-top: 60px;
+}
+
+.book-rating-fieldset .dx-field-value {
+    width: 100% !important;
+    padding-left: 0;
+    text-align: center;
+    color: #ff9500;
+}
+
+.book-rating-fieldset .dx-field-value > div {
+    display: inline-block;
+}
+
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+    font-size: 26px;
+}
+
+.book-rating-text {
+    position: relative;
+    top: -6px;
+    min-width: 2em;
+    margin-left: 14px;
+    margin-bottom: -6px;
+    padding: 6px 0;
+    border-radius: 50%;
+    background-color: #8c8c8c;
+    color: #fff;
+}
+
+.book-rating-low {
+    background-color: #eb0000;
+}
+
+.book-rating-high {
+    background-color: #50a000;
+}
+
+.book-rating-normal {
+    background-color: #8c8c8c;
+}

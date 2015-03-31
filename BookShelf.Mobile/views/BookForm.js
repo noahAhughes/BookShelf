@@ -13,6 +13,7 @@
         status = ko.observable(),
         startDate = ko.observable(),
         finishDate = ko.observable(),
+        rating = ko.observable(),
         notes = ko.observable();
 
     var showStartDate = ko.computed(function() {
@@ -28,6 +29,17 @@
         return converter.makeHtml(notes() || "");
     });
 
+    var ratingClass = ko.computed(function() {
+        var value = rating();
+        if(!value)
+            return;
+        if(value < 4)
+            return "book-rating-low";
+        if(value > 7)
+            return "book-rating-high";
+        return "book-rating-normal";
+    });
+
     var viewModel = {
 
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
@@ -41,6 +53,8 @@
             startDate: startDate,
             showFinishDate: showFinishDate,
             finishDate: finishDate,
+            rating: rating,
+            ratingClass: ratingClass,
             notes: notes,
             notesHtml: notesHtml
         },
@@ -56,6 +70,7 @@
                 author: author(),
                 startDate: showStartDate() ? startDate() : null,
                 finishDate: showFinishDate() ? finishDate() : null,
+                rating: rating(),
                 notes: notes()
             };
         },
@@ -66,11 +81,27 @@
             this.book.status(getStatus(book));
             this.book.startDate(book.startDate);
             this.book.finishDate(book.finishDate);
+            this.book.rating(book.rating);
             this.book.notes(book.notes);
         },
 
         viewShowing: function() {
             this.prepareBook();
+        },
+
+        viewShown: function() {
+            var ratingControl = $("#book-rating").raty({
+                starType: "i",
+                number: 10,
+                score: rating(),
+                readOnly: params.readOnly,
+                click: function(score) {
+                    rating(score);
+                }
+            });
+            rating.subscribe(function(value) {
+                ratingControl.raty("score", value);
+            });
         }
 
     };

@@ -8,6 +8,8 @@
     <RootNamespace>BookShelf</RootNamespace>
     <ApplicationPage>index.html</ApplicationPage>
     <Name>BookShelf.Mobile</Name>
+    <KeyIpaPath>E:\DevExtreme\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
+    <ProvisionProfile>E:\DevExtreme\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +29,12 @@
     <Content Include="index.html" />
     <Content Include="index.css" />
     <Content Include="cordova.js" />
+    <Content Include="views\Settings.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Settings.js">
+      <SubType>Content</SubType>
+    </Content>
     <None Include="config.xml" />
     <Content Include="index.js">
       <SubType>Content</SubType>

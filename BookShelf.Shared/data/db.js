@@ -22,14 +22,21 @@
     var Store = function(name, defaultItems) {
         var storage = window.localStorage;
 
+        var importData = function(data) {
+            items = JSON.parse(data, JSON.dateParser) || defaultItems;
+        };
         var read = function() {
-            return JSON.parse(storage.getItem(name), JSON.dateParser);
+            importData(storage.getItem(name));
+        };
+        var exportData = function() {
+            return JSON.stringify(items);
         };
         var save = function() {
-            storage.setItem(name, JSON.stringify(items));
+            storage.setItem(name, exportData());
         };
 
-        var items = read() || defaultItems;
+        var items = [];
+        read();
 
         return {
             getAll: function() {
@@ -41,8 +48,9 @@
                 })[0];
             },
             add: function(item) {
-                var newid = items[items.length - 1].id + 1;
-                items.push($.extend({}, item, { id: newid }));
+                var lastId = items.length ? items[items.length - 1].id : 0;
+                var newId = lastId + 1;
+                items.push($.extend({}, item, { id: newId }));
                 save();
             },
             update: function(item) {
@@ -52,7 +60,9 @@
             remove: function(id) {
                 items.splice($.inArray(this.get(id), items), 1);
                 save();
-            }
+            },
+            importData: importData,
+            exportData: exportData
         };
     };
 

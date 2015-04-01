@@ -25,9 +25,9 @@ window.BookShelf = $.extend(true, window.BookShelf, {
         "icon": "bookmark"
       },
       {
-        "title": "About",
-        "onExecute": "#About",
-        "icon": "info"
+        "title": "Settings",
+        "onExecute": "#Settings",
+        "icon": "preferences"
       }
     ],
     "commandMapping": {

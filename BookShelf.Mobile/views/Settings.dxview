@@ -1,0 +1,12 @@
+<div data-options="dxView : { name: 'Settings', title: 'Settings' } " >
+    <div class="dx-fieldset import-export-fieldset">
+        <div class="dx-field">
+            <div data-bind="dxButton: { text: 'Import Data', onClick: importData }"></div>
+        </div>
+        <div class="dx-field">
+            <div data-bind="dxButton: { text: 'Export Data', onClick: exportData }"></div>
+        </div>
+    </div>
+
+    <div data-bind="dxLoadPanel: { message: 'Waiting...', showIndicator: true, visible: showLoadPanel }"></div>
+</div>

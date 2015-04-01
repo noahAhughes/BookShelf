@@ -91,29 +91,31 @@
 
 .book-rating-fieldset .dx-field-value {
     width: 100% !important;
-    padding-left: 0;
+    padding: 0;
     text-align: center;
     color: #ff9500;
 }
 
-.book-rating-fieldset .dx-field-value > div {
+.book-rating {
     display: inline-block;
+    height: 40px;
+    line-height: 40px;
 }
 
 .cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
     font-size: 26px;
+    vertical-align: middle;
 }
 
 .book-rating-text {
-    position: relative;
-    top: -6px;
+    display: inline-block;
     min-width: 2em;
     margin-left: 14px;
-    margin-bottom: -6px;
-    padding: 6px 0;
+    padding: 7px 0 6px;
     border-radius: 50%;
     background-color: #8c8c8c;
     color: #fff;
+    vertical-align: middle;
 }
 
 .book-rating-low {

@@ -1,5 +1,5 @@
 ﻿BookShelf.BookDetails = function(params) {
-    var viewModel = BookShelf.BookForm(params);
+    var viewModel = BookShelf.BookForm($.extend(params, { readOnly: true }));
 
     viewModel.title = viewModel.book.title;
     viewModel.dateFormatter = function(date) {

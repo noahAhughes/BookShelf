@@ -12,7 +12,9 @@
         author = ko.observable(),
         status = ko.observable(),
         startDate = ko.observable(),
-        finishDate = ko.observable();
+        finishDate = ko.observable(),
+        rating = ko.observable(),
+        notes = ko.observable();
 
     var showStartDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.reading || status() === BookShelf.db.bookStatus.finished;
@@ -20,6 +22,22 @@
 
     var showFinishDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.finished;
+    });
+
+    var notesHtml = ko.computed(function() {
+        var converter = new Showdown.converter();
+        return converter.makeHtml(notes() || "");
+    });
+
+    var ratingClass = ko.computed(function() {
+        var value = rating();
+        if(!value)
+            return;
+        if(value < 4)
+            return "book-rating-low";
+        if(value > 7)
+            return "book-rating-high";
+        return "book-rating-normal";
     });
 
     var viewModel = {
@@ -34,7 +52,11 @@
             showStartDate: showStartDate,
             startDate: startDate,
             showFinishDate: showFinishDate,
-            finishDate: finishDate
+            finishDate: finishDate,
+            rating: rating,
+            ratingClass: ratingClass,
+            notes: notes,
+            notesHtml: notesHtml
         },
 
         invalid: ko.computed(function() {
@@ -47,7 +69,9 @@
                 title: title(),
                 author: author(),
                 startDate: showStartDate() ? startDate() : null,
-                finishDate: showFinishDate() ? finishDate() : null
+                finishDate: showFinishDate() ? finishDate() : null,
+                rating: rating(),
+                notes: notes()
             };
         },
 
@@ -57,10 +81,27 @@
             this.book.status(getStatus(book));
             this.book.startDate(book.startDate);
             this.book.finishDate(book.finishDate);
+            this.book.rating(book.rating);
+            this.book.notes(book.notes);
         },
 
         viewShowing: function() {
             this.prepareBook();
+        },
+
+        viewShown: function() {
+            var ratingControl = $("#book-rating").raty({
+                starType: "i",
+                number: 10,
+                score: rating(),
+                readOnly: params.readOnly,
+                click: function(score) {
+                    rating(score);
+                }
+            });
+            rating.subscribe(function(value) {
+                ratingControl.raty("score", value);
+            });
         }
 
     };

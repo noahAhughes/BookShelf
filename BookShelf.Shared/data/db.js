@@ -71,7 +71,8 @@
         title: "War and Peace",
         author: "Lev Tolstoy",
         startDate: new Date(2010, 1, 1),
-        finishDate: new Date(2012, 1, 1)
+        finishDate: new Date(2012, 1, 1),
+        notes: "#Header\n * point1\n * point2"
     }, {
         id: 2,
         title: "Crime and Punishment",

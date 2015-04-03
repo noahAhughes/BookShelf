@@ -3,11 +3,13 @@
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books.getAll(),
         filter: params.filter,
+        sort: params.sort,
         map: function(book) {
             return {
                 id: book.id,
                 title: book.title,
                 author: book.author,
+                status: BookShelf.db.getBookStatus(book).toLowerCase(),
                 showChevron: true
             }
         }

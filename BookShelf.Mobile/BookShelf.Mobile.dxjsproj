@@ -60,9 +60,6 @@
     <Content Include="layouts\Split\SplitLayout.css" />
     <Content Include="layouts\Split\SplitLayout.html" />
     <Content Include="layouts\Split\SplitLayout.js" />
-    <Content Include="views\AllList.dxview">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="views\BookAdd.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -90,9 +87,6 @@
     <Content Include="views\BookList.dxview">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\AllList.js">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="views\BookList.js">
       <SubType>Content</SubType>
     </Content>
@@ -106,12 +100,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\LaterList.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\ReadingList.dxview">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\ReadingList.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\readme.txt" />

@@ -2,12 +2,6 @@
 
     var book = BookShelf.db.books.get(params.id) || {};
 
-    var getStatus = function(book) {
-        return (!!book.startDate && !!book.finishDate)
-            ? BookShelf.db.bookStatus.finished
-            : (!!book.startDate ? BookShelf.db.bookStatus.reading : BookShelf.db.bookStatus.later);
-    };
-
     var title = ko.observable(),
         author = ko.observable(),
         status = ko.observable(),
@@ -78,7 +72,7 @@
         prepareBook: function() {
             this.book.title(book.title);
             this.book.author(book.author);
-            this.book.status(getStatus(book));
+            this.book.status(BookShelf.db.getBookStatus(book));
             this.book.startDate(book.startDate);
             this.book.finishDate(book.finishDate);
             this.book.rating(book.rating);

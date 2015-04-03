@@ -4,7 +4,8 @@
         status: BookShelf.db.bookStatus.finished,
         filter: function(book) {
             return !!book.finishDate;
-        }
+        },
+        sort: { getter: "finishDate", desc: true }
     }));
 
 };

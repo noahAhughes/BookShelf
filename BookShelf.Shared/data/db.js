@@ -86,6 +86,13 @@
 
     BookShelf.db = {
         books: Store("books", demoBooks),
+
+        getBookStatus: function(book) {
+            return (!!book.startDate && !!book.finishDate)
+                ? this.bookStatus.finished
+                : (!!book.startDate ? this.bookStatus.reading : this.bookStatus.later);
+        },
+
         bookStatus: {
             reading: "Reading",
             later: "To Read",

@@ -5,11 +5,6 @@ window.BookShelf = $.extend(true, window.BookShelf, {
     "layoutSet": "navbar",
     "navigation": [
       {
-        "title": "Reading",
-        "onExecute": "#ReadingList",
-        "icon": "bookmark"
-      },
-      {
         "title": "To Read",
         "onExecute": "#LaterList",
         "icon": "bookmark"
@@ -17,11 +12,6 @@ window.BookShelf = $.extend(true, window.BookShelf, {
       {
         "title": "Finished",
         "onExecute": "#FinishedList",
-        "icon": "bookmark"
-      },
-      {
-        "title": "All",
-        "onExecute": "#AllList",
         "icon": "bookmark"
       },
       {

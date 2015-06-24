@@ -1,26 +1,6 @@
 ﻿BookShelf.TagAdd = function(params) {
-
-    var title = ko.observable();
-
-    var viewModel = {
-
-        tag: {
-            title: title
-        },
-
-        resetTag: function() {
-            title("");
-        },
-
-        invalid: ko.computed(function() {
-            return !title();
-        }),
-
-        getTag: function() {
-            return {
-                title: title()
-            };
-        },
+        
+    return $.extend(BookShelf.TagForm(params), {
 
         save: function() {
             BookShelf.db.tags.add(this.getTag());
@@ -31,11 +11,14 @@
             BookShelf.app.back();
         },
 
+        resetTag: function() {
+            this.tag.title("");
+        },
+
         viewShowing: function() {
             this.resetTag();
         }
 
-    };
+    });
 
-    return viewModel;
 };

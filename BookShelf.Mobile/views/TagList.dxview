@@ -2,8 +2,8 @@
     <div data-options="dxCommand: { id: 'addTag', onExecute: function() { this.addTag(); }, icon: 'plus' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div class="tags-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteTag, editEnabled: true, editConfig: { deleteEnabled: true } }">
-            <div data-options="dxTemplate: { name: 'item' }">
-                <div class="tag-title" data-bind="text: title"></div>
+            <div data-options="dxTemplate: { name: 'item' }" data-bind="dxAction: '#TagEdit/{id}'">
+                <div class=" tag-title" data-bind="text: title"></div>
             </div>
         </div>
     </div>

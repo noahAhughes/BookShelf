@@ -1,0 +1,7 @@
+﻿<div data-options="dxView : { name: 'TagEdit', title: 'Edit Category' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxScrollView: { }">
+            <div data-options="dxViewPlaceholder: { viewName: 'TagForm' }"></div>
+        </div>
+    </div>
+</div>

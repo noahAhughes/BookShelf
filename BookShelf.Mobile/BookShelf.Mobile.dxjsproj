@@ -42,6 +42,18 @@
     <Content Include="views\TagAdd.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\TagEdit.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagEdit.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagForm.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagForm.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\TagList.dxview">
       <SubType>Content</SubType>
     </Content>

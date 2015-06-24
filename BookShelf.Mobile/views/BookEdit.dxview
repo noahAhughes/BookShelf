@@ -1,4 +1,5 @@
 <div data-options="dxView : { name: 'BookEdit', title: 'Edit Book' }">
+    <div data-bind="dxCommand: { id: 'back', type: 'back', title: 'Book', onExecute: '#_back' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
         <div data-bind="dxScrollView: { }">
             <div data-options="dxViewPlaceholder: { viewName: 'BookForm' }"></div>

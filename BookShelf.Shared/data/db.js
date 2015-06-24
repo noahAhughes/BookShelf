@@ -19,11 +19,11 @@
         };
     }
 
-    var Store = function(name, defaultItems) {
+    var Store = function(name, config) {
         var storage = window.localStorage;
 
         var importData = function(data) {
-            items = JSON.parse(data, JSON.dateParser) || defaultItems;
+            items = JSON.parse(data, JSON.dateParser) || config.defaultItems;
         };
         var read = function() {
             importData(storage.getItem(name));
@@ -59,6 +59,7 @@
             },
             remove: function(id) {
                 items.splice($.inArray(this.get(id), items), 1);
+                config.onRemove && config.onRemove(id);
                 save();
             },
             importData: importData,
@@ -95,8 +96,24 @@
         title: "Design"
     }];
 
+    var bookStore = Store("books", {
+        defaultItems: demoBooks
+    });
+
+    var tagStore = Store("tags", {
+        defaultItems: demoTags,
+        onRemove: function(id) {
+            $.each(bookStore.getAll(), function(_, book) {
+                book.tags = $.grep(book.tags, function(tagId) {
+                    return tagId !== id;
+                });
+                bookStore.update(book);
+            });
+        }
+    });
+
     BookShelf.db = {
-        books: Store("books", demoBooks),
+        books: bookStore,
 
         getBookStatus: function(book) {
             return (!!book.startDate && !!book.finishDate)
@@ -110,7 +127,7 @@
             finished: "Finished"
         },
 
-        tags: Store("tags", demoTags)
+        tags: tagStore
     };
 
 }());

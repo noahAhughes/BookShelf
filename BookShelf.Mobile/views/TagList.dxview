@@ -1,5 +1,5 @@
 <div data-options="dxView : { name: 'TagList', title: 'Categories' } " >
-    <div data-options="dxCommand: { id: 'addTag', onExecute: function() { this.addTag(); }, icon: 'plus' }"></div>
+    <div data-bind="dxCommand: { id: 'addTag', onExecute: function() { this.addTag(); }, icon: 'plus' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' } " >
         <div class="tags-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteTag, editEnabled: true, editConfig: { deleteEnabled: true } }">
             <div data-options="dxTemplate: { name: 'item' }" data-bind="dxAction: '#TagEdit/{id}'">

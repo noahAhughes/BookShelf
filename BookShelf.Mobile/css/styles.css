@@ -97,6 +97,7 @@
     padding: 0;
     text-align: center;
     color: #ff9500;
+    padding-bottom: 3px;
 }
 
 .book-rating {
@@ -112,9 +113,11 @@
 
 .book-rating-text {
     display: inline-block;
-    min-width: 2em;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
     margin-left: 14px;
-    padding: 7px 0 6px;
     border-radius: 50%;
     background-color: #8c8c8c;
     color: #fff;
@@ -140,8 +143,10 @@
 
 /* Theme Styling */
 
-.dx-toolbar,
-.dx-toolbar-after {
+.layout-header .dx-toolbar,
+.layout-header .dx-toolbar-after,
+.dx-lookup-popup-wrapper .dx-toolbar,
+.dx-lookup-popup-wrapper .dx-toolbar-after {
     background-color: #60433d;
     border-radius: 0;
 }
@@ -156,14 +161,33 @@
     background-color: #60433d;
 }
 
-.dx-toolbar .dx-button .dx-icon,
-.dx-toolbar .dx-button .dx-button-text {
+.layout-header .dx-toolbar .dx-button .dx-icon,
+.layout-header .dx-toolbar .dx-button .dx-button-text,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button .dx-icon,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button .dx-button-text {
     color: #fff;
 }
 
-.dx-toolbar-label,
-.dx-popup-title .dx-toolbar-label {
+.layout-header .dx-toolbar .dx-button.dx-state-disabled .dx-icon,
+.layout-header .dx-toolbar .dx-button.dx-state-disabled .dx-button-text,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button.dx-state-disabled .dx-icon,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button.dx-state-disabled .dx-button-text  {
+    opacity: .3;
+}
+
+.layout-header .dx-toolbar .dx-button.dx-state-active .dx-icon,
+.layout-header .dx-toolbar .dx-button.dx-state-active .dx-button-text,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button.dx-state-active .dx-icon,
+.dx-lookup-popup-wrapper .dx-toolbar .dx-button.dx-state-active .dx-button-text  {
+    opacity: .2;
+}
+
+.layout-header .dx-toolbar-label,
+.layout-header .dx-popup-title .dx-toolbar-label,
+.dx-lookup-popup-wrapper .dx-toolbar-label,
+.dx-lookup-popup-wrapper .dx-popup-title .dx-toolbar-label {
     color: #fff;
+    font-weight: normal;
 }
 
 .dx-navbar {

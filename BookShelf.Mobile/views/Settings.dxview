@@ -1,16 +1,18 @@
 <div data-options="dxView : { name: 'Settings', title: 'Settings' } ">
-    <div class="dx-fieldset fieldset-with-buttons">
-        <div class="dx-field">
-            <div data-bind="dxButton: { text: 'Categories', onClick: '#TagList' }"></div>
+    <div data-bind="dxScrollView: {}">
+        <div class="dx-fieldset fieldset-with-buttons">
+            <div class="dx-field">
+                <div data-bind="dxButton: { text: 'Categories', onClick: '#TagList' }"></div>
+            </div>
         </div>
-    </div>
 
-    <div class="dx-fieldset fieldset-with-buttons">
-        <div class="dx-field">
-            <div data-bind="dxButton: { text: 'Import Data', onClick: importData }"></div>
-        </div>
-        <div class="dx-field">
-            <div data-bind="dxButton: { text: 'Export Data', onClick: exportData }"></div>
+        <div class="dx-fieldset fieldset-with-buttons">
+            <div class="dx-field">
+                <div data-bind="dxButton: { text: 'Import Data', onClick: importData }"></div>
+            </div>
+            <div class="dx-field">
+                <div data-bind="dxButton: { text: 'Export Data', onClick: exportData }"></div>
+            </div>
         </div>
     </div>
 

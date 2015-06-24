@@ -84,6 +84,14 @@
         author: "Mikhail Sholohov"
     }];
 
+    var demoTags = [{
+        id: 1,
+        title: "Programming"
+    }, {
+        id: 2,
+        title: "Design"
+    }];
+
     BookShelf.db = {
         books: Store("books", demoBooks),
 
@@ -97,7 +105,9 @@
             reading: "Reading",
             later: "To Read",
             finished: "Finished"
-        }
+        },
+
+        tags: Store("tags", demoTags)
     };
 
 }());

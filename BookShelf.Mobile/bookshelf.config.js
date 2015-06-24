@@ -35,6 +35,12 @@ window.BookShelf = $.extend(true, window.BookShelf, {
           },
           {
             "id": "editBook"
+          },
+          {
+            "id": "addTag"
+          },
+          {
+              "id": "saveTag"
           }
         ]
       }

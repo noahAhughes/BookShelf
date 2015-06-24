@@ -10,6 +10,7 @@
     <Name>BookShelf.Mobile</Name>
     <KeyIpaPath>E:\DevExtreme\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
     <ProvisionProfile>E:\DevExtreme\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
+    <UpgradeNotifyShown>14.2.8</UpgradeNotifyShown>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +34,18 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\Settings.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagAdd.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagAdd.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagList.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagList.js">
       <SubType>Content</SubType>
     </Content>
     <None Include="config.xml" />

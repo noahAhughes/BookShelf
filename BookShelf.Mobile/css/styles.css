@@ -134,5 +134,46 @@
 }
 
 .book-reading {
-    background: #f9f9ff;
+    /* background: #f9f9ff; */
+}
+
+
+/* Theme Styling */
+
+.dx-toolbar,
+.dx-toolbar-after {
+    background-color: #60433d;
+    border-radius: 0;
+}
+
+.dx-layout:before {
+    position: absolute;
+    content: '';
+    height: 44px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #60433d;
+}
+
+.dx-toolbar .dx-button .dx-icon,
+.dx-toolbar .dx-button .dx-button-text {
+    color: #fff;
+}
+
+.dx-toolbar-label,
+.dx-popup-title .dx-toolbar-label {
+    color: #fff;
+}
+
+.dx-navbar {
+    background-color: #faf9f7;
+}
+
+.dx-navbar .dx-nav-item .dx-icon {
+    color: #60433d;
+}
+
+.dx-navbar .dx-nav-item .dx-tab-text {
+    color: #38140d;
 }

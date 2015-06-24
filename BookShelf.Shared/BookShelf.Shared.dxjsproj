@@ -7,7 +7,7 @@
     <RunInSimulator>True</RunInSimulator>
     <Name>Shared</Name>
     <RootNamespace>BookShelf</RootNamespace>
-    <UpgradeNotifyShown>14.2.8</UpgradeNotifyShown>
+    <UpgradeNotifyShown>15.1.3</UpgradeNotifyShown>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,19 +50,6 @@
     <Content Include="js\jquery-1.11.2.min.js" />
     <Content Include="js\jquery-2.1.3.min.js" />
     <Content Include="js\knockout-3.3.0.js" />
-    <Content Include="css\dx.spa.css" />
-    <Content Include="css\dx.common.css" />
-    <Content Include="css\dx.dark.css" />
-    <Content Include="css\dx.light.css" />
-    <Content Include="css\dx.android.holo-dark.css" />
-    <Content Include="css\dx.android.holo-light.css" />
-    <Content Include="css\dx.android5.light.css" />
-    <Content Include="css\dx.ios.default.css" />
-    <Content Include="css\dx.ios7.default.css" />
-    <Content Include="css\dx.win8.black.css" />
-    <Content Include="css\dx.win8.white.css" />
-    <Content Include="css\dx.tizen.black.css" />
-    <Content Include="css\dx.tizen.white.css" />
     <Content Include="js\Showdown.min.js">
       <SubType>Content</SubType>
     </Content>

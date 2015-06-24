@@ -40,6 +40,7 @@ $(function() {
     BookShelf.app = new DevExpress.framework.html.HtmlApplication({
         namespace: BookShelf,
         layoutSet: DevExpress.framework.html.layoutSets[BookShelf.config.layoutSet],
+        animationSet: DevExpress.framework.html.animationSets['native'],
         navigation: BookShelf.config.navigation,
         commandMapping: BookShelf.config.commandMapping
     });

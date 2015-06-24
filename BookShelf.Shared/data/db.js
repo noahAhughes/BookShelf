@@ -99,6 +99,11 @@
     var bookStore = Store("books", {
         defaultItems: demoBooks
     });
+    bookStore.getByTag = function(tagId) {
+        return $.grep(bookStore.getAll(), function(book) {
+            return $.inArray(tagId, book.tags) > -1;
+        });
+    };
 
     var tagStore = Store("tags", {
         defaultItems: demoTags,

@@ -39,11 +39,13 @@ body {
     margin: 0 3% 0 0;    
     float: left;
 }
+
 .dx-theme-android .msg-button-right {
     width: 42%;
     margin: 0 0 0 3%;    
     float: left;
 }
+
 .dx-theme-android #deleteConfirmation {
     height: 150px !important;
 }

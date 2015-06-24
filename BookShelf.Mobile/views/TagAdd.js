@@ -5,6 +5,7 @@
         save: function() {
             BookShelf.db.tags.add(this.getTag());
             BookShelf.app.back();
+            this.resetTag();
         },
 
         cancel: function() {
@@ -13,10 +14,6 @@
 
         resetTag: function() {
             this.tag.title("");
-        },
-
-        viewShowing: function() {
-            this.resetTag();
         }
 
     });

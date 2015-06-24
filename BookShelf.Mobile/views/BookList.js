@@ -26,11 +26,15 @@
             }, { modal: true });
         },
 
+        deleteBookConfirmation: function(args) {
+            return DevExpress.ui.dialog.confirm("Are you sure you want to delete book \"" + args.itemData.title + "\"?", "Delete book");
+        },
+
         deleteBook: function(args) {
             BookShelf.db.books.remove(args.itemData.id);
         },
 
-        viewShowing: function() {
+        viewShown: function() {
             source.reload();
         }
 

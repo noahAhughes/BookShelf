@@ -5,6 +5,7 @@
         save: function() {
             BookShelf.db.books.add(this.getBook());
             BookShelf.app.back();
+            this.resetBook();
         },
 
         cancel: function() {
@@ -19,10 +20,6 @@
             this.book.finishDate(new Date());
             this.book.rating(undefined);
             this.book.tags([]);
-        },
-
-        viewShowing: function() {
-            this.resetBook();
         }
 
     });

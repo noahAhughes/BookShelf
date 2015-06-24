@@ -8,7 +8,8 @@
         startDate = ko.observable(),
         finishDate = ko.observable(),
         rating = ko.observable(),
-        notes = ko.observable();
+        notes = ko.observable(),
+        tags = ko.observableArray();
 
     var showStartDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.reading || status() === BookShelf.db.bookStatus.finished;
@@ -21,6 +22,12 @@
     var notesHtml = ko.computed(function() {
         var converter = new Showdown.converter();
         return converter.makeHtml(notes() || "");
+    });
+
+    var tagsString = ko.computed(function() {
+        return $.map(tags(), function(tagId) {
+            return BookShelf.db.tags.get(tagId).title;
+        }).join(", ");
     });
 
     var ratingClass = ko.computed(function() {
@@ -37,6 +44,7 @@
     var viewModel = {
 
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
+        tags: BookShelf.db.tags.getAll(),
 
         book: {
             id: book.id,
@@ -50,7 +58,9 @@
             rating: rating,
             ratingClass: ratingClass,
             notes: notes,
-            notesHtml: notesHtml
+            notesHtml: notesHtml,
+            tags: tags,
+            tagsString: tagsString
         },
 
         invalid: ko.computed(function() {
@@ -65,7 +75,8 @@
                 startDate: showStartDate() ? startDate() : null,
                 finishDate: showFinishDate() ? finishDate() : null,
                 rating: rating(),
-                notes: notes()
+                notes: notes(),
+                tags: tags()
             };
         },
 
@@ -77,6 +88,7 @@
             this.book.finishDate(book.finishDate);
             this.book.rating(book.rating);
             this.book.notes(book.notes);
+            this.book.tags(book.tags);
         },
 
         viewShowing: function() {

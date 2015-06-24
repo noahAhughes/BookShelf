@@ -38,6 +38,14 @@
         </div>
         <!-- /ko -->
     </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Categories</div>
+            <div class="dx-field-value">
+                <div data-bind="dxTagBox: { items: tags, values: book.tags, searchEnabled: true, valueExpr: 'id', displayExpr: 'title' }"></div>
+            </div>
+        </div>
+    </div>
     <div class="dx-fieldset book-rating-fieldset">
         <div class="dx-fieldset-header">Rating</div>
         <div class="dx-field">

@@ -51,6 +51,14 @@
                 </div>
             </div>
             <!-- /ko -->
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Categories</div>
+                    <div class="dx-field-value-static">
+                        <div data-bind="text: book.tagsString"></div>
+                    </div>
+                </div>
+            </div>
             <!-- ko if: book.notes -->
             <div class="dx-fieldset book-notes-fieldset">
                 <div class="dx-fieldset-header">Notes</div>

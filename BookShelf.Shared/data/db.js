@@ -72,16 +72,19 @@
         author: "Lev Tolstoy",
         startDate: new Date(2010, 1, 1),
         finishDate: new Date(2012, 1, 1),
-        notes: "#Header\n * point1\n * point2"
+        notes: "#Header\n * point1\n * point2",
+        tags: [1]
     }, {
         id: 2,
         title: "Crime and Punishment",
         author: "Fyodor Dostoyevsky",
-        startDate: new Date(2011, 1, 1)
+        startDate: new Date(2011, 1, 1),
+        tags: []
     }, {
         id: 3,
         title: "Quiet Flows the Don",
-        author: "Mikhail Sholohov"
+        author: "Mikhail Sholohov",
+        tags: [1, 2]
     }];
 
     var demoTags = [{

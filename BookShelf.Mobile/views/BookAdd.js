@@ -18,6 +18,7 @@
             this.book.startDate(new Date());
             this.book.finishDate(new Date());
             this.book.rating(undefined);
+            this.book.tags([]);
         },
 
         viewShowing: function() {

@@ -161,7 +161,7 @@
     border-radius: 0;
 }
 
-.dx-layout:before {
+.navbar-layout.dx-layout:before {
     position: absolute;
     content: '';
     height: 44px;

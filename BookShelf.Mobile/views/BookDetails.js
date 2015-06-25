@@ -33,6 +33,21 @@
             return "read on " + dateFormatter(book.startDate());
     });
 
+    var coverUrl = ko.observable();
+    var requestCover = function() {
+        $.ajax({
+            type: "GET",
+            url: "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + encodeURIComponent(book.title() + " " + (book.author() || "") + " book cover"),
+            dataType: "jsonp"
+        }).done(function(result) {
+            result = result.responseData;
+            if(result && result.results && result.results[0])
+                coverUrl(result.results[0].url);
+        });
+    };
+
+    var baseViewShown = viewModel.viewShown;
+
     $.extend(true, viewModel, {
         title: book.title,
         dateFormatter: dateFormatter,
@@ -54,7 +69,13 @@
             statusText: statusText,
             isNotFinished: isNotFinished,
             changeStatusText: changeStatusText,
-            progressState: progressState
+            progressState: progressState,
+            coverUrl: coverUrl
+        },
+
+        viewShown: function() {
+            baseViewShown();
+            requestCover();
         }
     });
 

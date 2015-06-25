@@ -3,8 +3,10 @@
     <div data-bind="dxCommand: { onExecute: '#BookEdit/{book.id}', id: 'editBook', title: 'Edit', icon: 'edit' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="book-details" data-bind="dxScrollView: { }">
-            <div class="dx-fieldset">
+            <div class="dx-fieldset book-details-fieldset">
+                <div class="book-background" data-bind="style: { backgroundImage: 'url(' + book.coverUrl() + ')' }"></div>
                 <div class="dx-field book-info">
+                    <div class="book-cover"><img class="book-cover-image" data-bind="attr: { src: book.coverUrl }" /></div>
                     <div class="book-title" data-bind="text: book.title"></div>
                     <div class="book-author" data-bind="text: book.authorText"></div>
                     <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">

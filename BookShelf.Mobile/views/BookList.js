@@ -8,8 +8,11 @@
             return {
                 id: book.id,
                 title: book.title,
-                author: book.author,
+                author: book.author ? "by " + book.author : null,
+                rating: book.rating,
+                ratingStatus: BookShelf.db.getBookRatingStatus(book.rating),
                 status: BookShelf.db.getBookStatus(book).toLowerCase(),
+                tagsString: BookShelf.db.getTagsString(book.tags),
                 showChevron: true
             }
         }

@@ -110,7 +110,7 @@
     padding-bottom: 3px;
 }
 
-.book-rating {
+.book-rating-control {
     display: inline-block;
     height: 40px;
     line-height: 40px;
@@ -121,7 +121,31 @@
     vertical-align: middle;
 }
 
-.book-rating-text {
+.book-rating-low {
+    background-color: #eb0000;
+    color: #eb0000;
+}
+
+.book-rating-high {
+    background-color: #50a000;
+    color: #50a000;
+}
+
+.book-rating-normal {
+    background-color: #8c8c8c;
+    color: #ff9500;
+}
+
+.book-rating-empty {
+    background-color: #aaaaaa;
+    color: #aaaaaa;
+}
+
+.book-rating {
+    background: none;
+}
+
+.book-rating-badge {
     display: inline-block;
     width: 34px;
     height: 34px;
@@ -129,27 +153,78 @@
     text-align: center;
     margin-left: 14px;
     border-radius: 50%;
-    background-color: #8c8c8c;
     color: #fff;
     vertical-align: middle;
-}
-
-.book-rating-low {
-    background-color: #eb0000;
-}
-
-.book-rating-high {
-    background-color: #50a000;
-}
-
-.book-rating-normal {
-    background-color: #8c8c8c;
 }
 
 .book-reading {
     /* background: #f9f9ff; */
 }
 
+/* List Item */
+.book-title {
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+
+    margin-bottom: 2px;
+    padding-right: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-author {
+    font-size: 16px;
+    line-height: 22px;
+    
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-tags {
+    white-space: nowrap;
+}
+
+.book-rating { 
+    float: right;
+}
+
+.book-tags-icon,
+.book-rating-icon {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    margin-right: 3px;
+}
+
+.book-tags-icon {
+    float: left;
+}
+
+.book-rating-icon {
+    display: inline-block;
+}
+
+.book-tags-text,
+.book-rating-text {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.book-tags-text {
+    margin-left: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-rating-text {
+    display: inline-block;
+    width: 28px
+}
 
 /* Theme Styling */
 

@@ -25,20 +25,11 @@
     });
 
     var tagsString = ko.computed(function() {
-        return $.map(tags(), function(tagId) {
-            return BookShelf.db.tags.get(tagId).title;
-        }).join(", ");
+        return BookShelf.db.getTagsString(tags());
     });
 
     var ratingClass = ko.computed(function() {
-        var value = rating();
-        if(!value)
-            return;
-        if(value < 4)
-            return "book-rating-low";
-        if(value > 7)
-            return "book-rating-high";
-        return "book-rating-normal";
+        return BookShelf.db.getBookRatingStatus(rating());
     });
 
     var viewModel = {

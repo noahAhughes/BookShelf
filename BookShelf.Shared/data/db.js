@@ -132,6 +132,22 @@
             finished: "Finished"
         },
 
+        getTagsString: function(tagIds) {
+            return $.map(tagIds, function(tagId) {
+                return BookShelf.db.tags.get(tagId).title;
+            }).join(", ");
+        },
+
+        getBookRatingStatus: function(rating) {
+            if(!rating)
+                return "book-rating-empty";
+            if(rating < 4)
+                return "book-rating-low";
+            if(rating > 7)
+                return "book-rating-high";
+            return "book-rating-normal";
+        },
+
         tags: tagStore
     };
 

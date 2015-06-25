@@ -33,7 +33,11 @@
         deleteTag: function(args) {
             BookShelf.db.tags.remove(args.itemData.id);
         },
-
+    
+        openTag: function(args) {
+            BookShelf.app.navigate("TagEdit/" + args.itemData.id);
+        },
+        
         viewShown: function() {
             source.reload();
         }

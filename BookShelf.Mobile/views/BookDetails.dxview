@@ -2,64 +2,27 @@
     <div data-bind="dxCommand: { id: 'back', type: 'back', title: 'Books', onExecute: '#_back' }"></div>
     <div data-bind="dxCommand: { onExecute: '#BookEdit/{book.id}', id: 'editBook', title: 'Edit', icon: 'edit' }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
-        <div data-bind="dxScrollView: { }">
+        <div class="book-details" data-bind="dxScrollView: { }">
             <div class="dx-fieldset">
-                <div class="dx-field">
-                    <div class="dx-field-label">Title</div>
-                    <div class="dx-field-value">
-                        <div data-bind="text: book.title"></div>
+                <div class="dx-field book-info">
+                    <div class="book-title" data-bind="text: book.title"></div>
+                    <div class="book-author" data-bind="text: book.authorText"></div>
+                    <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">
+                        <div class="book-rating" data-bind="css: book.ratingClass, visible: book.rating">
+                            <div class="book-rating-icon dx-icon-favorites"></div><div class="book-rating-text" data-bind="text: book.rating() + '/10'"></div>
+                        </div>
+                        <div class="book-tags" data-bind="visible: book.tagsString">
+                            <div class="book-tags-icon dx-icon-tags"></div><div class="book-tags-text" data-bind="text: book.tagsString"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="dx-field">
-                    <div class="dx-field-label">Author</div>
-                    <div class="dx-field-value">
-                        <div data-bind="text: book.author"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="dx-fieldset">
-                <div class="dx-field">
-                    <div class="dx-field-label">Status</div>
-                    <div class="dx-field-value">
-                        <div data-bind="text: book.status"></div>
-                    </div>
-                </div>
-                <!-- ko if: book.showStartDate -->
-                <div class="dx-field">
-                    <div class="dx-field-label">Start Date</div>
-                    <div class="dx-field-value">
-                        <div data-bind="text: dateFormatter(book.startDate())"></div>
-                    </div>
-                </div>
-                <!-- /ko -->
-                <!-- ko if: book.showFinishDate -->
-                <div class="dx-field">
-                    <div class="dx-field-label">Finish Date</div>
-                    <div class="dx-field-value">
-                        <div data-bind="text: dateFormatter(book.finishDate())"></div>
-                    </div>
-                </div>
-                <!-- /ko -->
-            </div>
-            <!-- ko if: book.rating -->
-            <div class="dx-fieldset book-rating-fieldset">
-                <div class="dx-fieldset-header">Rating</div>
-                <div class="dx-field">
-                    <div class="dx-field-value">
-                        <div id="book-rating" class="book-rating-control"></div>
-                        <div class="book-rating-badge" data-bind="text: book.rating, css: book.ratingClass"></div>
-                    </div>
+                <div class="dx-field book-status">
+                    <div class="book-status-button" data-bind="visible: book.isNotFinished, dxButton: { text: book.changeStatusText, onClick: changeStatus }"></div>
+                    <div class="book-status-text" data-bind="text: book.statusText"></div>
+                    <div class="book-progress-state" data-bind="text: book.progressState, visible: book.progressState"></div>
                 </div>
             </div>
-            <!-- /ko -->
-            <div class="dx-fieldset">
-                <div class="dx-field">
-                    <div class="dx-field-label">Categories</div>
-                    <div class="dx-field-value-static">
-                        <div data-bind="text: book.tagsString"></div>
-                    </div>
-                </div>
-            </div>
+
             <!-- ko if: book.notes -->
             <div class="dx-fieldset book-notes-fieldset">
                 <div class="dx-fieldset-header">Notes</div>

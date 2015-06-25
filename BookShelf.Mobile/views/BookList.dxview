@@ -1,7 +1,7 @@
 <div data-options="dxView: { name: 'BookList', title: 'Books' }" class="books-list-partial">
     <div data-bind="dxCommand: { id: 'addBook', onExecute: function() { this.addBook(); }, icon: 'plus' }"></div>
-    <div class="books-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true }">
-        <div data-options="dxTemplate: { name: 'item' }" data-bind="dxAction: '#BookDetails/{id}', attr: { 'class': 'book-' + status }">
+    <div class="books-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true, onItemClick: openBook }">
+        <div data-options="dxTemplate: { name: 'item' }" data-bind="attr: { 'class': 'book-' + status }">
             <div>
                 <div class="book-rating" data-bind="css: ratingStatus, visible: rating">
                     <div class="book-rating-icon dx-icon-favorites"></div><div class="book-rating-text" data-bind="text: rating + '/10'"></div>

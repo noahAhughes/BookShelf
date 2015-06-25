@@ -37,6 +37,10 @@
             BookShelf.db.books.remove(args.itemData.id);
         },
 
+        openBook: function(args) {
+            BookShelf.app.navigate("BookDetails/" + args.itemData.id);
+        },
+
         viewShown: function() {
             source.reload();
         }

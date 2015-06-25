@@ -161,8 +161,10 @@
     /* background: #f9f9ff; */
 }
 
-/* List Item */
-.book-title {
+
+/* Books List */
+
+.books-list .book-title {
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 18px;
     line-height: 22px;
@@ -174,7 +176,7 @@
     white-space: nowrap;
 }
 
-.book-author {
+.books-list .book-author {
     font-size: 16px;
     line-height: 22px;
     
@@ -184,16 +186,16 @@
     white-space: nowrap;
 }
 
-.book-tags {
+.books-list .book-tags {
     white-space: nowrap;
 }
 
-.book-rating { 
+.books-list .book-rating { 
     float: right;
 }
 
-.book-tags-icon,
-.book-rating-icon {
+.books-list .book-tags-icon,
+.books-list .book-rating-icon {
     width: 16px;
     height: 16px;
     line-height: 16px;
@@ -201,29 +203,103 @@
     margin-right: 3px;
 }
 
-.book-tags-icon {
+.books-list .book-tags-icon {
     float: left;
 }
 
-.book-rating-icon {
+.books-list .book-rating-icon {
     display: inline-block;
 }
 
-.book-tags-text,
-.book-rating-text {
+.books-list .book-tags-text,
+.books-list .book-rating-text {
     font-size: 13px;
     line-height: 16px;
 }
 
-.book-tags-text {
+.books-list .book-tags-text {
     margin-left: 19px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.book-rating-text {
+.books-list .book-rating-text {
     display: inline-block;
     width: 28px
+}
+
+
+/* Book Details */
+
+.book-info {
+    padding: 20px 15px 20px 0;
+}
+
+.book-details .book-title {
+    margin-bottom: 6px;
+    padding-right: 4px;
+
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.book-details .book-author {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.book-details .book-rating {
+    margin-bottom: 2px;
+}
+
+.book-details .book-attributes {
+    margin-top: 20px;
+}
+
+.book-details .book-tags-icon,
+.book-details .book-rating-icon {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    margin-right: 3px;
+}
+
+.book-details .book-tags-icon {
+    float: left;
+}
+
+.book-details .book-rating-icon {
+    display: inline-block;
+}
+
+.book-details .book-tags-text,
+.book-details .book-rating-text {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.book-details .book-rating-text {
+    display: inline-block;
+    width: 28px
+}
+
+.book-details .book-status {
+    padding: 15px 15px 15px 0;
+}
+
+.book-details .book-status-text {
+    line-height: 28px;
+}
+
+.book-details .book-progress-state {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.book-details .book-status-button {
+    float: right;
 }
 
 /* Theme Styling */

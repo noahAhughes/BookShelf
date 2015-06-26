@@ -6,7 +6,7 @@
             <div class="dx-fieldset book-details-fieldset">
                 <div class="book-background" data-bind="style: { backgroundImage: 'url(' + book.coverUrl() + ')' }"></div>
                 <div class="dx-field book-info">
-                    <div class="book-cover"><img class="book-cover-image" data-bind="attr: { src: book.coverUrl }" /></div>
+                    <div class="book-cover"><div class="book-cover-placeholder" data-bind="style: { marginTop: book.coverHeight }"></div><img class="book-cover-image" data-bind="attr: { src: book.coverUrl }" /></div>
                     <div class="book-title" data-bind="text: book.title"></div>
                     <div class="book-author" data-bind="text: book.authorText"></div>
                     <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">

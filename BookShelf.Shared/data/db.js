@@ -105,6 +105,39 @@
         });
     };
 
+    bookStore.loadCover = function(bookId) {
+        var book = bookStore.get(bookId);
+        var coverKey = book.title + " " + (book.author || "");
+
+        if(book.cover && book.cover.key === coverKey)
+            return $.when(book.cover).promise();
+
+        var deferred = $.Deferred();
+
+        $.ajax({
+            type: "GET",
+            url: "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + encodeURIComponent(coverKey + " book cover"),
+            dataType: "jsonp"
+        }).done(function(result) {
+            result = result.responseData;
+
+            if(result && result.results && result.results[0]) {
+                var img = result.results[0];
+
+                book.cover = {
+                    key: coverKey,
+                    url: img.url,
+                    ratio: img.height / (img.width || 1)
+                };
+                bookStore.update(book);
+
+                deferred.resolve(book.cover);
+            }   
+        });
+
+        return deferred.promise();
+    };
+
     var tagStore = Store("tags", {
         defaultItems: demoTags,
         onRemove: function(id) {

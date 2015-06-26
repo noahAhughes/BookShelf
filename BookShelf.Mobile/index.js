@@ -56,4 +56,12 @@ $(function() {
     BookShelf.app.router.register(":view/:id", { view: startupView, id: undefined });
     BookShelf.app.on("navigatingBack", onNavigatingBack);
     BookShelf.app.navigate();
+
+    BookShelf.app.applyListEditFix = function() {
+        $(".dx-active-view .dx-list .dx-scrollview-content")
+            .off("dxclick.fixListEdit")
+            .on("dxclick.fixListEdit", ".dx-list-slide-menu-buttons", function(e) {
+                e.stopImmediatePropagation();
+            });
+    }
 });

@@ -43,6 +43,7 @@
 
         viewShown: function() {
             source.reload();
+            BookShelf.app.applyListEditFix();
         }
 
     };

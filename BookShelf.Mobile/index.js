@@ -47,7 +47,7 @@ $(function() {
     });
 
     $(window).unload(function() {
-        //BookShelf.app.saveState();
+        BookShelf.app.saveState();
     });
 
     DevExpress.framework.dxCommand.defaultOptions({ options: { renderStage: "onViewRendering" } });

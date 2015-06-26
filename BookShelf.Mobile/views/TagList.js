@@ -11,15 +11,40 @@
         }
     });
 
+    var title = ko.observable();
+
     var viewModel = {
 
-        source: source,
+        tag: {
+            title: title
+        },
+
+        invalid: ko.computed(function() {
+            return !title();
+        }),
+
+        getTag: function() {
+            return {
+                title: title()
+            };
+        },
 
         addTag: function() {
-            BookShelf.app.navigate({
-                view: "TagAdd"
-            }, { modal: true });
+            BookShelf.db.tags.add(this.getTag());
+            this.resetTag();
+            source.reload();
         },
+
+        resetTag: function() {
+            this.tag.title("");
+        },
+
+        viewShowing: function() {
+            this.resetTag();
+        },
+
+
+        source: source,
 
         deleteTagConfirmation: function(args) {
             var booksByTag = BookShelf.db.books.getByTag(args.itemData.id);
@@ -32,10 +57,6 @@
 
         deleteTag: function(args) {
             BookShelf.db.tags.remove(args.itemData.id);
-        },
-    
-        openTag: function(args) {
-            BookShelf.app.navigate("TagEdit/" + args.itemData.id);
         },
         
         viewShown: function() {

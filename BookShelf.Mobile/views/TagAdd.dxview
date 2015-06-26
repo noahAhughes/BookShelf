@@ -1,8 +1,0 @@
-﻿<div data-options="dxView : { name: 'TagAdd', title: 'Add Category' } ">
-    <div data-bind="dxCommand: { onExecute: cancel, id: 'back', title: 'Cancel', icon: 'close' }"></div>
-    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
-        <div data-bind="dxScrollView: { }">
-            <div data-options="dxViewPlaceholder: { viewName: 'TagForm' }"></div>
-        </div>
-    </div>
-</div>

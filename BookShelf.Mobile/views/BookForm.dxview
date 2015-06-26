@@ -42,7 +42,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Categories</div>
             <div class="dx-field-value">
-                <div data-bind="dxTagBox: { items: tags, values: book.tags, searchEnabled: true, valueExpr: 'id', displayExpr: 'title' }"></div>
+                <div class="tags-choose-control" data-bind="dxTagBox: { items: tags, values: book.tags, valueExpr: 'id', displayExpr: 'title', readOnly: true }, event: { dxclick: chooseTags }"></div>
             </div>
         </div>
     </div>
@@ -62,5 +62,11 @@
                 <div data-bind="dxTextArea: { value: book.notes, height: 250 }"></div>
             </div>
         </div>
+    </div>
+    <div class="tags-choose-popup" data-bind="dxPopup: { title: 'Choose Categories', visible: chooseTagsVisible, onShowing: onShowing, onShown: onShown, fullScreen: true, buttons: [
+        { toolbar: 'top', location: 'before', widget: 'button', options: { text: 'Cancel', onClick: cancelChooseTags } },
+        { toolbar: 'top', location: 'after', widget: 'button', options: { type: 'default', text: 'Done', onClick: doneChooseTags } }
+    ]}">
+        <div data-options="dxViewPlaceholder: { viewName: 'TagListView' }" class="tags-list-view-container"></div>
     </div>
 </div>

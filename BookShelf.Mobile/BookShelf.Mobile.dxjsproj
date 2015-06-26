@@ -42,6 +42,12 @@
     <Content Include="views\TagList.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\TagListView.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagListView.js">
+      <SubType>Content</SubType>
+    </Content>
     <None Include="config.xml" />
     <Content Include="index.js">
       <SubType>Content</SubType>

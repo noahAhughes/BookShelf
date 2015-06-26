@@ -1,5 +1,7 @@
 ﻿BookShelf.BookForm = function(params) {
 
+    var tagListViewModel = BookShelf.TagListView();
+
     var book = BookShelf.db.books.get(params.id) || {};
 
     var title = ko.observable(),
@@ -10,6 +12,8 @@
         rating = ko.observable(),
         notes = ko.observable(),
         tags = ko.observableArray();
+
+    var chooseTagsVisible = ko.observable();
 
     var showStartDate = ko.computed(function() {
         return status() === BookShelf.db.bookStatus.reading || status() === BookShelf.db.bookStatus.finished;
@@ -36,6 +40,7 @@
 
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
         tags: BookShelf.db.tags.getAll(),
+        chooseTagsVisible: chooseTagsVisible,
 
         book: {
             id: book.id,
@@ -71,6 +76,18 @@
             };
         },
 
+        chooseTags: function() {
+            chooseTagsVisible(true);
+        },
+
+        cancelChooseTags: function() {
+            chooseTagsVisible(false);
+        },
+
+        doneChooseTags: function() {
+            chooseTagsVisible(false);
+        },
+
         prepareBook: function() {
             this.book.title(book.title);
             this.book.author(book.author);
@@ -80,6 +97,10 @@
             this.book.rating(book.rating);
             this.book.notes(book.notes);
             this.book.tags(book.tags);
+        },
+
+        fixNativeFocus: function(_, e) {
+            e.preventDefault();
         },
 
         viewShowing: function() {
@@ -103,6 +124,6 @@
 
     };
 
-    return viewModel;
+    return $.extend(viewModel, tagListViewModel);
 
 };

@@ -121,18 +121,39 @@
         }).done(function(result) {
             result = result.responseData;
 
-            if(result && result.results && result.results[0]) {
-                var img = result.results[0];
+            if(!result || !result.results || !result.results.length)
+                return;
 
-                book.cover = {
-                    key: coverKey,
-                    url: img.url,
-                    ratio: img.height / (img.width || 1)
+            var loadImage = function() {
+                var imageResult = result.results.shift();
+
+                if(!imageResult)
+                    return;
+
+                var onImageLoaded = function() {
+                    book.cover = {
+                        key: coverKey,
+                        url: imageResult.url,
+                        ratio: imageResult.height / (imageResult.width || 1)
+                    };
+                    bookStore.update(book);
+
+                    deferred.resolve(book.cover);
                 };
-                bookStore.update(book);
 
-                deferred.resolve(book.cover);
-            }   
+                var image = new Image();
+                image.src = imageResult.url;
+
+                if(image.complete) {
+                    onImageLoaded();
+                    return;
+                }
+
+                image.onload = onImageLoaded;
+                image.onerror = loadImage;
+            };
+
+            loadImage();
         });
 
         return deferred.promise();

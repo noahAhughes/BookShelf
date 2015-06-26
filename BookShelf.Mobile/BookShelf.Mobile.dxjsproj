@@ -8,8 +8,8 @@
     <RootNamespace>BookShelf</RootNamespace>
     <ApplicationPage>index.html</ApplicationPage>
     <Name>BookShelf.Mobile</Name>
-    <KeyIpaPath>E:\DevExtreme\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
-    <ProvisionProfile>E:\DevExtreme\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
+    <KeyIpaPath>..\..\DevExtreme 15.1\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
+    <ProvisionProfile>..\..\DevExtreme 15.1\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
     <UpgradeNotifyShown>14.2.8</UpgradeNotifyShown>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -34,24 +34,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\Settings.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagAdd.dxview">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagAdd.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagEdit.dxview">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagEdit.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagForm.dxview">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="views\TagForm.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\TagList.dxview">

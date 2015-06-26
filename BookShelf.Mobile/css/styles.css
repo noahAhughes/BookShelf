@@ -6,6 +6,10 @@
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+.dx-list-slide-menu-button-menu {
+    background: #007aff;
+}
+
 .books-list, .books-list-partial {
     height: 100%;
 }
@@ -339,12 +343,17 @@
 
 /* Tags List */
 .tag-form {
-    padding: 0 15px;
+    padding: 0 0 0 15px;
     border-bottom: 1px solid #e0e0e0;
 }
 
 .tag-form-field {
-    margin-right: 49px;
+    margin: 0;
+    margin-right: 44px;
+}
+
+.tag-form-edit .tag-form-field {
+    margin-right: 88px;
 }
 
 .tag-form-field .dx-texteditor-container {
@@ -353,12 +362,25 @@
 
 .tag-form-field .dx-texteditor-input,
 .tag-form-field .dx-placeholder:before {
-    padding: 12px 0;
+    padding: 13px 0;
 }
 
 .tag-form-button {
     float: right;
-    line-height: 42px;
+    line-height: 44px;
+    width: 44px;
+}
+
+.tag-form-button .dx-icon-todo {
+    font-size: 46px;
+    position: relative;
+}
+
+.tag-form-button .dx-icon-todo:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -23px;
 }
 
 .tags-list-container {
@@ -371,6 +393,12 @@
     box-sizing: border-box;
 }
 
+.tags-list {
+    -moz-transition: opacity .4s ease-in-out;
+    -o-transition: opacity .4s ease-in-out;
+    -webkit-transition: opacity .4s ease-in-out;
+    transition: opacity .4s ease-in-out;
+}
 
 /* Theme Styling */
 

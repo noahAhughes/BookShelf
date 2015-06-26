@@ -2,20 +2,20 @@
 
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.tags.getAll(),
-        sort: "title",
-        map: function(tag) {
-            return {
-                id: tag.id,
-                title: tag.title
-            }
-        }
+        sort: "title"
     });
 
+    var id = ko.observable();
     var title = ko.observable();
+    var editing = ko.observable();
 
     var viewModel = {
 
+        source: source,
+        editing: editing,
+
         tag: {
+            id: id,
             title: title
         },
 
@@ -25,26 +25,41 @@
 
         getTag: function() {
             return {
+                id: id(),
                 title: title()
             };
         },
 
-        addTag: function() {
-            BookShelf.db.tags.add(this.getTag());
+        prepareTag: function(tag) {
+            id(tag.id);
+            title(tag.title);
+        },
+
+        resetTag: function() {
+            editing(false);
+            this.prepareTag({});
+        },
+
+        saveTag: function() {
+            var tag = this.getTag();
+            tag.id ? BookShelf.db.tags.update(tag) : BookShelf.db.tags.add(tag);
+
             this.resetTag();
             source.reload();
         },
 
-        resetTag: function() {
-            this.tag.title("");
-        },
-
-        viewShowing: function() {
+        cancelEditTag: function() {
             this.resetTag();
         },
 
+        editTag: function(args) {
+            this.prepareTag(args.itemData);
+            editing(true);
 
-        source: source,
+            setTimeout(function() {
+                $(".tag-form-field").dxTextBox("focus");
+            }, 400);
+        },
 
         deleteTagConfirmation: function(args) {
             var booksByTag = BookShelf.db.books.getByTag(args.itemData.id);
@@ -58,7 +73,11 @@
         deleteTag: function(args) {
             BookShelf.db.tags.remove(args.itemData.id);
         },
-        
+
+        viewShowing: function() {
+            this.resetTag();
+        },
+
         viewShown: function() {
             source.reload();
             BookShelf.app.applyListEditFix();

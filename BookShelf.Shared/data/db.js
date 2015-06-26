@@ -51,10 +51,12 @@
                 var lastId = items.length ? items[items.length - 1].id : 0;
                 var newId = lastId + 1;
                 items.push($.extend({}, item, { id: newId }));
+                config.onAdd && config.onAdd(newId);
                 save();
             },
             update: function(item) {
                 $.extend(this.get(item.id), item);
+                config.onUpdate && config.onUpdate(item.id);
                 save();
             },
             remove: function(id) {
@@ -66,6 +68,7 @@
             exportData: exportData
         };
     };
+
 
     var demoBooks = [{
         id: 1,
@@ -88,24 +91,7 @@
         tags: [1, 2]
     }];
 
-    var demoTags = [{
-        id: 1,
-        title: "Programming"
-    }, {
-        id: 2,
-        title: "Design"
-    }];
-
-    var bookStore = Store("books", {
-        defaultItems: demoBooks
-    });
-    bookStore.getByTag = function(tagId) {
-        return $.grep(bookStore.getAll(), function(book) {
-            return $.inArray(tagId, book.tags) > -1;
-        });
-    };
-
-    bookStore.loadCover = function(bookId) {
+    var loadCover = function(bookId) {
         var book = bookStore.get(bookId);
         var coverKey = book.title + " " + (book.author || "");
 
@@ -159,6 +145,27 @@
         return deferred.promise();
     };
 
+    var bookStore = Store("books", {
+        defaultItems: demoBooks,
+        onAdd: loadCover,
+        onUpdate: loadCover
+    });
+    bookStore.loadCover = loadCover;
+    bookStore.getByTag = function(tagId) {
+        return $.grep(bookStore.getAll(), function(book) {
+            return $.inArray(tagId, book.tags) > -1;
+        });
+    };
+
+
+    var demoTags = [{
+        id: 1,
+        title: "Programming"
+    }, {
+        id: 2,
+        title: "Design"
+    }];
+
     var tagStore = Store("tags", {
         defaultItems: demoTags,
         onRemove: function(id) {
@@ -170,6 +177,7 @@
             });
         }
     });
+
 
     BookShelf.db = {
         books: bookStore,

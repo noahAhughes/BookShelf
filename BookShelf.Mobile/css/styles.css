@@ -10,6 +10,10 @@
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+.dx-list-slide-menu-buttons-container {
+    bottom: -1px;
+}
+
 .dx-list-slide-menu-button-menu {
     background: #007aff;
 }
@@ -85,27 +89,6 @@
     height: 43px;
 }
 
-.dx-lookup-popup-wrapper .dx-popup-content {
-    top: 44px !important;
-}
-
-.dx-lookup-popup-wrapper .dx-list { 
-    background: #EFEFF4;
-    padding-top: 35px;
-}
-
-.dx-lookup-popup-wrapper .dx-list-item:first-child {
-    border-top: 1px solid #c8c8c8;
-}
-
-.dx-lookup-popup-wrapper .dx-list-item:last-child {
-    border-bottom: 1px solid #c8c8c8;
-}
-
-.dx-lookup-popup-wrapper .dx-list-item {
-    background: #fff;
-}
-
 .book-rating-fieldset {
     margin-top: 60px;
 }
@@ -169,9 +152,75 @@
     /* background: #f9f9ff; */
 }
 
+/* Hairlines */
+.hairlines .dx-fieldset {
+    border-top: 0.5px solid #b7b6bb;
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-field {
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-field:last-child {
+    border-bottom: none;
+}
+
+.hairlines .dx-navbar {
+    border-top: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-list-item-content::after {
+    height: 0;
+    background: none;
+    border-top: 0.5px solid transparent;
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-list-item:last-child .dx-list-item-content::after {
+    border-bottom: 0.5px solid transparent;
+}
+
+.hairlines .dx-list-slide-menu-buttons {
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-lookup-popup-wrapper .dx-list-item:first-child {
+    border-top: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-lookup-popup-wrapper .dx-list-item:last-child {
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .tag-form {
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
+/* Status Lookup */
+.dx-lookup-popup-wrapper .dx-popup-content {
+    top: 43px !important;
+}
+
+.dx-lookup-popup-wrapper .dx-list { 
+    background: #EFEFF4;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item:first-child {
+    border-top: 1px solid #c8c8c8;
+    margin-top: 30px;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item:last-child {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.dx-lookup-popup-wrapper .dx-list-item {
+    background: #fff;
+}
 
 /* Books List */
-
 .books-list .book-title {
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 18px;
@@ -238,7 +287,6 @@
 
 
 /* Book Details */
-
 .book-details .book-info {
     padding: 30px 15px 30px 0;
 }
@@ -421,6 +469,7 @@
 .tags-choose-popup .dx-toolbar,
 .tags-choose-popup .dx-toolbar-after {
     background-color: #60433d;
+    border-bottom-color: #38140d;
     border-radius: 0;
 }
 

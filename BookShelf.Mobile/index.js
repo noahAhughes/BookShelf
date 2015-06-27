@@ -1,6 +1,19 @@
-
 $(function() {
+
     DevExpress.devices.current({ platform: "ios", version: [7], deviceType: "phone" });
+
+    var activateHairlines = function() {
+        if(window.devicePixelRatio && devicePixelRatio < 2)
+            return;
+        var $tester = $("<div>");
+        $tester.css("border", ".5px solid transparent");
+        $("body").append($tester);
+        if($tester.outerHeight() == 1) {
+            $("html").addClass("hairlines");
+        }
+        $tester.remove();
+    };
+    activateHairlines();
 
     if(DevExpress.devices.real().platform === "win8") {
         $("body").css("background-color", "#000");

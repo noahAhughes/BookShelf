@@ -1,7 +1,5 @@
 ﻿BookShelf.BookForm = function(params) {
 
-    var tagListViewModel = BookShelf.TagListView();
-
     var book = BookShelf.db.books.get(params.id) || {};
 
     var title = ko.observable(),
@@ -34,6 +32,10 @@
 
     var ratingClass = ko.computed(function() {
         return BookShelf.db.getBookRatingStatus(rating());
+    });
+
+    var tagListViewModel = BookShelf.TagListView({
+        select: true
     });
 
     var viewModel = {
@@ -77,6 +79,9 @@
         },
 
         chooseTags: function() {
+            tagListViewModel.selected($.map(tags(), function(tagId) {
+                return BookShelf.db.tags.get(tagId);
+            }));
             chooseTagsVisible(true);
         },
 
@@ -85,6 +90,9 @@
         },
 
         doneChooseTags: function() {
+            tags($.map(tagListViewModel.selected(), function(tag) {
+                return tag.id;
+            }));
             chooseTagsVisible(false);
         },
 
@@ -123,6 +131,10 @@
         }
 
     };
+
+    var tagListViewModel = BookShelf.TagListView({
+        selectionEnabled: true
+    });
 
     return $.extend(viewModel, tagListViewModel);
 

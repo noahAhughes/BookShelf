@@ -1,9 +1,7 @@
 ﻿BookShelf.TagListView = function(params) {
 
-    var source = new DevExpress.data.DataSource({
-        store: BookShelf.db.tags.getAll(),
-        sort: "title"
-    });
+    var items = ko.observableArray();
+    var selected = ko.observableArray();
 
     var id = ko.observable();
     var title = ko.observable();
@@ -11,17 +9,19 @@
 
     var viewModel = {
 
-        source: source,
+        items: items,
+        selectionEnabled: params.selectionEnabled,
+        selected: selected,
+
         editing: editing,
 
         tag: {
             id: id,
-            title: title
+            title: title,
+            invalid: ko.computed(function() {
+                return !title();
+            })
         },
-
-        invalid: ko.computed(function() {
-            return !title();
-        }),
 
         getTag: function() {
             return {
@@ -42,10 +42,19 @@
 
         saveTag: function() {
             var tag = this.getTag();
-            tag.id ? BookShelf.db.tags.update(tag) : BookShelf.db.tags.add(tag);
+
+            var currentSelected = selected();
+            if(editing()) {
+                BookShelf.db.tags.update(tag);
+                items(BookShelf.db.tags.getAll());
+            } else {
+                var newTag = BookShelf.db.tags.get(BookShelf.db.tags.add(tag));
+                items.unshift(newTag);
+                currentSelected.push(newTag);
+            }
+            selected(currentSelected);
 
             this.resetTag();
-            source.reload();
         },
 
         cancelEditTag: function() {
@@ -76,11 +85,26 @@
 
         onShowing: function() {
             this.resetTag();
+
+            var currentSelected = selected();
+            items(BookShelf.db.tags.getAll().slice().sort(function(a, b) { return b.title < a.title }));
+            selected(currentSelected);
         },
 
         onShown: function() {
-            source.reload();
             BookShelf.app.applyListEditFix();
+
+            var $list = $(".dx-list");
+            $list.off("dxactive.listBetterActiveState dxinactive.listBetterActiveState");
+            if(params.selectionEnabled) {
+                $list
+                    .on("dxactive.listBetterActiveState", ".dx-list-item", { timeout: 30 }, function(e) {
+                        $(e.currentTarget).addClass("dx-state-active");
+                    })
+                    .on("dxinactive.listBetterActiveState", ".dx-list-item", { timeout: 400 }, function(e) {
+                        $(e.currentTarget).removeClass("dx-state-active");
+                    });
+            }
         }
 
     };

@@ -460,6 +460,31 @@
     visibility: hidden;
 }
 
+.tag-list .tag-title {
+    margin-right: 28px;
+}
+
+.tags-list .tag-selected-icon {
+    display: none;
+    float: right;
+    color: #017aff;
+    font-size: 28px;
+    line-height: 28px;
+    margin: -5px -8px -5px 0;
+}
+
+.tags-list-container .tags-list .dx-list-item-selected {
+    background: none;
+}
+
+.tags-list-container .tags-list .dx-list-item.dx-state-active {
+    background: #d9d9d9;
+}
+
+.tags-list .dx-list-item-selected .tag-selected-icon {
+    display: block;
+}
+
 /* Theme Styling */
 
 .layout-header .dx-toolbar,

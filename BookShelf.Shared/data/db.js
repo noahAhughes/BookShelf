@@ -53,6 +53,7 @@
                 items.push($.extend({}, item, { id: newId }));
                 config.onAdd && config.onAdd(newId);
                 save();
+                return newId;
             },
             update: function(item) {
                 $.extend(this.get(item.id), item);

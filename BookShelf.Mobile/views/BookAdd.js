@@ -1,6 +1,8 @@
 ﻿BookShelf.BookAdd = function(params) {
 
-    return $.extend(BookShelf.BookForm(params), {
+    var baseViewModel = BookShelf.BookForm(params);
+
+    var viewModel = {
 
         save: function() {
             BookShelf.db.books.add(this.getBook());
@@ -23,9 +25,17 @@
 
         viewShowing: function() {
             this.resetBook();
+        },
+
+        viewShown: function() {
+            baseViewModel.viewShown();
+
+            setTimeout(function() {
+                $(".title-field").dxTextBox("focus");
+            }, 400);
         }
 
-    });
+    };
 
-    return viewModel;
+    return $.extend({}, baseViewModel, viewModel);
 };

@@ -4,7 +4,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Title</div>
             <div class="dx-field-value">
-                <div data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input' }"></div>
+                <div class="title-field" data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input' }"></div>
             </div>
         </div>
         <div class="dx-field">

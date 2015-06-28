@@ -128,6 +128,15 @@
             rating.subscribe(function(value) {
                 ratingControl.raty("score", value);
             });
+
+            $(".tags-choose-control")
+                .off("dxactive.tagsControlBetterActiveState dxinactive.tagsControlBetterActiveState")
+                .on("dxactive.tagsControlBetterActiveState", { timeout: 30 }, function(e) {
+                    $(e.currentTarget).addClass("dx-state-active");
+                })
+                .on("dxinactive.tagsControlBetterActiveState", { timeout: 400 }, function(e) {
+                    $(e.currentTarget).removeClass("dx-state-active");
+                });
         }
 
     };

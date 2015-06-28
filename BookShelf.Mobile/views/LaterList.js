@@ -9,7 +9,8 @@
             function(book) {
                 return BookShelf.db.getBookStatus(book);
             },
-            { getter: "startDate" }
+            { getter: "startDate" },
+            { getter: "title" }
         ]
     }));
 

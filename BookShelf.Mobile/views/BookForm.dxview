@@ -18,7 +18,12 @@
         <div class="dx-field">
             <div class="dx-field-label">Status</div>
             <div class="dx-field-value">
-                <div data-bind="dxLookup: { items: statuses, value: book.status, searchEnabled: false, title: 'Status' }"></div>
+                <div class="status-choose-control" data-bind="dxLookup: { items: statuses, value: book.status, searchEnabled: false, title: 'Status' }">
+                    <div data-options="dxTemplate: { name: 'item' }">
+                        <div class="status-selected-icon dx-icon-todo"></div>
+                        <div class="status-title" data-bind="text: $data"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- ko if: book.showStartDate -->

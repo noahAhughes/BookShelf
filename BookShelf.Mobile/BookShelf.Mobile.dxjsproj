@@ -10,7 +10,7 @@
     <Name>BookShelf.Mobile</Name>
     <KeyIpaPath>..\..\DevExtreme 15.1\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
     <ProvisionProfile>..\..\DevExtreme 15.1\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
-    <UpgradeNotifyShown>15.1.4</UpgradeNotifyShown>
+    <UpgradeNotifyShown>14.2.8</UpgradeNotifyShown>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

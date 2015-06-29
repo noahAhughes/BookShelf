@@ -269,6 +269,11 @@
 
 
 /* Rating Lookup */
+.rating-choose-field-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .rating-item {
     position: relative;
     line-height: 0;

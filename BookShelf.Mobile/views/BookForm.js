@@ -11,6 +11,16 @@
         notes = ko.observable(),
         tags = ko.observableArray();
 
+    rating.subscribe(function(value) {
+        if(value) {
+            setTimeout(function() {
+                $(".rating-choose-control .dx-lookup-field")
+                    .wrapInner("<div class='rating-choose-field-content'>")
+                    .prepend($("<div class='fa fa-circle book-rating-badge'>").addClass("book-rating-" + value));
+            });
+        }
+    });
+
     var chooseTagsVisible = ko.observable();
 
     var showStartDate = ko.computed(function() {

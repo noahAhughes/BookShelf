@@ -84,41 +84,6 @@
     height: 14px;
 }
 
-.dx-lookup {
-    min-height: 42px !important;
-}
-
-.dx-lookup-popup-wrapper .dx-popup-title {
-    border-bottom: 1px solid #ababab;
-    padding: 7px 0;
-    height: 43px;
-}
-
-.dx-lookup-popup-wrapper .status-title {
-    margin-right: 28px;
-}
-
-.dx-lookup-popup-wrapper .status-selected-icon {
-    display: none;
-    float: right;
-    color: #017aff;
-    font-size: 28px;
-    line-height: 28px;
-    margin: -5px -8px -5px 0;
-}
-
-.dx-lookup-popup-wrapper .dx-lookup-selected .status-selected-icon {
-    display: block;
-}
-
-.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content {
-    padding-right: 13px;
-}
-
-.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content:before {
-    display: none;
-}
-
 .tags-choose-control {
     margin: -11px -10px -11px -8px !important;
     padding: 4px 0 6px 0;
@@ -162,46 +127,27 @@
     display: none;
 }
 
-.book-rating-fieldset {
-    margin-top: 60px;
+.book-rating-1 {
+    color: #f42525;
 }
 
-.book-rating-fieldset .dx-field-value {
-    width: 100% !important;
-    padding: 0;
-    text-align: center;
-    color: #ff9500;
-    padding-bottom: 3px;
+.book-rating-2 {
+    color: #f48c25;
 }
 
-.book-rating-control {
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
+.book-rating-3 {
+    color: #f4d525;
 }
 
-.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
-    font-size: 26px;
-    vertical-align: middle;
+.book-rating-4  {
+    color: #a0da0b;
 }
 
-.book-rating-low {
-    background-color: #eb0000;
-    color: #eb0000;
-}
-
-.book-rating-high {
-    background-color: #50a000;
-    color: #50a000;
-}
-
-.book-rating-normal {
-    background-color: #8c8c8c;
-    color: #ff9500;
+.book-rating-5 {
+    color: #0bda0b;
 }
 
 .book-rating-empty {
-    background-color: #aaaaaa;
     color: #aaaaaa;
 }
 
@@ -211,19 +157,12 @@
 
 .book-rating-badge {
     display: inline-block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    margin-left: 14px;
-    border-radius: 50%;
-    color: #fff;
+    font-size: 9px;
     vertical-align: middle;
+    margin-right: 7px;
+    line-height: 16px;
 }
 
-.book-reading {
-    /* background: #f9f9ff; */
-}
 
 /* Hairlines */
 .hairlines .dx-fieldset {
@@ -270,7 +209,13 @@
     border-bottom: 0.5px solid #b7b6bb;
 }
 
-/* Status Lookup */
+
+/* Lookup */
+
+.dx-lookup {
+    min-height: 42px !important;
+}
+
 .dx-lookup-popup-wrapper .dx-popup-content {
     top: 43px !important;
 }
@@ -292,6 +237,55 @@
 .dx-lookup-popup-wrapper .dx-list-item {
     background: #fff;
 }
+
+.dx-lookup-popup-wrapper .dx-popup-title {
+    border-bottom: 1px solid #ababab;
+    padding: 7px 0;
+    height: 43px;
+}
+
+.dx-lookup-popup-wrapper .lookup-item-title {
+    margin-right: 28px;
+    line-height: 18px;
+}
+
+.dx-lookup-popup-wrapper .lookup-item-selected-icon {
+    display: none;
+    float: right;
+    color: #017aff;
+    font-size: 28px;
+    line-height: 28px;
+    margin: -5px -8px -5px 0;
+}
+
+.dx-lookup-popup-wrapper .dx-lookup-selected .lookup-item-selected-icon {
+    display: block;
+}
+
+.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content {
+    padding-right: 13px;
+}
+
+.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content:before {
+    display: none;
+}
+
+
+/* Rating Lookup */
+.rating-item {
+    position: relative;
+    line-height: 0;
+}
+
+.rating-item-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.rating-item .book-rating-badge {
+    line-height: 18px;
+}
+
 
 /* Books List */
 .books-list .book-title {
@@ -322,6 +316,11 @@
 
 .books-list .book-rating { 
     float: right;
+}
+
+.books-list .book-rating-badge {
+    font-size: 11px;
+    margin-right: 0;
 }
 
 .books-list .book-tags-icon,
@@ -421,20 +420,21 @@
 }
 
 .book-details .book-tags-icon,
-.book-details .book-rating-icon {
+.book-details .book-rating-badge {
     width: 16px;
     height: 16px;
-    line-height: 16px;
-    font-size: 16px;
     margin-right: 3px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 16px;
 }
 
 .book-details .book-tags-icon {
     float: left;
 }
 
-.book-details .book-rating-icon {
-    display: inline-block;
+.book-details .book-rating-badge {
+    font-size: 7px;
 }
 
 .book-details .book-tags-text,
@@ -445,7 +445,6 @@
 
 .book-details .book-rating-text {
     display: inline-block;
-    width: 28px
 }
 
 .book-details .book-status {
@@ -576,7 +575,9 @@
 }
 
 .tags-choose-popup .dx-toolbar-label>div, 
-.tags-choose-popup .dx-toolbar-label .dx-toolbar-item-content>div {
+.tags-choose-popup .dx-toolbar-label .dx-toolbar-item-content>div,
+.dx-lookup-popup-wrapper .dx-toolbar-label>div, 
+.dx-lookup-popup-wrapper .dx-toolbar-label .dx-toolbar-item-content>div {
     overflow: visible;
 }
 

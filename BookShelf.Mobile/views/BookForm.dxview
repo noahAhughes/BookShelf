@@ -20,8 +20,8 @@
             <div class="dx-field-value">
                 <div class="status-choose-control" data-bind="dxLookup: { items: statuses, value: book.status, searchEnabled: false, title: 'Status' }">
                     <div data-options="dxTemplate: { name: 'item' }">
-                        <div class="status-selected-icon dx-icon-todo"></div>
-                        <div class="status-title" data-bind="text: $data"></div>
+                        <div class="lookup-item-selected-icon dx-icon-todo"></div>
+                        <div class="lookup-item-title" data-bind="text: $data"></div>
                     </div>
                 </div>
             </div>
@@ -57,11 +57,16 @@
         </div>
     </div>
     <div class="dx-fieldset book-rating-fieldset">
-        <div class="dx-fieldset-header">Rating</div>
         <div class="dx-field">
+            <div class="dx-field-label">Rating</div>
             <div class="dx-field-value">
-                <div id="book-rating" class="book-rating-control"></div>
-                <div class="book-rating-badge" data-bind="text: book.rating() || '—', css: book.ratingClass"></div>
+                <div data-bind="dxLookup: { items: ratings, value: book.rating, valueExpr: 'value', displayExpr: 'title', searchEnabled: false, title: 'Rating', showClearButton: true }">
+                    <div class="rating-item" data-options="dxTemplate: { name: 'item' }">
+                        <div class="lookup-item-selected-icon dx-icon-todo"></div>
+                        <div data-bind="attr: { 'class': 'fa fa-circle book-rating-badge book-rating-' + value }"></div>
+                        <div class="lookup-item-title rating-item-title" data-bind="text: title"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

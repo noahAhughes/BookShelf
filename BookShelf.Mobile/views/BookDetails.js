@@ -33,6 +33,10 @@
             return "read on " + dateFormatter(book.startDate());
     });
 
+    var ratingText = ko.computed(function() {
+        return BookShelf.db.bookRatings[book.rating()];
+    });
+
     var coverUrl = ko.observable();
     var coverHeight = ko.observable();
    
@@ -57,6 +61,7 @@
         book: {
             authorText: authorText,
             statusText: statusText,
+            ratingText: ratingText,
             isNotFinished: isNotFinished,
             changeStatusText: changeStatusText,
             progressState: progressState,

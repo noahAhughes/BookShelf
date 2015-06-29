@@ -4,7 +4,7 @@
         <div data-options="dxTemplate: { name: 'item' }" data-bind="attr: { 'class': 'book-' + status }">
             <div>
                 <div class="book-rating" data-bind="css: ratingStatus, visible: rating">
-                    <div class="book-rating-icon dx-icon-favorites"></div><div class="book-rating-text" data-bind="text: rating + '/10'"></div>
+                    <div data-bind="attr: { 'class': 'fa fa-circle book-rating-badge book-rating-' + rating }"></div>
                 </div>
                 <div class="book-title" data-bind="text: title"></div>
             </div>

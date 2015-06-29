@@ -29,19 +29,22 @@
     var tagsString = ko.computed(function() {
         return BookShelf.db.getTagsString(tags());
     });
-
-    var ratingClass = ko.computed(function() {
-        return BookShelf.db.getBookRatingStatus(rating());
-    });
-
+    
     var tagListViewModel = BookShelf.TagListView({
         select: true
+    });
+    
+    var ratings = $.map(BookShelf.db.bookRatings, function(title, value) {
+        return { value: value, title: title };
+    }).sort(function(r1, r2) {
+        return r2.value - r1.value;
     });
 
     var viewModel = {
 
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
         tags: BookShelf.db.tags.getAll(),
+        ratings: ratings,
         chooseTagsVisible: chooseTagsVisible,
 
         book: {
@@ -54,7 +57,6 @@
             showFinishDate: showFinishDate,
             finishDate: finishDate,
             rating: rating,
-            ratingClass: ratingClass,
             notes: notes,
             notesHtml: notesHtml,
             tags: tags,
@@ -116,19 +118,6 @@
         },
 
         viewShown: function() {
-            var ratingControl = $("#book-rating").raty({
-                starType: "i",
-                number: 10,
-                score: rating(),
-                readOnly: params.readOnly,
-                click: function(score) {
-                    rating(score);
-                }
-            });
-            rating.subscribe(function(value) {
-                ratingControl.raty("score", value);
-            });
-
             $(".tags-choose-control")
                 .off("dxactive.tagsControlBetterActiveState dxinactive.tagsControlBetterActiveState")
                 .on("dxactive.tagsControlBetterActiveState", { timeout: 30 }, function(e) {

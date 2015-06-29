@@ -21,26 +21,11 @@
     <Content Include="bookshelf.shared.config.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="css\fonts\raty.eot">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="css\fonts\raty.svg">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="css\fonts\raty.ttf">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="css\fonts\raty.woff">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="css\jquery.raty.css">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="data\db.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\logo.png" />
-    <Content Include="js\jquery.raty.js">
+    <Content Include="js\jquery-2.1.4.min.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="js\localization\dx.all.de.js" />
@@ -48,7 +33,6 @@
     <Content Include="js\localization\dx.all.ru.js" />
     <Content Include="js\globalize.min.js" />
     <Content Include="js\jquery-1.11.2.min.js" />
-    <Content Include="js\jquery-2.1.3.min.js" />
     <Content Include="js\knockout-3.3.0.js" />
     <Content Include="js\Showdown.min.js">
       <SubType>Content</SubType>
@@ -58,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="css\fonts\" />
     <Folder Include="data\" />
     <Folder Include="images\" />
     <Folder Include="js\" />

@@ -195,6 +195,14 @@
             finished: "Finished"
         },
 
+        bookRatings: {
+            1: "Waste of time",
+            2: "Boring",
+            3: "So-so",
+            4: "Good read",
+            5: "Must read"
+        },
+
         getTagsString: function(tagIds) {
             return $.map(tagIds, function(tagId) {
                 return BookShelf.db.tags.get(tagId).title;
@@ -202,13 +210,7 @@
         },
 
         getBookRatingStatus: function(rating) {
-            if(!rating)
-                return "book-rating-empty";
-            if(rating < 4)
-                return "book-rating-low";
-            if(rating > 7)
-                return "book-rating-high";
-            return "book-rating-normal";
+            return "book-rating-" + rating;
         },
 
         tags: tagStore

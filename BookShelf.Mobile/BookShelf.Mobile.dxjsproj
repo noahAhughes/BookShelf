@@ -36,6 +36,12 @@
     <Content Include="views\Settings.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\TagFilter.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TagFilter.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\TagList.dxview">
       <SubType>Content</SubType>
     </Content>

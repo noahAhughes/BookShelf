@@ -523,6 +523,11 @@
     box-sizing: border-box;
 }
 
+.tags-list-container-fullscreen {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .tags-list {
     -moz-transition: opacity .4s ease-in-out;
     -o-transition: opacity .4s ease-in-out;

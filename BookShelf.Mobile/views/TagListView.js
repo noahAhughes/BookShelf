@@ -11,6 +11,7 @@
 
         items: items,
         selectionEnabled: params.selectionEnabled,
+        editingEnabled: (params.editingEnabled === undefined) ? true : params.editingEnabled,
         selected: selected,
 
         editing: editing,

@@ -2,7 +2,9 @@
 
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books.getAll(),
-        filter: params.filter,
+        filter: function(book) {
+            return params.filter(book) && filterTags(book);
+        },
         sort: params.sort,
         map: function(book) {
             return {
@@ -18,9 +20,34 @@
         }
     });
 
+    var filterTags = function(book) {
+        return !BookShelf.db.booksFilter.length || !!$.grep(BookShelf.db.booksFilter, function(tagId) {
+            return $.inArray(tagId, book.tags) > -1;
+        }).length;
+    };
+
     var viewModel = {
 
         source: source,
+
+        filterApplied: ko.observable(false),
+
+        clearFilter: function() {
+            BookShelf.db.booksFilter = [];
+            this.updateFilterState();
+            source.reload();
+        },
+
+        filterBooks: function() {
+            if(this.filterApplied()) {
+                this.clearFilter();
+                return;
+            }
+
+            BookShelf.app.navigate({
+                view: "TagFilter"
+            }, { modal: true });
+        },
 
         addBook: function() {
             BookShelf.app.navigate({
@@ -41,7 +68,16 @@
             BookShelf.app.navigate("BookDetails/" + args.itemData.id);
         },
 
+        updateFilterState: function() {
+            this.filterApplied(!!BookShelf.db.booksFilter.length);
+        },
+
+        viewShowing: function() {
+            this.updateFilterState();
+        },
+
         viewShown: function() {
+            this.viewShowing();
             source.reload();
             BookShelf.app.applyListEditFix();
         }

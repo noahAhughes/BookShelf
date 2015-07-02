@@ -28,6 +28,12 @@ window.BookShelf = $.extend(true, window.BookShelf, {
         },
         "commands": [
           {
+            "id": "filterBooks"
+          },
+          {
+            "id": "applyFilter"
+          },
+          {
             "id": "addBook"
           },
           {

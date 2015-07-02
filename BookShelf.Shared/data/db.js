@@ -212,8 +212,9 @@
         getBookRatingStatus: function(rating) {
             return "book-rating-" + rating;
         },
+        tags: tagStore,
 
-        tags: tagStore
+        booksFilter: []
     };
 
 }());

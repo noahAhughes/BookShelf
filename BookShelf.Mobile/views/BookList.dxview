@@ -1,4 +1,5 @@
 <div data-options="dxView: { name: 'BookList', title: 'Books' }" class="books-list-partial">
+    <div data-bind="dxCommand: { id: 'filterBooks', onExecute: function() { this.filterBooks(); }, icon: (filterApplied() ? 'close' : 'fa fa-filter'), location: 'before' }"></div>
     <div data-bind="dxCommand: { id: 'addBook', onExecute: function() { this.addBook(); }, icon: 'plus' }"></div>
     <div class="books-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true, onItemClick: openBook }">
         <div data-options="dxTemplate: { name: 'item' }" data-bind="attr: { 'class': 'book-' + status }">

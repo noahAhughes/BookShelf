@@ -1,0 +1,7 @@
+﻿<div data-options="dxView : { name: 'TagFilter', title: 'Filter Books' } ">
+    <div data-bind="dxCommand: { id: 'back', title: 'Close', onExecute: '#_back' }"></div>
+    <div data-bind="dxCommand: { id: 'applyFilter', title: 'Apply', onExecute: applyFilter, type: 'default', disabled: !selected().length }"></div>
+    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div class="tags-list-view-container" data-options="dxViewPlaceholder: { viewName: 'TagListView' }"></div>
+    </div>
+</div>

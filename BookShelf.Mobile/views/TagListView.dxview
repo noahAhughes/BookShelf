@@ -1,11 +1,21 @@
 ﻿<div data-options="dxView : { name: 'TagListView', title: 'TagListView' }" class="tags-list-view-container">
-    <div class="tag-form" data-bind="css: (editing() ? 'tag-form-edit' : 'tag-form-add')">
+    <div class="tag-form" data-bind="css: (editing() ? 'tag-form-edit' : 'tag-form-add'), visible: editingEnabled">
         <div class="tag-form-button" data-bind="dxButton: { icon: 'close', visible: editing, onClick: cancelEditTag, type: 'default' }"></div>
         <div class="tag-form-button" data-bind="dxButton: { icon: (editing() ? 'todo' : 'add'), disabled: tag.invalid, onClick: saveTag, type: 'default' }"></div>
         <div class="tag-form-field" data-bind="dxTextBox: { placeholder: 'Programming', value: tag.title, valueChangeEvent: 'input' }"></div>
     </div>
-    <div class="tags-list-container">
-        <div class="tags-list" data-bind="dxList: { items: items, selectionMode: (selectionEnabled ? 'multy' : 'none'), selectedItems: selected, disabled: editing, onItemDeleting: deleteTagConfirmation, onItemDeleted: deleteTag, allowItemDeleting: true, menuItems: [{ text: 'Edit', action: editTag }], activeStateEnabled: false }">
+    <div class="tags-list-container" data-bind="css: { 'tags-list-container-fullscreen': !editingEnabled }">
+        <div class="tags-list" data-bind="dxList: {
+            items: items,
+            selectionMode: (selectionEnabled ? 'multy' : 'none'),
+            selectedItems: selected,
+            disabled: editing,
+            onItemDeleting: deleteTagConfirmation,
+            onItemDeleted: deleteTag,
+            allowItemDeleting: (editingEnabled ? true : false),
+            menuItems: (editingEnabled ? [{ text: 'Edit', action: editTag }] : []),
+            activeStateEnabled: false
+        }">
             <div data-options="dxTemplate: { name: 'item' }">
                 <div class="tag-selected-icon dx-icon-todo"></div>
                 <div class="tag-title" data-bind="text: title"></div>

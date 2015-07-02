@@ -3,9 +3,7 @@
     var viewModel = BookShelf.BookForm($.extend(params, { readOnly: true }));
     var book = viewModel.book;
 
-    var dateFormatter = function(date) {
-        return Globalize.format(date, 'MM/dd/yyyy');
-    };
+    var formatDate = BookShelf.db.formatDate;
 
     var authorText = ko.computed(function() {
         return book.author() ? "by " + book.author() : "";
@@ -28,13 +26,25 @@
 
     var progressState = ko.computed(function() {
         if(book.status() === bookStatus.reading)
-            return "reading since " + dateFormatter(book.startDate());
+            return "reading since " + formatDate(book.startDate()) + ", " + book.progress() + "% completed";
         if(book.status() === bookStatus.finished)
-            return "read on " + dateFormatter(book.startDate());
+            return "read on " + formatDate(book.startDate());
+    });
+
+    var showProgress = ko.computed(function() {
+        return book.status() === bookStatus.reading;
+    });
+
+    var rating = ko.computed(function() {
+        return BookShelf.db.bookRatings[book.rating()];
     });
 
     var ratingText = ko.computed(function() {
-        return BookShelf.db.bookRatings[book.rating()];
+        return rating() && rating().title;
+    });
+
+    var ratingColor = ko.computed(function() {
+        return rating() && rating().color;
     });
 
     var coverUrl = ko.observable();
@@ -44,7 +54,6 @@
 
     $.extend(true, viewModel, {
         title: book.title,
-        dateFormatter: dateFormatter,
 
         changeStatus: function() {
             if(book.status() === bookStatus.later) {
@@ -62,11 +71,13 @@
             authorText: authorText,
             statusText: statusText,
             ratingText: ratingText,
+            ratingColor: ratingColor,
             isNotFinished: isNotFinished,
             changeStatusText: changeStatusText,
             progressState: progressState,
             coverUrl: coverUrl,
-            coverHeight: coverHeight
+            coverHeight: coverHeight,
+            showProgress: showProgress
         },
 
         viewShowing: function() {
@@ -76,6 +87,10 @@
                 coverHeight(cover.ratio * 100 + "%");
                 coverUrl(cover.url);
             });
+
+            ko.computed(function() {
+                BookShelf.db.books.update(viewModel.getBook());
+            }).extend({ throttle: 400 });
         }
     });
 

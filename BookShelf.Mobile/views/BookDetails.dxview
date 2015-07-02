@@ -11,7 +11,7 @@
                     <div class="book-author" data-bind="text: book.authorText"></div>
                     <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">
                         <div class="book-rating" data-bind="visible: book.rating">
-                            <div data-bind="attr: { 'class': 'fa fa-circle book-rating-badge book-rating-' + book.rating() }"></div><div class="book-rating-text" data-bind="text: book.ratingText"></div>
+                            <div class="fa fa-circle book-rating-badge" data-bind="style: { color: book.ratingColor }"></div><div class="book-rating-text" data-bind="text: book.ratingText"></div>
                         </div>
                         <div class="book-tags" data-bind="visible: book.tagsString">
                             <div class="book-tags-icon dx-icon-tags"></div><div class="book-tags-text" data-bind="text: book.tagsString"></div>
@@ -22,7 +22,9 @@
                     <div class="book-status-button" data-bind="visible: book.isNotFinished, dxButton: { text: book.changeStatusText, onClick: changeStatus }"></div>
                     <div class="book-status-text" data-bind="text: book.statusText"></div>
                     <div class="book-progress-state" data-bind="text: book.progressState, visible: book.progressState"></div>
-                </div>
+                    <div class="book-progress" data-bind="visible: book.showProgress ">
+                        <div data-bind="dxSlider: { value: book.progress, min: 0, max: 100 }"></div>
+                    </div>
             </div>
 
             <!-- ko if: book.notes -->

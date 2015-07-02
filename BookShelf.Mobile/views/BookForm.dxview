@@ -34,6 +34,14 @@
             </div>
         </div>
         <!-- /ko -->
+        <!-- ko if: book.showStartDate() && !book.showFinishDate() -->
+        <div class="dx-field">
+            <div class="dx-field-label">Progress <span class="book-progress-value">(<span data-bind="text: book.progress"></span>%)</span></div>
+            <div class="dx-field-value">
+                <div data-bind="dxSlider: { value: book.progress, min: 0, max: 100 }"></div>
+            </div>
+        </div>
+        <!-- /ko -->
         <!-- ko if: book.showFinishDate -->
         <div class="dx-field">
             <div class="dx-field-label">Finish Date</div>
@@ -63,7 +71,7 @@
                 <div class="rating-choose-control" data-bind="dxLookup: { items: ratings, value: book.rating, valueExpr: 'value', displayExpr: 'title', searchEnabled: false, title: 'Rating', showClearButton: true }">
                     <div class="rating-item" data-options="dxTemplate: { name: 'item' }">
                         <div class="lookup-item-selected-icon dx-icon-todo"></div>
-                        <div data-bind="attr: { 'class': 'fa fa-circle book-rating-badge book-rating-' + value }"></div>
+                        <div class="fa fa-circle book-rating-badge" data-bind="style: { color: color }"></div>
                         <div class="lookup-item-title rating-item-title" data-bind="text: title"></div>
                     </div>
                 </div>

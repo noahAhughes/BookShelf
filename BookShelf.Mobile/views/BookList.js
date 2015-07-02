@@ -7,13 +7,22 @@
         },
         sort: params.sort,
         map: function(book) {
+            var status = BookShelf.db.getBookStatus(book);
+            var ratingColor = book.rating && BookShelf.db.bookRatings[book.rating].color;
+            var progress = (status === BookShelf.db.bookStatus.reading)
+                ? book.progress
+                : (status === BookShelf.db.bookStatus.finished) ? 100 : 0;
+
             return {
                 id: book.id,
                 title: book.title,
                 author: book.author ? "by " + book.author : null,
                 rating: book.rating,
-                ratingStatus: BookShelf.db.getBookRatingStatus(book.rating),
-                status: BookShelf.db.getBookStatus(book).toLowerCase(),
+                ratingColor: ratingColor,
+                status: status,
+                isStarted: status === BookShelf.db.bookStatus.reading,
+                progress: "reading since " + BookShelf.db.formatDate(book.startDate) + ", " + book.progress + "% completed",
+                progressBg: BookShelf.db.getProgressBg(progress, 100, ratingColor),
                 tagsString: BookShelf.db.getTagsString(book.tags),
                 showChevron: true
             }

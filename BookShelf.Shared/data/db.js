@@ -77,6 +77,7 @@
         author: "Lev Tolstoy",
         startDate: new Date(2010, 1, 1),
         finishDate: new Date(2012, 1, 1),
+        progress: 100,
         notes: "#Header\n * point1\n * point2",
         tags: [1]
     }, {
@@ -84,11 +85,13 @@
         title: "Crime and Punishment",
         author: "Fyodor Dostoyevsky",
         startDate: new Date(2011, 1, 1),
+        progress: 50,
         tags: []
     }, {
         id: 3,
         title: "Quiet Flows the Don",
         author: "Mikhail Sholohov",
+        progress: 0,
         tags: [1, 2]
     }];
 
@@ -183,6 +186,10 @@
     BookShelf.db = {
         books: bookStore,
 
+        formatDate: function(date, format) {
+            return Globalize.format(date, format || "MM/dd/yyyy");
+        },
+
         getBookStatus: function(book) {
             return (!!book.startDate && !!book.finishDate)
                 ? this.bookStatus.finished
@@ -195,12 +202,20 @@
             finished: "Finished"
         },
 
+        getProgressBg: function(progress, total, color) {
+            var angle = Math.round((progress / total) * 360);
+
+            return (angle <= 180)
+                ? "linear-gradient(" + (angle + 90) + "deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, transparent 50%)"
+                : "linear-gradient(90deg, transparent 50%, " + color + " 50%), linear-gradient(" + (angle - 90) + "deg, white 50%, transparent 50%)";
+        },
+
         bookRatings: {
-            1: "Waste of time",
-            2: "Boring",
-            3: "So-so",
-            4: "Good read",
-            5: "Must read"
+            1: { title: "Waste of time", color: "#f42525" },
+            2: { title: "Boring", color: "#f48c25" },
+            3: { title: "So-so", color: "#f4d525" },
+            4: { title: "Good read", color: "#a0da0b" },
+            5: { title: "Must read", color: "#0bda0b" },
         },
 
         getTagsString: function(tagIds) {
@@ -209,9 +224,6 @@
             }).join(", ");
         },
 
-        getBookRatingStatus: function(rating) {
-            return "book-rating-" + rating;
-        },
         tags: tagStore,
 
         booksFilter: []

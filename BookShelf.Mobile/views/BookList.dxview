@@ -4,12 +4,15 @@
     <div class="books-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true, onItemClick: openBook }">
         <div data-options="dxTemplate: { name: 'item' }" data-bind="attr: { 'class': 'book-' + status }">
             <div>
-                <div class="book-rating" data-bind="css: ratingStatus, visible: rating">
-                    <div data-bind="attr: { 'class': 'fa fa-circle book-rating-badge book-rating-' + rating }"></div>
+                <div class="book-rating" data-bind="visible: rating">
+                    <div class="book-rating-badge book-rating-badge-bordered" data-bind="style: { backgroundColor: ratingColor, backgroundImage: progressBg, borderColor: ratingColor }"></div>
                 </div>
                 <div class="book-title" data-bind="text: title"></div>
             </div>
             <div class="book-author" data-bind="text: author"></div>
+            <!-- ko if: isStarted -->
+            <div class="book-progress" data-bind="text: progress"></div>
+            <!-- /ko -->
             <div class="book-tags" data-bind="visible: tagsString">
                 <div class="book-tags-icon dx-icon-tags"></div><div class="book-tags-text" data-bind="text: tagsString"></div>
             </div>

@@ -7,6 +7,7 @@
         status = ko.observable(),
         startDate = ko.observable(),
         finishDate = ko.observable(),
+        progress = ko.observable(),
         rating = ko.observable(),
         notes = ko.observable(),
         tags = ko.observableArray();
@@ -14,10 +15,12 @@
     rating.subscribe(function(value) {
         if(value) {
             setTimeout(function() {
+                var rating = BookShelf.db.bookRatings[value];
+
                 $(".rating-choose-control .dx-lookup-field")
                     .empty()
-                    .append($("<div class='fa fa-circle book-rating-badge'>").addClass("book-rating-" + value))
-                    .append($("<div class='rating-choose-field-content'>").text(BookShelf.db.bookRatings[value]));
+                    .append($("<div class='fa fa-circle book-rating-badge'>").css("color", rating.color))
+                    .append($("<div class='rating-choose-field-content'>").text(rating.title));
             });
         }
     });
@@ -45,8 +48,8 @@
         select: true
     });
     
-    var ratings = $.map(BookShelf.db.bookRatings, function(title, value) {
-        return { value: value, title: title };
+    var ratings = $.map(BookShelf.db.bookRatings, function(rating, value) {
+        return { value: value, title: rating.title, color: rating.color };
     }).sort(function(r1, r2) {
         return r2.value - r1.value;
     });
@@ -63,6 +66,7 @@
             title: title,
             author: author,
             status: status,
+            progress: progress,
             showStartDate: showStartDate,
             startDate: startDate,
             showFinishDate: showFinishDate,
@@ -83,6 +87,7 @@
                 id: book.id,
                 title: title(),
                 author: author(),
+                progress: progress(),
                 startDate: showStartDate() ? startDate() : null,
                 finishDate: showFinishDate() ? finishDate() : null,
                 rating: rating(),
@@ -113,6 +118,7 @@
             this.book.title(book.title);
             this.book.author(book.author);
             this.book.status(BookShelf.db.getBookStatus(book));
+            this.book.progress(book.progress);
             this.book.startDate(book.startDate);
             this.book.finishDate(book.finishDate);
             this.book.rating(book.rating);

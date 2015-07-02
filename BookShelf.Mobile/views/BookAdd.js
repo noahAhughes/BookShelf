@@ -17,6 +17,7 @@
             this.book.title("");
             this.book.author("");
             this.book.status(params.status);
+            this.book.progress(0);
             this.book.startDate(new Date());
             this.book.finishDate(new Date());
             this.book.rating(undefined);

@@ -121,26 +121,6 @@
     display: none;
 }
 
-.book-rating-1 {
-    color: #f42525;
-}
-
-.book-rating-2 {
-    color: #f48c25;
-}
-
-.book-rating-3 {
-    color: #f4d525;
-}
-
-.book-rating-4  {
-    color: #a0da0b;
-}
-
-.book-rating-5 {
-    color: #0bda0b;
-}
-
 .book-rating-empty {
     color: #aaaaaa;
 }
@@ -155,6 +135,10 @@
     vertical-align: middle;
     margin-right: 7px;
     line-height: 16px;
+}
+
+.book-rating-badge-bordered {
+    border: 1px solid #b7b6bb;
 }
 
 
@@ -201,6 +185,10 @@
 
 .hairlines .tag-form {
     border-bottom: 0.5px solid #b7b6bb;
+}
+
+.hairlines .book-rating-badge-bordered {
+    border: 0.5px solid #b7b6bb;
 }
 
 
@@ -320,8 +308,16 @@
     float: right;
 }
 
-.books-list .book-rating-badge {
+/*.books-list .book-rating-badge {
     font-size: 11px;
+    margin-right: 0;
+}*/
+
+.books-list .book-rating-badge {
+    width: 11px;
+    height: 11px;
+    display: block;
+    border-radius: 50%;
     margin-right: 0;
 }
 
@@ -357,6 +353,12 @@
 .books-list .book-rating-text {
     display: inline-block;
     width: 28px
+}
+
+.books-list .book-progress {
+    margin-bottom: 4px;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 
@@ -466,6 +468,9 @@
     float: right;
 }
 
+.book-details .book-progress {
+    margin-top: 10px;
+}
 
 /* Tags List */
 .tag-form {

@@ -1,3 +1,8 @@
+.dx-transition-inner-wrapper.dx-enter,
+.dx-transition-inner-wrapper.dx-leave {
+    pointer-events: none;
+}
+
 .dx-button-default {
     font-weight: normal;
 }

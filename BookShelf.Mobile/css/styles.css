@@ -196,6 +196,30 @@
     border: 0.5px solid #b7b6bb;
 }
 
+.hairlines .dx-slider-handle {
+    border: 0.5px solid #c6c6c6;
+}
+
+/* Slider */
+.dx-slider-bar {
+    margin: 14px 14.5px;
+    height: 1px;
+    background: #b7b6bb;
+}
+
+.dx-slider-range {
+    height: 1px;
+}
+
+.dx-slider-handle {
+    -moz-box-shadow: 0 3px 3px -1px rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 3px 3px -1px rgba(0,0,0,.2);
+    box-shadow: 0 3px 3px -1px rgba(0,0,0,.2);
+}
+
+.dx-field-value:not(.dx-widget)>.dx-slider {
+    margin-top: -5px;
+}
 
 /* Lookup */
 .dx-lookup {

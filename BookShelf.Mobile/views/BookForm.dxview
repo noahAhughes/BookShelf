@@ -10,7 +10,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Author</div>
             <div class="dx-field-value">
-                <div data-bind="dxTextBox: { placeholder: 'Lev Tolstoy', value: book.author, valueChangeEvent: 'input' }"></div>
+                <div data-bind="dxTextBox: { placeholder: 'Leo Tolstoy', value: book.author, valueChangeEvent: 'input' }"></div>
             </div>
         </div>
     </div>

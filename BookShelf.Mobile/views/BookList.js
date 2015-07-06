@@ -36,6 +36,7 @@
     };
 
     var viewModel = {
+        noBooksText: params.noBooksMessage,
 
         source: source,
 

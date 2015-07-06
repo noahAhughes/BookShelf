@@ -1,6 +1,7 @@
 ﻿BookShelf.LaterList = function(params) {
 
     return BookShelf.BookList($.extend(params, {
+        noBooksMessage: "No books to read found",
         status: BookShelf.db.bookStatus.later,
         filter: function(book) {
             return !book.finishDate;

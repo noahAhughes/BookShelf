@@ -35,10 +35,6 @@
     background: #007aff;
 }
 
-.books-list, .books-list-partial {
-    height: 100%;
-}
-
 .fieldset-with-buttons .dx-field {
     padding: 0;
 }
@@ -343,6 +339,10 @@
 
 
 /* Books List */
+.books-list, .books-list-partial {
+    height: 100%;
+}
+
 .books-list .book-title {
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 18px;
@@ -603,6 +603,11 @@
     -o-transition: opacity .4s ease-in-out;
     -webkit-transition: opacity .4s ease-in-out;
     transition: opacity .4s ease-in-out;
+}
+
+.tags-list .dx-empty-message {
+    color: black;
+    opacity: .1;
 }
 
 .tags-choose-control .dx-texteditor-input {

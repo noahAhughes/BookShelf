@@ -30,6 +30,15 @@
     <Content Include="index.html" />
     <Content Include="index.css" />
     <Content Include="cordova.js" />
+    <Content Include="layouts\Simple\SimpleLayout.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="layouts\Simple\SimpleLayout.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="layouts\Simple\SimpleLayout.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\Settings.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -61,24 +70,9 @@
     <Content Include="layouts\Navbar\NavbarLayout.css" />
     <Content Include="layouts\Navbar\NavbarLayout.html" />
     <Content Include="layouts\Navbar\NavbarLayout.js" />
-    <Content Include="layouts\Pivot\PivotLayout.css" />
-    <Content Include="layouts\Pivot\PivotLayout.html" />
-    <Content Include="layouts\Pivot\PivotLayout.js" />
-    <Content Include="layouts\SlideOut\SlideOutLayout.css" />
-    <Content Include="layouts\SlideOut\SlideOutLayout.html" />
-    <Content Include="layouts\SlideOut\SlideOutLayout.js" />
-    <Content Include="layouts\Empty\EmptyLayout.css" />
-    <Content Include="layouts\Empty\EmptyLayout.html" />
-    <Content Include="layouts\Empty\EmptyLayout.js" />
-    <Content Include="layouts\Simple\SimpleLayout.css" />
-    <Content Include="layouts\Simple\SimpleLayout.html" />
-    <Content Include="layouts\Simple\SimpleLayout.js" />
     <Content Include="layouts\Popup\PopupLayout.css" />
     <Content Include="layouts\Popup\PopupLayout.html" />
     <Content Include="layouts\Popup\PopupLayout.js" />
-    <Content Include="layouts\Split\SplitLayout.css" />
-    <Content Include="layouts\Split\SplitLayout.html" />
-    <Content Include="layouts\Split\SplitLayout.js" />
     <Content Include="views\BookAdd.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -127,13 +121,9 @@
     <Folder Include="css\" />
     <Folder Include="js\" />
     <Folder Include="layouts\" />
-    <Folder Include="layouts\Empty\" />
     <Folder Include="layouts\Navbar\" />
-    <Folder Include="layouts\Pivot\" />
     <Folder Include="layouts\Popup\" />
     <Folder Include="layouts\Simple\" />
-    <Folder Include="layouts\SlideOut\" />
-    <Folder Include="layouts\Split\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>

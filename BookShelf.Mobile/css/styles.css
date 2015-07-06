@@ -1,3 +1,14 @@
+.dx-theme-ios7-typography h1,
+.dx-theme-ios7-typography h2 {
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+}
+
+.dx-theme-ios7-typography strong {
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+}
+
 .dx-transition-inner-wrapper.dx-enter,
 .dx-transition-inner-wrapper.dx-leave {
     pointer-events: none;
@@ -52,9 +63,17 @@
 }
 
 .book-notes {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    margin: 8px 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
     min-height: 0;
+    line-height: 1.2;
+}
+
+.book-notes:before,
+.book-notes:after {
+    display: none;
 }
 
 .book-notes h1 {
@@ -62,7 +81,19 @@
 }
 
 .book-notes ul {
-    padding-left: 20px;
+    margin: 4px 0 8px 0;
+}
+
+.book-notes li {
+    list-style-type: none;
+    margin-bottom: 2px;
+}
+
+.book-notes li:before {
+    content: "\00b7";
+    margin-right: 5px;
+    font-size: 20px;
+    line-height: 16px;
 }
 
 .dx-radio-value-container {

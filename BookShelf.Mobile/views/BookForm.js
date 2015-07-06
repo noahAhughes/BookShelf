@@ -130,6 +130,16 @@
             e.preventDefault();
         },
 
+        setNotesPlaceholder: function(args) {
+            setTimeout(function() {
+                args.element.find(".dx-placeholder")
+                    .attr({
+                        "data-firstline": "Add your notes here...",
+                        "data-secondline": "Markdown syntax supported"
+                    });
+            });
+        },
+
         viewShowing: function() {
             this.prepareBook();
         },

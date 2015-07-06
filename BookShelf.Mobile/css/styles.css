@@ -51,10 +51,6 @@
     padding-left: 0;
 }
 
-.book-notes-fieldset .dx-textarea .dx-texteditor-input {
-    padding-left: 8px;
-}
-
 .book-notes {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -144,6 +140,15 @@
 
 .book-rating-badge-bordered {
     border: 1px solid #b7b6bb;
+}
+
+.dx-viewport:not(.dx-device-ios) .book-notes-fieldset .dx-textarea .dx-texteditor-input {
+    padding-left: 8px;
+}
+
+.notes-area .dx-placeholder:before {
+    content: attr(DATA-FIRSTLINE) "\A" attr(DATA-SECONDLINE);
+    white-space: pre;
 }
 
 

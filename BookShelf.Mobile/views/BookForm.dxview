@@ -82,7 +82,7 @@
         <div class="dx-fieldset-header">Notes</div>
         <div class="dx-field">
             <div class="dx-field-value">
-                <div data-bind="dxTextArea: { value: book.notes, height: 250 }"></div>
+                <div class="notes-area" data-bind="dxTextArea: { value: book.notes, height: 250, onInitialized: setNotesPlaceholder }"></div>
             </div>
         </div>
     </div>

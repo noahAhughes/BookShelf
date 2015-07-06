@@ -5,7 +5,7 @@
         filter: function(book) {
             return !!book.finishDate;
         },
-        sort: { getter: "finishDate", desc: true }
+        sort: { getter: "title" }
     }));
 
 };

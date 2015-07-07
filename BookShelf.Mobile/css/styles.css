@@ -446,18 +446,22 @@
     left: -12px;
     background-size: cover;
     background-position: center -140px;
+    opacity: .05;
+}
+
+.dx-device-ios .book-details .book-background {
     -webkit-filter: blur(12px) saturate(120%) brightness(140%);
     filter: blur(12px) saturate(120%) brightness(140%);
-    opacity: .2;
     -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
     -o-transform: translateZ(0);
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    opacity: .2;
 }
 
-.dx-transition-inner-wrapper.dx-enter .book-details .book-background,
-.dx-transition-inner-wrapper.dx-leave .book-details .book-background {
+.dx-device-ios .dx-transition-inner-wrapper.dx-enter .book-details .book-background,
+.dx-device-ios .dx-transition-inner-wrapper.dx-leave .book-details .book-background {
     -moz-transform: none;
     -ms-transform: none;
     -o-transform: none;

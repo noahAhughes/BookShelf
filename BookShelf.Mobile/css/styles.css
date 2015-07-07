@@ -449,6 +449,20 @@
     -webkit-filter: blur(12px) saturate(120%) brightness(140%);
     filter: blur(12px) saturate(120%) brightness(140%);
     opacity: .2;
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.dx-transition-inner-wrapper.dx-enter .book-details .book-background,
+.dx-transition-inner-wrapper.dx-leave .book-details .book-background {
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    -webkit-transform: none;
+    transform: none;
 }
 
 .book-details .book-cover {

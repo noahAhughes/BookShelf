@@ -46,7 +46,7 @@
         showLoadPanel: ko.observable(false),
 
         importData: function() {
-            DevExpress.ui.dialog.confirm("This action will override all local data", "Import Data").done(function(dialogResult) {
+            DevExpress.ui.dialog.confirm("This action will override all local BookShelf data", "Import Data").done(function(dialogResult) {
                 if(!dialogResult)
                     return;
 
@@ -77,7 +77,7 @@
         },
 
         exportData: function() {
-            DevExpress.ui.dialog.confirm("This action will override all data stored in Dropbox", "Export Data").done(function(dialogResult) {
+            DevExpress.ui.dialog.confirm("This action will override all BookShelf data stored in Dropbox", "Export Data").done(function(dialogResult) {
                 if(!dialogResult)
                     return;
 

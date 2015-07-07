@@ -9,4 +9,5 @@
   <preference name="StatusBarBackgroundColor" value="#60433d" />
   <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
   <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+  <preference name="DisallowOverscroll" value="true" />
 </widget>

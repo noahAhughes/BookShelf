@@ -39,7 +39,7 @@
         };
     })();
     
-    var booksDataFilename = "books.json";
+    var booksDataFilename = "BookShelf_Data_v1.json";
 
     var viewModel = {
 
@@ -64,9 +64,11 @@
                             if(err) {
                                 DevExpress.ui.dialog.alert("Something went wrong", "Import Failed");
                             } else {
-                                BookShelf.db.books.importData(data);
+                                BookShelf.db.importData(data);
+
                                 BookShelf.app.viewCache.clear();
-                                DevExpress.ui.dialog.alert("Books imported", "Import Success");
+
+                                DevExpress.ui.dialog.alert("Data imported", "Import Success");
                             }
                         });
                     }
@@ -87,7 +89,7 @@
 
                         DevExpress.ui.dialog.alert("Something went wrong", "Export Failed");
                     } else {
-                        client.writeFile(booksDataFilename, BookShelf.db.books.exportData(), {}, function(err) {
+                        client.writeFile(booksDataFilename, BookShelf.db.exportData(), {}, function(err) {
                             viewModel.showLoadPanel(false);
 
                             if(err) {

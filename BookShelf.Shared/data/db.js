@@ -24,6 +24,7 @@
 
         var importData = function(data) {
             items = JSON.parse(data, JSON.dateParser) || config.defaultItems;
+            save();
         };
         var read = function() {
             importData(storage.getItem(name));
@@ -226,7 +227,21 @@
 
         tags: tagStore,
 
-        booksFilter: []
+        booksFilter: [],
+
+        importData: function(data) {
+            data = JSON.parse(data);
+            this.books.importData(data.books);
+            this.tags.importData(data.tags);
+        },
+
+        exportData: function() {
+            return JSON.stringify({
+                books: this.books.exportData(),
+                tags: this.tags.exportData()
+            });
+        }
+
     };
 
 }());

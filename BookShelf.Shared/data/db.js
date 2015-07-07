@@ -187,7 +187,7 @@
         books: bookStore,
 
         formatDate: function(date, format) {
-            return Globalize.format(date, format || "MM/dd/yyyy");
+            return Globalize.format(date, format || "d MMM yyyy");
         },
 
         getBookStatus: function(book) {

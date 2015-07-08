@@ -39,14 +39,14 @@
         };
     })();
     
-    var booksDataFilename = "books.json";
+    var booksDataFilename = "BookShelf_Data_v1.json";
 
     var viewModel = {
 
         showLoadPanel: ko.observable(false),
 
         importData: function() {
-            DevExpress.ui.dialog.confirm("This action will override all local data", "Import Data").done(function(dialogResult) {
+            DevExpress.ui.dialog.confirm("This action will override all local BookShelf data", "Import Data").done(function(dialogResult) {
                 if(!dialogResult)
                     return;
 
@@ -64,9 +64,11 @@
                             if(err) {
                                 DevExpress.ui.dialog.alert("Something went wrong", "Import Failed");
                             } else {
-                                BookShelf.db.books.importData(data);
+                                BookShelf.db.importData(data);
+
                                 BookShelf.app.viewCache.clear();
-                                DevExpress.ui.dialog.alert("Books imported", "Import Success");
+
+                                DevExpress.ui.dialog.alert("Data imported", "Import Success");
                             }
                         });
                     }
@@ -75,7 +77,7 @@
         },
 
         exportData: function() {
-            DevExpress.ui.dialog.confirm("This action will override all data stored in Dropbox", "Export Data").done(function(dialogResult) {
+            DevExpress.ui.dialog.confirm("This action will override all BookShelf data stored in Dropbox", "Export Data").done(function(dialogResult) {
                 if(!dialogResult)
                     return;
 
@@ -87,7 +89,7 @@
 
                         DevExpress.ui.dialog.alert("Something went wrong", "Export Failed");
                     } else {
-                        client.writeFile(booksDataFilename, BookShelf.db.books.exportData(), {}, function(err) {
+                        client.writeFile(booksDataFilename, BookShelf.db.exportData(), {}, function(err) {
                             viewModel.showLoadPanel(false);
 
                             if(err) {

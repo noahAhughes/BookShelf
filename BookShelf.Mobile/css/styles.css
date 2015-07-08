@@ -375,6 +375,7 @@
 
 .books-list .book-rating { 
     float: right;
+    margin-top: 6px;
 }
 
 /*.books-list .book-rating-badge {

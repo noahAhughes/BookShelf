@@ -18,6 +18,10 @@
     font-weight: normal;
 }
 
+.dx-datebox .dx-dropdowneditor-button {
+    display: none;
+}
+
 .dx-button-default .dx-button-content {
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }

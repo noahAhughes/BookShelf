@@ -6,7 +6,7 @@
 
         save: function() {
             BookShelf.db.books.add(this.getBook());
-            BookShelf.app.back();
+            BookShelf.app.backToList(this.book.status());
         },
 
         cancel: function() {

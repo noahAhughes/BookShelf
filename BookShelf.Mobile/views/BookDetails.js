@@ -80,6 +80,10 @@
             showProgress: showProgress
         },
 
+        back: function() {
+            BookShelf.app.backToList(this.book.status());
+        },
+
         viewShowing: function() {
             baseViewShowing.call(this);
 

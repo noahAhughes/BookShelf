@@ -80,4 +80,13 @@ $(function() {
                 e.stopImmediatePropagation();
             });
     }
+
+    BookShelf.app.backToList = function(bookStatus) {
+        BookShelf.app.navigate({
+            view: (bookStatus === BookShelf.db.bookStatus.finished) ? "FinishedList" : "LaterList"
+        }, {
+            root: true,
+            direction: "backward"
+        });
+    };
 });

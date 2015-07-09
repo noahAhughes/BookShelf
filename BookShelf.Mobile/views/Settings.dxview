@@ -9,10 +9,10 @@
 
             <div class="dx-fieldset fieldset-with-buttons">
                 <div class="dx-field">
-                    <div data-bind="dxButton: { text: 'Import Data', onClick: importData }"></div>
+                    <div data-bind="dxButton: { text: 'Export to DropBox', onClick: exportData }"></div>
                 </div>
                 <div class="dx-field">
-                    <div data-bind="dxButton: { text: 'Export Data', onClick: exportData }"></div>
+                    <div data-bind="dxButton: { text: 'Import from DropBox', onClick: importData }"></div>
                 </div>
             </div>
         </div>

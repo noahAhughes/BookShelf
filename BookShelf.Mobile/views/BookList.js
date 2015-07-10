@@ -89,7 +89,6 @@
         viewShown: function() {
             this.viewShowing();
             source.reload();
-            BookShelf.app.applyListEditFix();
         }
 
     };

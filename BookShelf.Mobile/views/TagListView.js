@@ -93,8 +93,6 @@
         },
 
         onShown: function() {
-            BookShelf.app.applyListEditFix();
-
             var $list = $(".dx-list");
             $list.off("dxactive.listBetterActiveState dxinactive.listBetterActiveState");
             if(params.selectionEnabled) {

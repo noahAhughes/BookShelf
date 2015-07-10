@@ -38,9 +38,6 @@ $(function() {
 
     function exitApp() {
         switch(DevExpress.devices.real().platform) {
-            case "tizen":
-                tizen.application.getCurrentApplication().exit();
-                break;
             case "android":
                 navigator.app.exitApp();
                 break;

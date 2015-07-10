@@ -66,6 +66,7 @@ $(function() {
     BookShelf.app.router.register(":view/:id", { view: startupView, id: undefined });
     BookShelf.app.on("navigatingBack", onNavigatingBack);
     BookShelf.app.navigate();
+    
 
     BookShelf.app.backToList = function(bookStatus) {
         BookShelf.app.navigate({
@@ -75,4 +76,7 @@ $(function() {
             direction: "backward"
         });
     };
+
+    BookShelf.app.bookListShowing = $.Callbacks();
+    
 });

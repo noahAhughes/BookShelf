@@ -6,13 +6,10 @@
 
         save: function() {
             BookShelf.db.books.add(this.getBook());
+            BookShelf.app.bookListShowing.fire();
             BookShelf.app.backToList(this.book.status());
         },
-
-        cancel: function() {
-            BookShelf.app.back();
-        },
-
+        
         resetBook: function() {
             this.book.title("");
             this.book.author("");

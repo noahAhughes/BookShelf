@@ -17,9 +17,11 @@
             BookShelf.db.booksFilter = $.map(tagListViewModel.selected(), function(tag) {
                 return tag.id;
             });
+
+            BookShelf.app.bookListShowing.fire();
             BookShelf.app.back();
         },
-
+        
         viewShowing: function() {
             this.refreshFilter();
             tagListViewModel.onShowing();

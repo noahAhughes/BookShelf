@@ -84,11 +84,16 @@
 
         viewShowing: function() {
             this.updateFilterState();
+            source.reload();
         },
 
-        viewShown: function() {
-            this.viewShowing();
-            source.reload();
+        viewRendered: function() {
+            this._viewShowingHandler = $.proxy(this.viewShowing, this);
+            BookShelf.app.bookListShowing.add(this._viewShowingHandler);
+        },
+
+        viewDisposing: function() {
+            BookShelf.app.bookListShowing.remove(this._viewShowingHandler);
         }
 
     };

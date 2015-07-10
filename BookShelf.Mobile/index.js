@@ -63,10 +63,7 @@ $(function() {
         BookShelf.app.saveState();
     });
 
-    var realDevice = DevExpress.devices.real();
-    if(realDevice.platform === "ios" && realDevice.version[0] > 7) {
-        DevExpress.framework.dxCommand.defaultOptions({ options: { renderStage: "onViewRendering" } });
-    }
+    DevExpress.framework.dxCommand.defaultOptions({ options: { renderStage: "onViewRendering" } });
 
     var startupView = "LaterList";
     BookShelf.app.router.register(":view/:id", { view: startupView, id: undefined });

@@ -53,10 +53,6 @@
     text-align: left;
 }
 
-.book-notes-fieldset {
-    margin-top: 60px;
-}
-
 .book-notes-fieldset .dx-field-value {
     width: 100% !important;
     padding-left: 0;
@@ -559,6 +555,51 @@
 .book-details .book-progress {
     margin-top: 10px;
 }
+
+.book-details .book-notes-empty {
+    color: #b3b3b3;
+}
+
+.book-details .book-notes-empty .book-notes {
+    margin: 12px 0;
+}
+
+.book-details .book-notes-fieldset {
+    margin-top: 60px;
+}
+
+.notes-active {
+    background: #d9d9d9;
+}
+
+
+/* Book Notes */
+.book-notes-edit .book-notes-fieldset { 
+    height: 50%;
+}
+
+.book-notes-edit .book-notes-fieldset .dx-field,
+.book-notes-edit .book-notes-fieldset .dx-field-value,
+.book-notes-edit .book-notes-fieldset .dx-textarea,
+.book-notes-edit .book-notes-fieldset .dx-texteditor-container,
+.book-notes-edit .book-notes-fieldset .dx-texteditor-input {
+    height: 100%;
+}
+
+.book-notes-edit .book-notes-fieldset .dx-field-value {
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
+.book-notes-edit .book-notes-fieldset .dx-textarea {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.book-notes-edit .book-notes-fieldset .dx-textarea textarea {
+    -webkit-overflow-scrolling: touch;
+}
+
 
 /* Tags List */
 .tag-form {

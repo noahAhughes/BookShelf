@@ -26,26 +26,21 @@ window.BookShelf = $.extend(true, window.BookShelf, {
           "showIcon": false,
           "location": "after"
         },
-        "commands": [
-          {
+        "commands": [ {
             "id": "filterBooks"
-          },
-          {
+          }, {
             "id": "applyFilter"
-          },
-          {
+          }, {
             "id": "addBook"
-          },
-          {
+          }, {
             "id": "saveBook"
-          },
-          {
+          }, {
             "id": "editBook"
-          },
-          {
+          }, {
+            "id": "saveNotes"
+          }, {
             "id": "addTag"
-          },
-          {
+          }, {
             "id": "saveTag"
           }
         ]

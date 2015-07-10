@@ -35,9 +35,16 @@
         return status() === BookShelf.db.bookStatus.finished;
     });
 
+    var hasNotes = ko.computed(function() {
+        return !!notes();
+    });
+
     var notesHtml = ko.computed(function() {
-        var converter = new Showdown.converter();
-        return converter.makeHtml(notes() || "");
+        if(hasNotes()) {
+            var converter = new Showdown.converter();
+            return converter.makeHtml(notes() || "");
+        }
+        return "Tap to add notes...";
     });
 
     var tagsString = ko.computed(function() {
@@ -73,6 +80,7 @@
             finishDate: finishDate,
             rating: rating,
             notes: notes,
+            hasNotes: hasNotes,
             notesHtml: notesHtml,
             tags: tags,
             tagsString: tagsString
@@ -129,17 +137,7 @@
         fixNativeFocus: function(_, e) {
             e.preventDefault();
         },
-
-        setNotesPlaceholder: function(args) {
-            setTimeout(function() {
-                args.element.find(".dx-placeholder")
-                    .attr({
-                        "data-firstline": "Add your notes here...",
-                        "data-secondline": "Markdown syntax supported"
-                    });
-            });
-        },
-
+        
         viewShowing: function() {
             this.prepareBook();
         },

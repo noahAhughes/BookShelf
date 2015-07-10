@@ -28,12 +28,14 @@
                 </div>
             </div>
 
-            <!-- ko if: book.notes -->
-            <div class="dx-fieldset book-notes-fieldset">
+            <div class="dx-fieldset book-notes-fieldset" data-bind="
+                css: { 'book-notes-empty': !book.hasNotes() },
+                dxAction: '#BookNotes/{book.id}',
+                dxactive: { timeout: 100, execute: feedbackOn },
+                dxinactive: { timeout: 400, execute: feedbackOff }">
                 <div class="dx-fieldset-header">Notes</div>
                 <div class="dx-field book-notes" data-bind="html: book.notesHtml"></div>
             </div>
-            <!-- /ko -->
         </div>
     </div>
 </div>

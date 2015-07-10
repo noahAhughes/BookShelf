@@ -79,9 +79,17 @@
             coverHeight: coverHeight,
             showProgress: showProgress
         },
-
+        
         back: function() {
             BookShelf.app.backToList(this.book.status());
+        },
+
+        feedbackOn: function(_, e) {
+            $(e.currentTarget).addClass("notes-active");
+        },
+
+        feedbackOff: function(_, e) {
+            $(e.currentTarget).removeClass("notes-active");
         },
 
         viewShowing: function() {

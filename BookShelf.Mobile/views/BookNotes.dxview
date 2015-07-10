@@ -1,0 +1,13 @@
+﻿<div data-options="dxView : { name: 'BookNotes', title: 'Book Notes' } " >
+    <div data-bind="dxCommand: { onExecute: save, id: 'saveNotes', type: 'default', title: 'Save', icon: 'save' }"></div>
+    <div data-bind="dxCommand: { id: 'back', type: 'back', title: 'Book', onExecute: '#_back' }"></div>
+    <div  data-options="dxContent : { targetPlaceholder: 'content' }" class="book-notes-edit" >
+        <div class="dx-fieldset book-notes-fieldset">
+            <div class="dx-field">
+                <div class="dx-field-value">
+                    <div class="notes-area" data-bind="dxTextArea: { value: book.notes, onInitialized: setNotesPlaceholder }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

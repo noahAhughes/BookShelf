@@ -43,6 +43,12 @@
     <Content Include="layouts\Simple\SimpleLayout.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\BookNotes.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\BookNotes.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\Settings.dxview">
       <SubType>Content</SubType>
     </Content>

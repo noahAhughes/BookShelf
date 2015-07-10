@@ -78,14 +78,6 @@
             </div>
         </div>
     </div>
-    <div class="dx-fieldset book-notes-fieldset">
-        <div class="dx-fieldset-header">Notes</div>
-        <div class="dx-field">
-            <div class="dx-field-value">
-                <div class="notes-area" data-bind="dxTextArea: { value: book.notes, height: 250, onInitialized: setNotesPlaceholder }"></div>
-            </div>
-        </div>
-    </div>
     <div class="tags-choose-popup" data-bind="dxPopup: { title: 'Choose Categories', visible: chooseTagsVisible, onShowing: onShowing, onShown: onShown, fullScreen: true, buttons: [
         { toolbar: 'top', location: 'before', widget: 'button', options: { text: 'Cancel', onClick: cancelChooseTags } },
         { toolbar: 'top', location: 'after', widget: 'button', options: { type: 'default', text: 'Done', onClick: doneChooseTags } }

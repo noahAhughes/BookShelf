@@ -7,17 +7,17 @@ window.BookShelf = $.extend(true, window.BookShelf, {
       {
         "title": "To Read",
         "onExecute": "#LaterList",
-        "icon": "bookmark"
+        "icon": "bsicon bsicon-toread"
       },
       {
         "title": "Finished",
         "onExecute": "#FinishedList",
-        "icon": "bookmark"
+        "icon": "bsicon bsicon-finished"
       },
       {
         "title": "Settings",
         "onExecute": "#Settings",
-        "icon": "preferences"
+        "icon": "bsicon bsicon-settings"
       }
     ],
     "commandMapping": {

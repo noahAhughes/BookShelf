@@ -28,6 +28,18 @@
     <Content Include="bookshelf.config.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="css\fonts\bookshelf.eot">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\bookshelf.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\bookshelf.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\fonts\bookshelf.woff">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="css\styles.css">
       <SubType>Content</SubType>
     </Content>
@@ -129,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
+    <Folder Include="css\fonts\" />
     <Folder Include="js\" />
     <Folder Include="layouts\" />
     <Folder Include="layouts\Navbar\" />

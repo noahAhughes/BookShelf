@@ -1,3 +1,53 @@
+@font-face {
+	font-family: 'bookshelf';
+	src:url('fonts/bookshelf.eot?-ujm9nf');
+	src:url('fonts/bookshelf.eot?#iefix-ujm9nf') format('embedded-opentype'),
+		url('fonts/bookshelf.ttf?-ujm9nf') format('truetype'),
+		url('fonts/bookshelf.woff?-ujm9nf') format('woff'),
+		url('fonts/bookshelf.svg?-ujm9nf#bookshelf') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="bsicon-"], [class*=" bsicon-"] {
+	font-family: 'bookshelf';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.bsicon-toread:before {
+	content: "\e607";
+}
+.dx-tab-selected .bsicon-toread:before {
+	content: "\e606";
+}
+.bsicon-finished:before {
+	content: "\e603";
+}
+.dx-tab-selected .bsicon-finished:before {
+	content: "\e602";
+}
+.bsicon-settings:before {
+	content: "\e605";
+}
+.bsicon-clear-filter:before {
+	content: "\e604";
+}
+.bsicon-filter:before {
+	content: "\e600";
+}
+.bsicon-circle:before {
+	content: "\e601";
+}
+
 .dx-theme-ios7-typography h1,
 .dx-theme-ios7-typography h2 {
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

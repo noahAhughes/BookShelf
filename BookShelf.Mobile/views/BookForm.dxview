@@ -30,7 +30,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Start Date</div>
             <div class="dx-field-value">
-                <div data-bind="dxDateBox: { value: book.startDate, showClearButton: false }"></div>
+                <div data-bind="dxDateBox: { value: book.startDate, showClearButton: false, placeholder: 'Set date' }"></div>
             </div>
         </div>
         <!-- /ko -->
@@ -46,7 +46,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Finish Date</div>
             <div class="dx-field-value">
-                <div data-bind="dxDateBox: { value: book.finishDate, showClearButton: false }"></div>
+                <div data-bind="dxDateBox: { value: book.finishDate, showClearButton: false, placeholder: 'Set date' }"></div>
             </div>
         </div>
         <!-- /ko -->

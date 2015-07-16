@@ -36,10 +36,18 @@
             storage.setItem(name, exportData());
         };
 
+        var onAdd = $.Callbacks().add(config.onAdd);
+        var onUpdate = $.Callbacks().add(config.onUpdate);
+        var onRemove = $.Callbacks().add(config.onRemove);
+
         var items = [];
         read();
 
         return {
+            onAdd: onAdd,
+            onUpdate: onUpdate,
+            onRemove: onRemove,
+
             getAll: function() {
                 return items;
             },
@@ -52,18 +60,18 @@
                 var lastId = items.length ? items[items.length - 1].id : 0;
                 var newId = lastId + 1;
                 items.push($.extend({}, item, { id: newId }));
-                config.onAdd && config.onAdd(newId);
+                onAdd.fire(newId);
                 save();
                 return newId;
             },
             update: function(item) {
                 $.extend(this.get(item.id), item);
-                config.onUpdate && config.onUpdate(item.id);
+                onUpdate.fire(item.id);
                 save();
             },
             remove: function(id) {
                 items.splice($.inArray(this.get(id), items), 1);
-                config.onRemove && config.onRemove(id);
+                onRemove.fire(id);
                 save();
             },
             importData: importData,
@@ -161,7 +169,11 @@
             return $.inArray(tagId, book.tags) > -1;
         });
     };
-
+    bookStore.getReadingCount = function() {
+        return $.grep(bookStore.getAll(), function(book) {
+            return BookShelf.db.getBookStatus(book) === BookShelf.db.bookStatus.reading;
+        }).length;
+    };
 
     var demoTags = [{
         id: 1,

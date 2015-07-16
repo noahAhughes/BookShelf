@@ -47,6 +47,16 @@ $(function() {
         }
     }
 
+    var updateReadingCount = function() {
+        readingCount(BookShelf.db.books.getReadingCount());
+    };
+
+    var readingCount = ko.observable();
+    updateReadingCount();
+    BookShelf.db.books.onAdd.add(updateReadingCount);
+    BookShelf.db.books.onUpdate.add(updateReadingCount);
+    BookShelf.db.books.onRemove.add(updateReadingCount);
+
     BookShelf.app = new DevExpress.framework.html.HtmlApplication({
         namespace: BookShelf,
         layoutSet: DevExpress.framework.html.layoutSets[BookShelf.config.layoutSet],

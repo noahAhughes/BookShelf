@@ -71,7 +71,7 @@
                 <div class="rating-choose-control" data-bind="dxLookup: { items: ratings, value: book.rating, valueExpr: 'value', displayExpr: 'title', searchEnabled: false, title: 'Rating', showClearButton: true }">
                     <div class="rating-item" data-options="dxTemplate: { name: 'item' }">
                         <div class="lookup-item-selected-icon dx-icon-todo"></div>
-                        <div class="fa fa-circle book-rating-badge" data-bind="style: { color: color }"></div>
+                        <div class="bsicon-circle book-rating-badge" data-bind="style: { color: color }"></div>
                         <div class="lookup-item-title rating-item-title" data-bind="text: title"></div>
                     </div>
                 </div>

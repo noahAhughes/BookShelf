@@ -11,7 +11,7 @@
                     <div class="book-author" data-bind="text: book.authorText"></div>
                     <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">
                         <div class="book-rating" data-bind="visible: book.rating">
-                            <div class="fa fa-circle book-rating-badge" data-bind="style: { color: book.ratingColor }"></div><div class="book-rating-text" data-bind="text: book.ratingText"></div>
+                            <div class="bsicon-circle book-rating-badge" data-bind="style: { color: book.ratingColor }"></div><div class="book-rating-text" data-bind="text: book.ratingText"></div>
                         </div>
                         <div class="book-tags" data-bind="visible: book.tagsString">
                             <div class="book-tags-icon dx-icon-tags"></div><div class="book-tags-text" data-bind="text: book.tagsString"></div>

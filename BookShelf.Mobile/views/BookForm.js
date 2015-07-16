@@ -19,7 +19,7 @@
 
                 $(".rating-choose-control .dx-lookup-field")
                     .empty()
-                    .append($("<div class='fa fa-circle book-rating-badge'>").css("color", rating.color))
+                    .append($("<div class='bsicon-circle book-rating-badge'>").css("color", rating.color))
                     .append($("<div class='rating-choose-field-content'>").text(rating.title));
             });
         }

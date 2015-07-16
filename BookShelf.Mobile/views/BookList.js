@@ -88,6 +88,10 @@
             return DevExpress.ui.dialog.confirm("Are you sure you want to delete book \"" + args.itemData.title + "\"?", "Delete book");
         },
 
+        bookRendered: function(args) {
+            args.itemElement.addClass("book-" + args.itemData.status.toLowerCase());
+        },
+
         deleteBook: function(args) {
             BookShelf.db.books.remove(args.itemData.id);
         },

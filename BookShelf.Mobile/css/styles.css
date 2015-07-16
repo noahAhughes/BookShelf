@@ -455,10 +455,18 @@
     margin-top: 6px;
 }
 
-/*.books-list .book-rating-badge {
-    font-size: 11px;
-    margin-right: 0;
-}*/
+.books-list .book-reading .dx-list-slide-menu-content {
+    border-left: 4px solid #4F6493;
+}
+
+.books-list .book-reading .dx-list-item-content {
+    padding-left: 11px;
+}
+
+.books-list .dx-list-item-content:after {
+    padding-left: 0;
+    margin-left: -15px;
+}
 
 .books-list .book-rating-badge {
     width: 11px;

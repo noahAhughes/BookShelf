@@ -1,8 +1,8 @@
 <div data-options="dxView: { name: 'BookList', title: 'Books' }" class="books-list-partial">
     <div data-bind="dxCommand: { id: 'filterBooks', onExecute: function() { this.filterBooks(); }, icon: (filterApplied() ? 'bsicon bsicon-clear-filter' : 'bsicon bsicon-filter'), location: 'before' }"></div>
     <div data-bind="dxCommand: { id: 'addBook', onExecute: function() { this.addBook(); }, icon: 'plus' }"></div>
-    <div class="books-list" data-bind="dxList: { dataSource: source, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true, onItemClick: openBook, noDataText: noBooksText }">
-        <div data-options="dxTemplate: { name: 'item' }" data-bind="attr: { 'class': 'book-' + status }">
+    <div class="books-list" data-bind="dxList: { dataSource: source, onItemRendered: bookRendered, onItemDeleted: deleteBook, onItemDeleting: deleteBookConfirmation, allowItemDeleting: true, onItemClick: openBook, noDataText: noBooksText }">
+        <div data-options="dxTemplate: { name: 'item' }">
             <div>
                 <div class="book-rating" data-bind="visible: rating">
                     <div class="book-rating-badge book-rating-badge-bordered" data-bind="style: { backgroundColor: ratingColor, backgroundImage: progressBg, borderColor: ratingColor }"></div>

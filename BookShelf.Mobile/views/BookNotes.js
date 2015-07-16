@@ -18,10 +18,15 @@
         },
 
         viewShown: function() {
-            setTimeout(function() {
+            this._focusTimer = setTimeout(function() {
                 $(".notes-area").dxTextArea("focus");
             }, 400);
+        },
+
+        viewHiding: function() {
+            clearTimeout(this._focusTimer);
         }
+
     });
 
 };

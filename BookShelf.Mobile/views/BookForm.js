@@ -52,9 +52,9 @@
     });
     
     var tagListViewModel = BookShelf.TagListView({
-        select: true
+        selectionEnabled: true
     });
-    
+
     var ratings = BookShelf.db.bookRatings;
 
     var viewModel = {
@@ -150,10 +150,6 @@
         }
 
     };
-
-    var tagListViewModel = BookShelf.TagListView({
-        selectionEnabled: true
-    });
 
     return $.extend(viewModel, tagListViewModel);
 

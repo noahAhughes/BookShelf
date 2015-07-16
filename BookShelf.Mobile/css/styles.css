@@ -345,7 +345,8 @@
     line-height: 18px;
 }
 
-.dx-lookup-popup-wrapper .lookup-item-selected-icon {
+.lookup-item-selected-icon,
+.rating-item-selected-icon {
     display: none;
     float: right;
     color: #017aff;
@@ -354,15 +355,15 @@
     margin: -5px -8px -5px 0;
 }
 
-.dx-lookup-popup-wrapper .dx-lookup-selected .lookup-item-selected-icon {
+.dx-lookup-selected .lookup-item-selected-icon {
     display: block;
 }
 
-.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content {
+.dx-lookup-selected .dx-list-item-content {
     padding-right: 13px;
 }
 
-.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content:before {
+.dx-lookup-selected .dx-list-item-content:before {
     display: none;
 }
 
@@ -385,6 +386,36 @@
 
 .rating-item .book-rating-badge {
     line-height: 18px;
+}
+
+.rating-list {
+    margin-left: -15px;
+}
+
+.rating-list .dx-list-item.dx-list-item-selected {
+    background: none;
+}
+
+.rating-list .dx-list-item.dx-state-active {
+    background: #d9d9d9;
+}
+
+.dx-list-item-selected .rating-item-selected-icon {
+    display: block;
+}
+
+.dx-list-item-selected .dx-list-item-content {
+    padding-right: 13px;
+}
+
+
+/* Book Filter */
+.book-filter .tags-list {
+    margin-left: -15px;
+}
+
+.book-filter .dx-fieldset {
+    margin-top: 60px;
 }
 
 

@@ -36,7 +36,7 @@
     });
 
     var rating = ko.computed(function() {
-        return BookShelf.db.bookRatings[book.rating()];
+        return BookShelf.db.getBookRating(book.rating());
     });
 
     var ratingText = ko.computed(function() {

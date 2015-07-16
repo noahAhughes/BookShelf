@@ -1,7 +1,22 @@
 ﻿<div data-options="dxView : { name: 'TagFilter', title: 'Filter Books' } ">
     <div data-bind="dxCommand: { id: 'back', title: 'Close', onExecute: '#_back' }"></div>
-    <div data-bind="dxCommand: { id: 'applyFilter', title: 'Apply', onExecute: applyFilter, type: 'default', disabled: !selected().length }"></div>
-    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
-        <div class="tags-list-view-container" data-options="dxViewPlaceholder: { viewName: 'TagListView' }"></div>
+    <div data-bind="dxCommand: { id: 'applyFilter', title: 'Apply', onExecute: applyFilter, type: 'default', disabled: invalidFilter }"></div>
+    <div class="book-filter" data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div data-bind="dxScrollView: {}">
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Ratings</div>
+                <div class="rating-list" data-bind="dxList: { items: ratings, selectionMode: 'multy', selectedItems: selectedRatings, scrollingEnabled: false }">
+                    <div data-options="dxTemplate: { name: 'item' }">
+                        <div class="rating-item-selected-icon dx-icon-todo"></div>
+                        <div class="bsicon-circle book-rating-badge" data-bind="style: { color: color }"></div>
+                        <div class="rating-item-title" data-bind="text: title"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Categories</div>
+                <div class="tags-list-view-container" data-options="dxViewPlaceholder: { viewName: 'TagListView' }"></div>
+            </div>
+        </div>
     </div>
 </div>

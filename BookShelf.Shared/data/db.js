@@ -183,6 +183,11 @@
         }
     });
 
+    var emptyBookFilter = {
+        ratings: [],
+        tags: []
+    };
+
 
     BookShelf.db = {
         books: bookStore,
@@ -211,12 +216,18 @@
                 : "linear-gradient(90deg, transparent 50%, " + color + " 50%), linear-gradient(" + (angle - 90) + "deg, white 50%, transparent 50%)";
         },
 
-        bookRatings: {
-            1: { title: "Waste of time", color: "#f42525" },
-            2: { title: "Boring", color: "#f48c25" },
-            3: { title: "So-so", color: "#f4d525" },
-            4: { title: "Good read", color: "#a0da0b" },
-            5: { title: "Must read", color: "#0bda0b" },
+        bookRatings: [
+            { value: 5, title: "Must read", color: "#0bda0b" },
+            { value: 4, title: "Good read", color: "#a0da0b" },
+            { value: 3, title: "So-so", color: "#f4d525" },
+            { value: 2, title: "Boring", color: "#f48c25" },
+            { value: 1, title: "Waste of time", color: "#f42525" }
+        ],
+
+        getBookRating: function(rating) {
+            return $.grep(this.bookRatings, function(r) {
+                return r.value === rating;
+            })[0];
         },
 
         getTagsString: function(tagIds) {
@@ -227,7 +238,15 @@
 
         tags: tagStore,
 
-        booksFilter: [],
+        booksFilter: emptyBookFilter,
+
+        isBooksFilterApplied: function() {
+            return !!this.booksFilter.ratings.length || !!this.booksFilter.tags.length
+        },
+
+        clearBooksFilter: function() {
+            this.booksFilter = emptyBookFilter;
+        },
 
         importData: function(data) {
             data = JSON.parse(data);

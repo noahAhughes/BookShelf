@@ -11,6 +11,7 @@
 
         items: items,
         selectionEnabled: params.selectionEnabled,
+        scrollingEnabled: (params.scrollingEnabled === undefined) ? true : params.scrollingEnabled,
         editingEnabled: (params.editingEnabled === undefined) ? true : params.editingEnabled,
         selected: selected,
 

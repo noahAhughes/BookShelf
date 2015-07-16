@@ -15,6 +15,7 @@
             allowItemDeleting: (editingEnabled ? true : false),
             menuItems: (editingEnabled ? [{ text: 'Edit', action: editTag }] : []),
             activeStateEnabled: false,
+            scrollingEnabled: scrollingEnabled,
             noDataText: '&bull;'
         }">
             <div data-options="dxTemplate: { name: 'item' }">

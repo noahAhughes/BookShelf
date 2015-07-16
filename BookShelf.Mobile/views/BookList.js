@@ -3,12 +3,12 @@
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books.getAll(),
         filter: function(book) {
-            return params.filter(book) && filterTags(book);
+            return params.filter(book) && filterTags(book) && filterRatings(book);
         },
         sort: params.sort,
         map: function(book) {
             var status = BookShelf.db.getBookStatus(book);
-            var ratingColor = book.rating && BookShelf.db.bookRatings[book.rating].color;
+            var ratingColor = book.rating && BookShelf.db.getBookRating(book.rating).color;
             var progress = (status === BookShelf.db.bookStatus.reading)
                 ? book.progress
                 : (status === BookShelf.db.bookStatus.finished) ? 100 : 0;
@@ -30,9 +30,13 @@
     });
 
     var filterTags = function(book) {
-        return !BookShelf.db.booksFilter.length || !!$.grep(BookShelf.db.booksFilter, function(tagId) {
+        return !BookShelf.db.booksFilter.tags.length || !!$.grep(BookShelf.db.booksFilter.tags, function(tagId) {
             return $.inArray(tagId, book.tags) > -1;
         }).length;
+    };
+
+    var filterRatings = function(book) {
+        return !BookShelf.db.booksFilter.ratings.length || $.inArray(book.rating, BookShelf.db.booksFilter.ratings) > -1;
     };
 
     var viewModel = {
@@ -43,7 +47,7 @@
         filterApplied: ko.observable(false),
 
         clearFilter: function() {
-            BookShelf.db.booksFilter = [];
+            BookShelf.db.clearBooksFilter();
             this.updateFilterState();
             source.reload();
         },
@@ -79,7 +83,7 @@
         },
 
         updateFilterState: function() {
-            this.filterApplied(!!BookShelf.db.booksFilter.length);
+            this.filterApplied(BookShelf.db.isBooksFilterApplied());
         },
 
         viewShowing: function() {

@@ -15,7 +15,7 @@
     rating.subscribe(function(value) {
         if(value) {
             setTimeout(function() {
-                var rating = BookShelf.db.bookRatings[value];
+                var rating = BookShelf.db.getBookRating(value);
 
                 $(".rating-choose-control .dx-lookup-field")
                     .empty()
@@ -55,11 +55,7 @@
         select: true
     });
     
-    var ratings = $.map(BookShelf.db.bookRatings, function(rating, value) {
-        return { value: value, title: rating.title, color: rating.color };
-    }).sort(function(r1, r2) {
-        return r2.value - r1.value;
-    });
+    var ratings = BookShelf.db.bookRatings;
 
     var viewModel = {
 

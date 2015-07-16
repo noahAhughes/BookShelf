@@ -39,17 +39,31 @@
         return !BookShelf.db.booksFilter.ratings.length || $.inArray(book.rating, BookShelf.db.booksFilter.ratings) > -1;
     };
 
+    var booksCount = ko.observable();
+    var title = ko.computed(function() {
+        return params.title + (booksCount() ? " (" + booksCount() + ")" : "");
+    });
+
     var viewModel = {
+        title: title,
+
         noBooksText: params.noBooksMessage,
 
         source: source,
+
+        reloadSource: function() {
+            source.requireTotalCount(true);
+            source.pageIndex(0);
+            source.load();
+            booksCount(source.totalCount());
+        },
 
         filterApplied: ko.observable(false),
 
         clearFilter: function() {
             BookShelf.db.clearBooksFilter();
             this.updateFilterState();
-            source.reload();
+            this.reloadSource();
         },
 
         filterBooks: function() {
@@ -88,7 +102,7 @@
 
         viewShowing: function() {
             this.updateFilterState();
-            source.reload();
+            this.reloadSource();
         },
 
         viewRendered: function() {

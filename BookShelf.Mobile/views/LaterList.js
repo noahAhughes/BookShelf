@@ -12,7 +12,8 @@
             },
             { getter: "startDate", desc: true },
             { getter: "title" }
-        ]
+        ],
+        title: "Books To Read"
     }));
 
 };

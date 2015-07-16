@@ -363,7 +363,7 @@
     padding-right: 13px;
 }
 
-.dx-lookup-selected .dx-list-item-content:before {
+.dx-lookup-popup-wrapper .dx-lookup-selected .dx-list-item-content:before {
     display: none;
 }
 

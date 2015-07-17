@@ -113,10 +113,10 @@
         },
 
         doneChooseTags: function() {
+            viewModel.refreshAllTags();
             tags($.map(tagListViewModel.selected(), function(tag) {
                 return tag.id;
             }));
-            viewModel.refreshAllTags();
             chooseTagsVisible(false);
         },
 

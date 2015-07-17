@@ -18,6 +18,10 @@
         },
 
         viewShown: function() {
+            $(".notes-area textarea").on("dxpointermove", function(e) {
+                e.isScrollingEvent = true;
+            });
+
             this._focusTimer = setTimeout(function() {
                 $(".notes-area").dxTextArea("focus");
             }, 400);

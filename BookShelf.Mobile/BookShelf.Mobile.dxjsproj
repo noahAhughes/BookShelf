@@ -10,7 +10,7 @@
     <Name>BookShelf.Mobile</Name>
     <KeyIpaPath>..\..\DevExtreme 15.1\Tools\Certificates\DevelopmentSerctificate.p12</KeyIpaPath>
     <ProvisionProfile>..\..\DevExtreme 15.1\Tools\Certificates\AllApps_dev.mobileprovision</ProvisionProfile>
-    <UpgradeNotifyShown>14.2.8</UpgradeNotifyShown>
+    <UpgradeNotifyShown>15.1.5</UpgradeNotifyShown>
     <ScreenOrientation>Portrait</ScreenOrientation>
     <ApplicationTitle>BookShelf</ApplicationTitle>
     <VersionPackage>1.0.0.0</VersionPackage>

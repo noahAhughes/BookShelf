@@ -763,8 +763,11 @@
     visibility: hidden;
 }
 
-.tag-list .tag-title {
+.tags-list .tag-title {
     margin-right: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .tags-list .tag-selected-icon {

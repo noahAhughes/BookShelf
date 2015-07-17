@@ -10,7 +10,8 @@
         progress = ko.observable(),
         rating = ko.observable(),
         notes = ko.observable(),
-        tags = ko.observableArray();
+        tags = ko.observableArray(),
+        allTags = ko.observableArray();
 
     rating.subscribe(function(value) {
         if(value) {
@@ -60,7 +61,7 @@
     var viewModel = {
 
         statuses: [BookShelf.db.bookStatus.later, BookShelf.db.bookStatus.reading, BookShelf.db.bookStatus.finished],
-        tags: BookShelf.db.tags.getAll(),
+        tags: allTags,
         ratings: ratings,
         chooseTagsVisible: chooseTagsVisible,
 
@@ -115,6 +116,7 @@
             tags($.map(tagListViewModel.selected(), function(tag) {
                 return tag.id;
             }));
+            viewModel.refreshAllTags();
             chooseTagsVisible(false);
         },
 
@@ -136,6 +138,7 @@
         
         viewShowing: function() {
             this.prepareBook();
+            this.refreshAllTags();
         },
 
         viewShown: function() {
@@ -147,8 +150,12 @@
                 .on("dxinactive.tagsControlBetterActiveState", { timeout: 400 }, function(e) {
                     $(e.currentTarget).removeClass("dx-state-active");
                 });
-        }
+        },
 
+        refreshAllTags: function() {
+            allTags(BookShelf.db.tags.getAll());
+            $(".tags-choose-control").dxTagBox("repaint");
+        }
     };
 
     return $.extend(viewModel, tagListViewModel);

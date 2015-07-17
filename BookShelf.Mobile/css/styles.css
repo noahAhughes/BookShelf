@@ -278,6 +278,10 @@
     border: 0.5px solid #c6c6c6;
 }
 
+.hairlines .dx-list-item-chevron-container {
+    border-bottom: 0.5px solid #b7b6bb;
+}
+
 /* Slider */
 .dx-slider-bar {
     margin: 14px 14.5px;

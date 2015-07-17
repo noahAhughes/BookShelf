@@ -6,7 +6,7 @@
             <div class="dx-fieldset">
                 <div class="dx-fieldset-header">Ratings</div>
                 <div class="rating-list" data-bind="dxList: { items: ratings, selectionMode: 'multy', selectedItems: selectedRatings, scrollingEnabled: false }">
-                    <div data-options="dxTemplate: { name: 'item' }">
+                    <div data-options="dxTemplate: { name: 'item' }" class="rating-item">
                         <div class="rating-item-selected-icon dx-icon-todo"></div>
                         <div class="bsicon-circle book-rating-badge" data-bind="style: { color: color }"></div>
                         <div class="rating-item-title" data-bind="text: title"></div>

@@ -418,6 +418,10 @@
     margin-top: 60px;
 }
 
+.rating-item {
+    line-height: 0;
+}
+
 
 /* Books List */
 .books-list, .books-list-partial {
@@ -711,7 +715,8 @@
 
 .tag-form-field .dx-texteditor-input,
 .tag-form-field .dx-placeholder:before {
-    padding: 13px 0;
+    padding: 12px 0;
+    line-height: 21px;
 }
 
 .tag-form-button {
@@ -769,6 +774,7 @@
 
 .tags-list .tag-title {
     margin-right: 28px;
+    line-height: 18px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

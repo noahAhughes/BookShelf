@@ -50,19 +50,21 @@
                 if(!dialogResult)
                     return;
 
-                viewModel.showLoadPanel(true);
-
                 getDropboxClient(function(client) {
                     if(!client) {
-                        viewModel.showLoadPanel(false);
-
-                        DevExpress.ui.dialog.alert("Something went wrong", "Import Failed");
+                        DevExpress.ui.dialog.alert("Authentication failed", "Import Failed");
                     } else {
-                        client.readFile(booksDataFilename, {}, function(err, data) {
+                        viewModel.showLoadPanel(true);
+
+                        client.readFile(booksDataFilename, {}, function(error, data) {
                             viewModel.showLoadPanel(false);
 
-                            if(err) {
-                                DevExpress.ui.dialog.alert("Something went wrong", "Import Failed");
+                            if(error) {
+                                if(error.status === Dropbox.ApiError.NOT_FOUND) {
+                                    DevExpress.ui.dialog.alert("There is no data to import", "Import Failed");
+                                } else {
+                                    DevExpress.ui.dialog.alert("Something went wrong", "Import Failed");
+                                }
                             } else {
                                 BookShelf.db.importData(data);
 
@@ -81,18 +83,16 @@
                 if(!dialogResult)
                     return;
 
-                viewModel.showLoadPanel(true);
-
                 getDropboxClient(function(client) {
                     if(!client) {
-                        viewModel.showLoadPanel(false);
-
-                        DevExpress.ui.dialog.alert("Something went wrong", "Export Failed");
+                        DevExpress.ui.dialog.alert("Authentication failed", "Export Failed");
                     } else {
-                        client.writeFile(booksDataFilename, BookShelf.db.exportData(), {}, function(err) {
+                        viewModel.showLoadPanel(true);
+
+                        client.writeFile(booksDataFilename, BookShelf.db.exportData(), {}, function(error) {
                             viewModel.showLoadPanel(false);
 
-                            if(err) {
+                            if(error) {
                                 DevExpress.ui.dialog.alert("Something went wrong", "Export Failed");
                             } else {
                                 DevExpress.ui.dialog.alert("Data exported", "Export Success");

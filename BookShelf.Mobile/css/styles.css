@@ -330,6 +330,10 @@
     background: #fff;
 }
 
+.dx-lookup-popup-wrapper .dx-list-item.dx-state-active {
+    background: #d9d9d9;
+}
+
 .dx-lookup-popup-wrapper .dx-popup-title {
     border-bottom: 1px solid #ababab;
     padding: 7px 0;

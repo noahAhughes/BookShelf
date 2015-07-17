@@ -21,6 +21,13 @@ $(function() {
 
     $(document).on("deviceready", function() {
         navigator.splashscreen.hide();
+        if(cordova && cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if(window.StatusBar) {
+            StatusBar.backgroundColorByHexString("#60433d");
+        }
         if(window.devextremeaddon) {
             window.devextremeaddon.setup();
         }

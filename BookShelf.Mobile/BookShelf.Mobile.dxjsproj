@@ -15,6 +15,12 @@
     <ApplicationTitle>BookShelf</ApplicationTitle>
     <VersionPackage>1.0.0.0</VersionPackage>
     <ShowSplashScreen>True</ShowSplashScreen>
+    <IpaPrivateKeyFile />
+    <TemplateFileIpa />
+    <UseCustomTemplateNameIpa>False</UseCustomTemplateNameIpa>
+    <IpaDevicesFamily>Universal</IpaDevicesFamily>
+    <BundleIdentifier>BookShelf.Mobile</BundleIdentifier>
+    <IpaSupportedLanguages>en-US</IpaSupportedLanguages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -138,6 +144,26 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\readme.txt" />
+    <None Include="Resources\PackageIcons.iOS.Default%402x~iphone.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-568h%402x~iphone.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-667h.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-736h.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-Landscape%402x~ipad.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-Landscape-736h.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-Landscape~ipad.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-Portrait%402x~ipad.png" />
+    <None Include="Resources\PackageIcons.iOS.Default-Portrait~ipad.png" />
+    <None Include="Resources\PackageIcons.iOS.Default~iphone.png" />
+    <None Include="Resources\PackageIcons.iOS.icon%402x.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-60%402x.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-60%403x.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-60.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-72%402x.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-72.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-76%402x.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-76.png" />
+    <None Include="Resources\PackageIcons.iOS.icon.png" />
+    <None Include="Resources\PackageIcons.iOS.iTunesArtwork.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
@@ -147,6 +173,7 @@
     <Folder Include="layouts\Navbar\" />
     <Folder Include="layouts\Popup\" />
     <Folder Include="layouts\Simple\" />
+    <Folder Include="Resources\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>

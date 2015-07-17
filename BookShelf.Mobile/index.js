@@ -20,7 +20,6 @@ $(function() {
     }
 
     $(document).on("deviceready", function() {
-        navigator.splashscreen.hide();
         if(cordova && cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
@@ -72,6 +71,14 @@ $(function() {
         commandMapping: BookShelf.config.commandMapping,
         useViewTitleAsBackText: true
     });
+    
+    var hideSplashscreen = function() {
+        if(navigator.splashscreen) {
+            navigator.splashscreen.hide();
+        }
+        BookShelf.app.off(hideSplashscreen);
+    };
+    BookShelf.app.on("viewShown", hideSplashscreen);
 
     $(window).unload(function() {
         BookShelf.app.saveState();

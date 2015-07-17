@@ -23,6 +23,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.dx-scrollable-native.dx-scrollable-native-ios .dx-scrollable-content {
+    min-height: 101%;
+    min-height: calc(100% + 1px);
+}
+
 .bsicon-toread:before {
 	content: "\e607";
 }

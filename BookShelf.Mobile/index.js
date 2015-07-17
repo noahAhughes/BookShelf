@@ -84,6 +84,7 @@ $(function() {
         BookShelf.app.saveState();
     });
 
+    DevExpress.ui.dxScrollView.defaultOptions({ options: { pushBackValue: 0 } });
     DevExpress.framework.dxCommand.defaultOptions({ options: { renderStage: "onViewRendering" } });
 
     var startupView = "LaterList";

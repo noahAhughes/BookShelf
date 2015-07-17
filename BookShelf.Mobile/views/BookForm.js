@@ -123,8 +123,8 @@
             this.book.author(book.author);
             this.book.status(BookShelf.db.getBookStatus(book));
             this.book.progress(book.progress);
-            this.book.startDate(book.startDate);
-            this.book.finishDate(book.finishDate);
+            this.book.startDate(book.startDate || new Date());
+            this.book.finishDate(book.finishDate || new Date());
             this.book.rating(book.rating);
             this.book.notes(book.notes);
             this.book.tags(book.tags);

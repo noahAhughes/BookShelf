@@ -28,13 +28,7 @@
         viewShown: function() {
             baseViewModel.viewShown();
 
-            this._focusTimer = setTimeout(function() {
-                $(".title-field").dxTextBox("focus");
-            }, 400);
-        },
-
-        viewHiding: function() {
-            clearTimeout(this._focusTimer);
+            $(".title-field").dxTextBox("focus");
         }
 
     };

@@ -22,13 +22,7 @@
                 e.isScrollingEvent = true;
             });
 
-            this._focusTimer = setTimeout(function() {
-                $(".notes-area").dxTextArea("focus");
-            }, 400);
-        },
-
-        viewHiding: function() {
-            clearTimeout(this._focusTimer);
+            $(".notes-area").dxTextArea("focus");
         }
 
     });

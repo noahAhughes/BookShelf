@@ -13,19 +13,6 @@
         tags = ko.observableArray(),
         allTags = ko.observableArray();
 
-    rating.subscribe(function(value) {
-        if(value) {
-            setTimeout(function() {
-                var rating = BookShelf.db.getBookRating(value);
-
-                $(".rating-choose-control .dx-lookup-field")
-                    .empty()
-                    .append($("<div class='bsicon-circle book-rating-badge'>").css("color", rating.color))
-                    .append($("<div class='rating-choose-field-content'>").text(rating.title));
-            });
-        }
-    });
-
     var chooseTagsVisible = ko.observable();
 
     var showStartDate = ko.computed(function() {
@@ -155,7 +142,24 @@
         refreshAllTags: function() {
             allTags(BookShelf.db.tags.getAll());
             $(".tags-choose-control").dxTagBox("repaint");
+        },
+
+        ratingInit: function(args) {
+            rating.subscribe(function(ratingId) {
+                if(!ratingId)
+                    return;
+
+                setTimeout(function() {
+                    var ratingObj = BookShelf.db.getBookRating(ratingId);
+
+                    args.element.find(".dx-lookup-field")
+                        .empty()
+                        .append($("<div class='bsicon-circle book-rating-badge'>").css("color", ratingObj.color))
+                        .append($("<div class='rating-choose-field-content'>").text(ratingObj.title));
+                });
+            });
         }
+
     };
 
     return $.extend(viewModel, tagListViewModel);

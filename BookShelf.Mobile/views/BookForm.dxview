@@ -68,7 +68,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Rating</div>
             <div class="dx-field-value">
-                <div class="rating-choose-control" data-bind="dxLookup: { items: ratings, value: book.rating, valueExpr: 'value', displayExpr: 'title', searchEnabled: false, title: 'Rating', showClearButton: true }">
+                <div class="rating-choose-control" data-bind="dxLookup: { items: ratings, value: book.rating, valueExpr: 'value', displayExpr: 'title', searchEnabled: false, title: 'Rating', showClearButton: true, onInitialized: ratingInit }">
                     <div class="rating-item" data-options="dxTemplate: { name: 'item' }">
                         <div class="lookup-item-selected-icon dx-icon-todo"></div>
                         <div class="bsicon-circle book-rating-badge" data-bind="style: { color: color }"></div>

@@ -17,7 +17,7 @@
             this.book.progress(0);
             this.book.startDate(new Date());
             this.book.finishDate(new Date());
-            this.book.rating(undefined);
+            this.book.rating(null);
             this.book.tags([]);
         },
 

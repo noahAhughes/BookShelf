@@ -23,11 +23,17 @@
         var storage = window.localStorage;
 
         var importData = function(data) {
-            items = JSON.parse(data, JSON.dateParser) || config.defaultItems;
+            parseData(data);
+            $.each(items, function(_, item) {
+                onAdd.fire(item.id);
+            });
+        };
+        var parseData = function(data) {
+            items = JSON.parse(data, JSON.dateParser) || config.defaultItems || [];
             save();
         };
         var read = function() {
-            importData(storage.getItem(name));
+            parseData(storage.getItem(name));
         };
         var exportData = function() {
             return JSON.stringify(items);
@@ -79,30 +85,6 @@
         };
     };
 
-
-    var demoBooks = [{
-        id: 1,
-        title: "War and Peace",
-        author: "Lev Tolstoy",
-        startDate: new Date(2010, 1, 1),
-        finishDate: new Date(2012, 1, 1),
-        progress: 100,
-        notes: "#Header\n * point1\n * point2",
-        tags: [1]
-    }, {
-        id: 2,
-        title: "Crime and Punishment",
-        author: "Fyodor Dostoyevsky",
-        startDate: new Date(2011, 1, 1),
-        progress: 50,
-        tags: []
-    }, {
-        id: 3,
-        title: "Quiet Flows the Don",
-        author: "Mikhail Sholohov",
-        progress: 0,
-        tags: [1, 2]
-    }];
 
     var loadCover = function(bookId) {
         var book = bookStore.get(bookId);
@@ -159,7 +141,6 @@
     };
 
     var bookStore = Store("books", {
-        defaultItems: demoBooks,
         onAdd: loadCover,
         onUpdate: loadCover
     });
@@ -175,16 +156,8 @@
         }).length;
     };
 
-    var demoTags = [{
-        id: 1,
-        title: "Programming"
-    }, {
-        id: 2,
-        title: "Design"
-    }];
 
     var tagStore = Store("tags", {
-        defaultItems: demoTags,
         onRemove: function(id) {
             $.each(bookStore.getAll(), function(_, book) {
                 book.tags = $.grep(book.tags, function(tagId) {

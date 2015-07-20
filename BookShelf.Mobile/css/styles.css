@@ -489,21 +489,16 @@
     margin-right: 0;
 }
 
-.books-list .book-tags-icon,
-.books-list .book-rating-icon {
-    width: 16px;
+.books-list .book-tags-icon {
+    width: 14px;
     height: 16px;
     line-height: 16px;
-    font-size: 16px;
+    font-size: 13px;
     margin-right: 3px;
 }
 
 .books-list .book-tags-icon {
     float: left;
-}
-
-.books-list .book-rating-icon {
-    display: inline-block;
 }
 
 .books-list .book-tags-text,
@@ -611,12 +606,12 @@
 
 .book-details .book-tags-icon,
 .book-details .book-rating-badge {
-    width: 16px;
+    width: 14px;
     height: 16px;
     margin-right: 3px;
+    font-size: 13px;
     line-height: 16px;
     text-align: center;
-    font-size: 16px;
 }
 
 .book-details .book-tags-icon {

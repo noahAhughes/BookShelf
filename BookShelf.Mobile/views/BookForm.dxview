@@ -4,13 +4,13 @@
         <div class="dx-field">
             <div class="dx-field-label">Title</div>
             <div class="dx-field-value">
-                <div class="title-field" data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input' }"></div>
+                <div class="title-field" data-bind="dxTextBox: { placeholder: 'War and Peace', value: book.title, valueChangeEvent: 'input', attr: { 'autocapitalize': 'sentences' } }"></div>
             </div>
         </div>
         <div class="dx-field">
             <div class="dx-field-label">Author</div>
             <div class="dx-field-value">
-                <div data-bind="dxTextBox: { placeholder: 'Leo Tolstoy', value: book.author, valueChangeEvent: 'input' }"></div>
+                <div data-bind="dxTextBox: { placeholder: 'Leo Tolstoy', value: book.author, valueChangeEvent: 'input', attr: { 'autocapitalize': 'sentences' } }"></div>
             </div>
         </div>
     </div>

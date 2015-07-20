@@ -53,9 +53,12 @@
 
         reloadSource: function() {
             source.requireTotalCount(true);
-            source.pageIndex(0);
-            source.load();
+            this.list.reload();
             booksCount(source.totalCount());
+        },
+
+        listInit: function(args) {
+            this.list = args.component;
         },
 
         filterApplied: ko.observable(false),

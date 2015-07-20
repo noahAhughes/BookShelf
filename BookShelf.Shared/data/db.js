@@ -88,7 +88,7 @@
 
     var loadCover = function(bookId) {
         var book = bookStore.get(bookId);
-        var coverKey = book.title + " " + (book.author || "");
+        var coverKey = book.title + " " + (book.author || "book cover");
 
         if(book.cover && book.cover.key === coverKey)
             return $.when(book.cover).promise();
@@ -97,7 +97,7 @@
 
         $.ajax({
             type: "GET",
-            url: "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + encodeURIComponent(coverKey + " book cover"),
+            url: "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + encodeURIComponent(coverKey),
             dataType: "jsonp"
         }).done(function(result) {
             result = result.responseData;

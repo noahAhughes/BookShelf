@@ -55,7 +55,7 @@
         <div class="dx-field">
             <div class="dx-field-label">Categories</div>
             <div class="dx-field-value">
-                <div class="tags-choose-control" data-bind="dxTagBox: { items: tags, values: book.tags, valueExpr: 'id', displayExpr: 'title', readOnly: true }, event: { dxclick: chooseTags }">
+                <div class="tags-choose-control" data-bind="dxTagBox: { items: tags, values: book.tags, valueExpr: 'id', readOnly: true }, event: { dxclick: chooseTags }">
                     <div data-options="dxTemplate: { name: 'tag' }">
                         <div class="tag-icon dx-icon-tags"></div>
                         <span data-bind="text: title"></span>

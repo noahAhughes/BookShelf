@@ -137,8 +137,8 @@
         },
         
         viewShowing: function() {
-            this.prepareBook();
             this.refreshAllTags();
+            this.prepareBook();
         },
 
         viewShown: function() {

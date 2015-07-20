@@ -81,6 +81,7 @@
         },
         
         back: function() {
+            BookShelf.app.bookListShowing.fire({ reloadBook: this.getBook().id });
             BookShelf.app.backToList(this.book.status());
         },
 

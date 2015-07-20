@@ -1,32 +1,34 @@
 ﻿BookShelf.BookList = function(params) {
 
+    var mapBook = function(book) {
+        var status = BookShelf.db.getBookStatus(book);
+        var ratingColor = book.rating && BookShelf.db.getBookRating(book.rating).color;
+        var progress = (status === BookShelf.db.bookStatus.reading)
+            ? book.progress
+            : (status === BookShelf.db.bookStatus.finished) ? 100 : 0;
+
+        return {
+            id: book.id,
+            title: book.title,
+            author: book.author ? "by " + book.author : null,
+            rating: book.rating,
+            ratingColor: ratingColor,
+            status: status,
+            isStarted: status === BookShelf.db.bookStatus.reading,
+            progress: "reading since " + BookShelf.db.formatDate(book.startDate) + ", " + book.progress + "% completed",
+            progressBg: BookShelf.db.getProgressBg(progress, 100, ratingColor),
+            tagsString: BookShelf.db.getTagsString(book.tags),
+            showChevron: true
+        }
+    };
+
     var source = new DevExpress.data.DataSource({
         store: BookShelf.db.books.getAll(),
         filter: function(book) {
             return params.filter(book) && filterTags(book) && filterRatings(book);
         },
         sort: params.sort,
-        map: function(book) {
-            var status = BookShelf.db.getBookStatus(book);
-            var ratingColor = book.rating && BookShelf.db.getBookRating(book.rating).color;
-            var progress = (status === BookShelf.db.bookStatus.reading)
-                ? book.progress
-                : (status === BookShelf.db.bookStatus.finished) ? 100 : 0;
-
-            return {
-                id: book.id,
-                title: book.title,
-                author: book.author ? "by " + book.author : null,
-                rating: book.rating,
-                ratingColor: ratingColor,
-                status: status,
-                isStarted: status === BookShelf.db.bookStatus.reading,
-                progress: "reading since " + BookShelf.db.formatDate(book.startDate) + ", " + book.progress + "% completed",
-                progressBg: BookShelf.db.getProgressBg(progress, 100, ratingColor),
-                tagsString: BookShelf.db.getTagsString(book.tags),
-                showChevron: true
-            }
-        }
+        map: mapBook
     });
 
     var filterTags = function(book) {
@@ -54,6 +56,7 @@
         reloadSource: function() {
             source.requireTotalCount(true);
             this.list.reload();
+            this.list._scrollView._savedScrollOffset = null;
             booksCount(source.totalCount());
         },
 
@@ -107,9 +110,33 @@
             this.filterApplied(BookShelf.db.isBooksFilterApplied());
         },
 
-        viewShowing: function() {
+        viewShowing: function(options) {
             this.updateFilterState();
-            this.reloadSource();
+
+            if(options.reload) {
+                this.reloadSource();
+            }
+
+            if(options.reloadBook) {
+                var books = this.list.option("items");
+                var bookIndex = null;
+                var updatedBook = null;
+                $.each(books, function(index, book) {
+                    if(book.id !== options.reloadBook)
+                        return;
+
+                    updatedBook = mapBook(BookShelf.db.books.get(book.id));
+                    books.splice(index, 1, updatedBook);
+                    bookIndex = index;
+                    return false;
+                });
+
+                if(bookIndex === null)
+                    return;
+
+                var $bookElement = this.list._renderItem(bookIndex, updatedBook, this.list.itemsContainer());
+                this.list.itemElements().eq(bookIndex).replaceWith($bookElement);
+            }
         },
 
         viewRendered: function() {

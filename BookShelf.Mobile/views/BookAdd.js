@@ -6,7 +6,7 @@
 
         save: function() {
             BookShelf.db.books.add(this.getBook());
-            BookShelf.app.bookListShowing.fire();
+            BookShelf.app.bookListShowing.fire({ reload: true });
             BookShelf.app.backToList(this.book.status());
         },
         

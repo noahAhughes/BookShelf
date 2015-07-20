@@ -28,7 +28,7 @@
                 })
             }
 
-            BookShelf.app.bookListShowing.fire();
+            BookShelf.app.bookListShowing.fire({ reload: true });
             BookShelf.app.back();
         },
         

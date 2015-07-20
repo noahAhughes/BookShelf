@@ -193,6 +193,7 @@
     color: rgb(142, 142, 147);
     padding: 0;
     font-size: 1em;
+    text-align: left;
 }
 
 .tags-choose-control .tag-icon {

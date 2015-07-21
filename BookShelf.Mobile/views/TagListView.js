@@ -48,7 +48,8 @@
             var currentSelected = selected();
             if(editing()) {
                 BookShelf.db.tags.update(tag);
-                items(BookShelf.db.tags.getAll());
+                items(BookShelf.db.tags.getAll().slice());
+                BookShelf.app.bookListShowing.fire({ reloadTag: tag.id });
             } else {
                 var newTag = BookShelf.db.tags.get(BookShelf.db.tags.add(tag));
                 items.unshift(newTag);
@@ -83,6 +84,11 @@
 
         deleteTag: function(args) {
             BookShelf.db.tags.remove(args.itemData.id);
+            BookShelf.app.bookListShowing.fire({ reloadTag: args.itemData.id });
+        },
+
+        listTnit: function(args) {
+            this.list = args.component;
         },
 
         onShowing: function() {
@@ -94,10 +100,9 @@
         },
 
         onShown: function() {
-            var $list = $(".dx-list");
-            $list.off("dxactive.listBetterActiveState dxinactive.listBetterActiveState");
+            this.list.element().off("dxactive.listBetterActiveState dxinactive.listBetterActiveState");
             if(params.selectionEnabled) {
-                $list
+                this.list.element()
                     .on("dxactive.listBetterActiveState", ".dx-list-item", { timeout: 30 }, function(e) {
                         $(e.currentTarget).addClass("dx-state-active");
                     })

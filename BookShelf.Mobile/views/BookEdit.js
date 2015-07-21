@@ -4,6 +4,7 @@
                 
         save: function() {
             BookShelf.db.books.update(this.getBook());
+            BookShelf.app.bookListShowing.fire({ reloadBook: this.getBook().id });
             BookShelf.app.back();
         }
 

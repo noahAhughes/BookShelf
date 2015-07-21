@@ -119,6 +119,10 @@
             this.book.tags(book.tags);
         },
 
+        tagsControlInit: function(args) {
+            this.tagsControl = args.component;
+        },
+
         fixNativeFocus: function(_, e) {
             e.preventDefault();
         },
@@ -129,7 +133,7 @@
         },
 
         viewShown: function() {
-            $(".tags-choose-control")
+            this.tagsControl && this.tagsControl.element()
                 .off("dxactive.tagsControlBetterActiveState dxinactive.tagsControlBetterActiveState")
                 .on("dxactive.tagsControlBetterActiveState", { timeout: 30 }, function(e) {
                     $(e.currentTarget).addClass("dx-state-active");
@@ -141,7 +145,7 @@
 
         refreshAllTags: function() {
             allTags(BookShelf.db.tags.getAll());
-            $(".tags-choose-control").dxTagBox("repaint");
+            this.tagsControl && this.tagsControl.repaint();
         },
 
         ratingInit: function(args) {

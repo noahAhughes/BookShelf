@@ -65,6 +65,7 @@
             }   
 
             BookShelf.db.books.update(this.getBook());
+            BookShelf.app.bookListShowing.fire({ reload: true });
         },
 
         book: {
@@ -81,7 +82,6 @@
         },
         
         back: function() {
-            BookShelf.app.bookListShowing.fire({ reloadBook: this.getBook().id });
             BookShelf.app.backToList(this.book.status());
         },
 
@@ -103,6 +103,7 @@
 
             ko.computed(function() {
                 BookShelf.db.books.update(viewModel.getBook());
+                BookShelf.app.bookListShowing.fire({ reloadBook: viewModel.getBook().id });
             }).extend({ throttle: 400 });
         }
     });

@@ -16,7 +16,8 @@
             menuItems: (editingEnabled ? [{ text: 'Edit', action: editTag }] : []),
             activeStateEnabled: false,
             scrollingEnabled: scrollingEnabled,
-            noDataText: '&bull;'
+            noDataText: '&bull;',
+            onInitialized: listTnit
         }">
             <div data-options="dxTemplate: { name: 'item' }">
                 <div class="tag-selected-icon dx-icon-todo"></div>

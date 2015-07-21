@@ -17,6 +17,7 @@
             isStarted: status === BookShelf.db.bookStatus.reading,
             progress: "reading since " + BookShelf.db.formatDate(book.startDate) + ", " + book.progress + "% completed",
             progressBg: BookShelf.db.getProgressBg(progress, 100, ratingColor),
+            tags: book.tags,
             tagsString: BookShelf.db.getTagsString(book.tags),
             showChevron: true
         }
@@ -113,30 +114,34 @@
         viewShowing: function(options) {
             this.updateFilterState();
 
-            if(options.reload) {
+            if(options.reload !== undefined) {
                 this.reloadSource();
             }
 
-            if(options.reloadBook) {
-                var books = this.list.option("items");
-                var bookIndex = null;
-                var updatedBook = null;
-                $.each(books, function(index, book) {
-                    if(book.id !== options.reloadBook)
+            if(options.reloadBook !== undefined) {
+                $.each(this.list.option("items"), $.proxy(function(index, mappedBook) {
+                    if(mappedBook.id !== options.reloadBook)
                         return;
-
-                    updatedBook = mapBook(BookShelf.db.books.get(book.id));
-                    books.splice(index, 1, updatedBook);
-                    bookIndex = index;
+                    this.updateBook(mappedBook.id, index);
                     return false;
-                });
-
-                if(bookIndex === null)
-                    return;
-
-                var $bookElement = this.list._renderItem(bookIndex, updatedBook, this.list.itemsContainer());
-                this.list.itemElements().eq(bookIndex).replaceWith($bookElement);
+                }, this));
             }
+
+            if(options.reloadTag !== undefined) {
+                $.each(this.list.option("items"), $.proxy(function(index, mappedBook) {
+                    if($.inArray(options.reloadTag, mappedBook.tags) === -1)
+                        return;
+                    this.updateBook(mappedBook.id, index);
+                }, this));
+            }
+        },
+
+        updateBook: function(bookId, bookIndexInList) {
+            var updatedBook = mapBook(BookShelf.db.books.get(bookId));
+            var books = this.list.option("items");
+            books.splice(bookIndexInList, 1, updatedBook);
+            var $bookElement = this.list._renderItem(bookIndexInList, updatedBook, this.list.itemsContainer());
+            this.list.itemElements().eq(bookIndexInList).replaceWith($bookElement);
         },
 
         viewRendered: function() {

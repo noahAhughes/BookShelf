@@ -69,8 +69,7 @@
 
         clearFilter: function() {
             BookShelf.db.clearBooksFilter();
-            this.updateFilterState();
-            this.reloadSource();
+            BookShelf.app.bookListShowing.fire({ reload: true });
         },
 
         filterBooks: function() {

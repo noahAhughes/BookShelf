@@ -65,6 +65,31 @@
         ratings: [],
         tags: []
     };
+    
+    var onImport = $.Callbacks();
+    var onExport = $.Callbacks();
+    var onNeedExportChanged = $.Callbacks();
+
+    var stateStore = BookShelf.Store("state");
+    if(!stateStore.get(1)) {
+        stateStore.add({});
+    }
+    var needExport = function(value) {
+        if(arguments.length === 0)
+            return stateStore.get(1).needExport;
+        stateStore.update($.extend(stateStore.get(1), { needExport: value }));
+        onNeedExportChanged.fire(value);
+    };
+    var requireExport = function() { needExport(true); };
+    var forgetExport = function() { needExport(false); };
+    onImport.add(forgetExport);
+    onExport.add(forgetExport);
+    bookStore.onAdd.add(requireExport);
+    bookStore.onUpdate.add(requireExport);
+    bookStore.onRemove.add(requireExport);
+    tagStore.onAdd.add(requireExport);
+    tagStore.onUpdate.add(requireExport);
+    tagStore.onRemove.add(requireExport);
 
 
     BookShelf.db = {
@@ -126,18 +151,26 @@
             this.booksFilter = emptyBookFilter;
         },
 
+        onImport: onImport,
+
         importData: function(data) {
             data = JSON.parse(data);
             this.books.importData(data.books);
             this.tags.importData(data.tags);
+            this.onImport.fire();
         },
+
+        onExport: onExport,
 
         exportData: function() {
             return JSON.stringify({
                 books: this.books.exportData(),
                 tags: this.tags.exportData()
             });
-        }
+        },
+
+        needExport: needExport(),
+        onNeedExportChanged: onNeedExportChanged
 
     };
 

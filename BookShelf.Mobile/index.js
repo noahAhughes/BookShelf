@@ -52,16 +52,13 @@ $(function() {
                 break;
         }
     }
+    
 
-    var updateReadingCount = function() {
-        readingCount(BookShelf.db.books.getReadingCount());
-    };
-
-    var readingCount = ko.observable();
-    updateReadingCount();
-    BookShelf.db.books.onAdd.add(updateReadingCount);
-    BookShelf.db.books.onUpdate.add(updateReadingCount);
-    BookShelf.db.books.onRemove.add(updateReadingCount);
+    var needExport = ko.observable(BookShelf.db.needExport);
+    BookShelf.db.onNeedExportChanged.add(function(value) {
+        needExport(value);
+    });
+    
 
     BookShelf.app = new DevExpress.framework.html.HtmlApplication({
         namespace: BookShelf,
@@ -71,7 +68,9 @@ $(function() {
         commandMapping: BookShelf.config.commandMapping,
         useViewTitleAsBackText: true
     });
-    
+
+    BookShelf.app.needExport = needExport;
+
     var hideSplashscreen = function() {
         if(navigator.splashscreen) {
             navigator.splashscreen.hide();

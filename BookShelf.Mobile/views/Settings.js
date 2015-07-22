@@ -43,6 +43,8 @@
 
     var viewModel = {
 
+        needExport: BookShelf.app.needExport,
+
         showLoadPanel: ko.observable(false),
 
         importData: function() {
@@ -96,6 +98,7 @@
                                 DevExpress.ui.dialog.alert("Something went wrong", "Export Failed");
                             } else {
                                 DevExpress.ui.dialog.alert("Data exported", "Export Success");
+                                BookShelf.db.onExport.fire();
                             }
                         });
                     }

@@ -15,6 +15,7 @@
     }
 
     BookShelf.Store = function(name, config) {
+        config = config || {};
         var storage = window.localStorage;
 
         var importData = function(data) {

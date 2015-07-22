@@ -27,7 +27,7 @@
                     <div class="book-status-text" data-bind="text: book.statusText"></div>
                     <div class="book-progress-state" data-bind="text: book.progressState, visible: book.progressState"></div>
                     <div class="book-progress" data-bind="visible: book.showProgress ">
-                        <div data-bind="dxSlider: { value: book.progress, min: 0, max: 100 }"></div>
+                        <div data-bind="dxSlider: { value: book.progress, min: 0, max: 100, onValueChanged: changeProgress }"></div>
                     </div>
                 </div>
             </div>

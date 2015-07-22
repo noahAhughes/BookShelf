@@ -1020,3 +1020,21 @@
 .dx-navbar .dx-nav-item .dx-tab-text {
     color: #38140d;
 }
+
+.dx-navbar-item-badge {
+    background: #38140d;
+    font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+}
+
+.dx-icon-refresh.need-export-icon {
+    width: 15px;
+    font-size: 15px;
+    line-height: 14px;
+    margin: 0 4px;
+    color: red;
+}
+
+.dx-icon-refresh.need-export-icon:before {
+    font-size: 13px;
+}

@@ -93,6 +93,17 @@
             $(e.currentTarget).removeClass("active");
         },
 
+        changeProgress: function(args) {
+            if(args.previousValue === undefined)
+                return;
+
+            clearTimeout(this._progressSaveTimer);
+            this._progressSaveTimer = setTimeout(function() {
+                BookShelf.db.books.update(viewModel.getBook());
+                BookShelf.app.bookListShowing.fire({ reloadBook: viewModel.getBook().id });
+            }, 400);
+        },
+
         viewShowing: function() {
             baseViewShowing.call(this);
 
@@ -100,11 +111,6 @@
                 coverHeight(cover.ratio * 100 + "%");
                 coverUrl(cover.url);
             });
-
-            ko.computed(function() {
-                BookShelf.db.books.update(viewModel.getBook());
-                BookShelf.app.bookListShowing.fire({ reloadBook: viewModel.getBook().id });
-            }).extend({ throttle: 400 });
         }
     });
 

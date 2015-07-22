@@ -28,6 +28,7 @@
         filter: function(book) {
             return params.filter(book) && filterTags(book) && filterRatings(book);
         },
+        searchExpr: ["title", "author"],
         sort: params.sort,
         map: mapBook
     });
@@ -62,7 +63,29 @@
         },
 
         listInit: function(args) {
-            this.list = args.component;
+            var list = this.list = args.component;
+
+            var $searchbar = $("<div>").addClass("dx-searchbar").append($("<div>").dxTextBox({
+                value: source.searchValue(),
+                valueChangeEvent: "keyup",
+                placeholder: "Search",
+                onValueChanged: function(args) {
+                    clearTimeout(viewModel._searchTimer);
+                    viewModel._searchTimer = setTimeout(function() {
+                        source.searchValue(args.value);
+                        viewModel.reloadSource();
+                    }, 400);
+                },
+                mode: "search"
+            }));
+            list.itemsContainer().append($searchbar);
+            setTimeout(function() {
+                list._scrollView.scrollTo($searchbar.outerHeight());
+            });
+
+            var $newContainer = $("<div>");
+            list.itemsContainer().append($newContainer);
+            list._$container = $newContainer;
         },
 
         filterApplied: ko.observable(false),

@@ -23,9 +23,45 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.dx-searchbar {
+  position: relative;
+  margin: 0;
+  padding: 7px;
+  background: rgb(201, 200, 206);
+  border-bottom: 1px solid #b7b6bb;
+}
+
+.dx-clear-button-area .dx-icon-clear {
+    color: rgb(144, 143, 148);  
+    top: 6px;
+    font-size: 17px;
+}
+
+.dx-searchbar .dx-texteditor-input {
+  background: #fff;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.dx-searchbox .dx-placeholder {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.dx-searchbox .dx-placeholder:before {
+    padding: 6px;
+    padding-left: 22px;
+    background-position: 0 8px !important;
+}
+
 .dx-scrollable-native.dx-scrollable-native-ios .dx-scrollable-content {
     min-height: 101%;
     min-height: calc(100% + 1px);
+}
+
+.books-list.dx-scrollview .dx-scrollable-content {
+    min-height: 110%;
+    min-height: calc(100% + 45px);
 }
 
 .bsicon-toread:before {
@@ -294,6 +330,10 @@
 
 .hairlines .book-cover-list {
     border-top: 0.5px solid #b7b6bb;
+}
+
+.hairlines .dx-searchbar {
+    border-bottom: 0.5px solid #b7b6bb;
 }
 
 /* Slider */

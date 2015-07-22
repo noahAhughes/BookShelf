@@ -48,7 +48,7 @@
             var currentSelected = selected();
             if(editing()) {
                 BookShelf.db.tags.update(tag);
-                items(BookShelf.db.tags.getAll().slice());
+                this.reloadItems();
                 BookShelf.app.bookListShowing.fire({ reloadTag: tag.id });
             } else {
                 var newTag = BookShelf.db.tags.get(BookShelf.db.tags.add(tag));
@@ -93,8 +93,12 @@
             this.resetTag();
 
             var currentSelected = selected();
-            items(BookShelf.db.tags.getAll().slice().sort(function(a, b) { return b.title < a.title }));
+            this.reloadItems();
             selected(currentSelected);
+        },
+
+        reloadItems: function() {
+            items(BookShelf.db.tags.getAll().slice().sort(function(a, b) { return b.title < a.title }));
         },
 
         onShown: function() {

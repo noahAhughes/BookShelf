@@ -1,7 +1,7 @@
 ﻿<div data-options="dxView : { name: 'TagFilter', title: 'Filter Books' } ">
     <div data-bind="dxCommand: { id: 'back', title: 'Close', onExecute: '#_back' }"></div>
     <div data-bind="dxCommand: { id: 'applyFilter', title: 'Apply', onExecute: applyFilter, type: 'default', disabled: invalidFilter }"></div>
-    <div class="book-filter" data-options="dxContent : { targetPlaceholder: 'content' } ">
+    <div class="book-filter dx-form-background" data-options="dxContent : { targetPlaceholder: 'content' } ">
         <div data-bind="dxScrollView: {}">
             <div class="dx-fieldset">
                 <div class="dx-fieldset-header">Ratings</div>

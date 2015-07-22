@@ -1,12 +1,16 @@
 <div data-options="dxView : { name: 'BookDetails', title: '' }">
     <div data-bind="dxCommand: { id: 'back', type: 'back', title: 'Books', onExecute: back }"></div>
     <div data-bind="dxCommand: { onExecute: '#BookEdit/{book.id}', id: 'editBook', title: 'Edit', icon: 'edit' }"></div>
-    <div data-options="dxContent : { targetPlaceholder: 'content' }">
+    <div class="dx-form-background" data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="book-details" data-bind="dxScrollView: { }">
             <div class="dx-fieldset book-details-fieldset">
                 <div class="book-background" data-bind="style: { backgroundImage: 'url(' + book.coverUrl() + ')' }"></div>
                 <div class="dx-field book-info">
-                    <div class="book-cover"><div class="book-cover-placeholder" data-bind="style: { marginTop: book.coverHeight }"></div><img class="book-cover-image" data-bind="attr: { src: book.coverUrl }" /></div>
+                    <div class="book-cover" data-bind="dxAction: '#BookCover/{book.id}',
+                        dxactive: { timeout: 40, execute: feedbackOn },
+                        dxinactive: { timeout: 400, execute: feedbackOff }">
+                        <div class="book-cover-placeholder" data-bind="style: { marginTop: book.coverHeight }"></div><img class="book-cover-image" data-bind="attr: { src: book.coverUrl }" />
+                    </div>
                     <div class="book-title" data-bind="text: book.title"></div>
                     <div class="book-author" data-bind="text: book.authorText"></div>
                     <div data-bind="visible: book.rating() || book.tagsString()" class="book-attributes">

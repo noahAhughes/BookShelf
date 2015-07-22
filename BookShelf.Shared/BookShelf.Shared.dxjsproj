@@ -24,6 +24,12 @@
     <Content Include="data\db.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="data\coverFinder.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="data\store.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\logo.png" />
     <Content Include="js\jquery-2.1.4.min.js">
       <SubType>Content</SubType>

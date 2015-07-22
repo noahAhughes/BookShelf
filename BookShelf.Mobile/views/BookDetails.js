@@ -86,11 +86,11 @@
         },
 
         feedbackOn: function(_, e) {
-            $(e.currentTarget).addClass("notes-active");
+            $(e.currentTarget).addClass("active");
         },
 
         feedbackOff: function(_, e) {
-            $(e.currentTarget).removeClass("notes-active");
+            $(e.currentTarget).removeClass("active");
         },
 
         viewShowing: function() {

@@ -1,0 +1,22 @@
+﻿<div data-options="dxView : { name: 'BookCover', title: 'Select Cover' } " >
+    <div data-bind="dxCommand: { id: 'back', type: 'back', title: 'Books', onExecute: '#_back' }"></div>
+    <div class="book-cover-chooser dx-form-background" data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div class="book-cover-chosen">
+            <div class="dx-fieldset book-cover-fieldset">
+                <div class="book-cover-background" data-bind="style: { backgroundImage: 'url(' + coverUrl() + ')' }"></div>
+                <div class="book-cover-chosen-image" data-bind="style: { backgroundImage: 'url(' + coverUrl() + ')' }"></div>
+            </div>
+        </div>
+        <div class="book-cover-list" data-bind="dxScrollView: { direction: 'horizontal' }">
+            <div class="book-cover-loading" data-bind="dxLoadIndicator: { onInitialized: indicatorInit }"></div>
+            <div class="book-cover-item-container" data-bind="foreach: covers">
+                <div class="book-cover-item" data-bind="event: { dxclick: $root.setCover }">
+                    <img class="book-cover-item-image" data-bind="attr: { src: url },
+                        dxactive: { timeout: 40, execute: $root.feedbackOn },
+                        dxinactive: { timeout: 400, execute: $root.feedbackOff }" />
+                    <div class="dx-icon-todo book-cover-item-image-selected" data-bind="css: { 'selected': url === $root.coverUrl() }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

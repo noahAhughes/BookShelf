@@ -68,7 +68,9 @@
             this.prepareTag(args.itemData);
             editing(true);
 
-            $(".tag-form-field").dxTextBox("focus");
+            setTimeout(function() {
+                $(".tag-form-field").dxTextBox("focus");
+            }, 500);
         },
 
         deleteTagConfirmation: function(args) {

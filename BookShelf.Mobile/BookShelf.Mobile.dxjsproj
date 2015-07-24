@@ -13,13 +13,13 @@
     <UpgradeNotifyShown>15.1.5</UpgradeNotifyShown>
     <ScreenOrientation>Portrait</ScreenOrientation>
     <ApplicationTitle>BookShelf</ApplicationTitle>
-    <VersionPackage>1.0.1.0</VersionPackage>
+    <VersionPackage>1.0.3.0</VersionPackage>
     <ShowSplashScreen>True</ShowSplashScreen>
     <IpaPrivateKeyFile />
     <TemplateFileIpa />
     <UseCustomTemplateNameIpa>False</UseCustomTemplateNameIpa>
     <IpaDevicesFamily>Universal</IpaDevicesFamily>
-    <BundleIdentifier>com.tabalinas.BookShelf</BundleIdentifier>
+    <BundleIdentifier>com.tabalin.bookshelf</BundleIdentifier>
     <IpaSupportedLanguages>en-US</IpaSupportedLanguages>
     <ApkDexFilePackageName>com.devextreme.BookShelf.Mobile</ApkDexFilePackageName>
   </PropertyGroup>

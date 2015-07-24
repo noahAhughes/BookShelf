@@ -208,8 +208,8 @@
 }
 
 .tags-choose-control {
-    margin: -11px -10px -11px -8px !important;
-    padding: 4px 0 6px 0;
+    margin: -11px -10px -10px -8px !important;
+    padding: 4px 0 5px 0;
 }
 
 .tags-choose-control.dx-state-active {

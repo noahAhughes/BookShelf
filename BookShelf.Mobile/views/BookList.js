@@ -32,6 +32,7 @@
         sort: params.sort,
         map: mapBook
     });
+    source.requireTotalCount(true);
 
     var filterTags = function(book) {
         return !BookShelf.db.booksFilter.tags.length || !!$.grep(BookShelf.db.booksFilter.tags, function(tagId) {
@@ -56,7 +57,6 @@
         source: source,
 
         reloadSource: function() {
-            source.requireTotalCount(true);
             viewModel.list.reload();
             viewModel.list._scrollView._savedScrollOffset = null;
             booksCount(source.totalCount());

@@ -91,13 +91,11 @@
 
 .dx-theme-ios7-typography h1,
 .dx-theme-ios7-typography h2 {
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .dx-theme-ios7-typography strong {
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .dx-transition-inner-wrapper.dx-enter,
@@ -115,15 +113,6 @@
 
 .dx-datebox .dx-dropdowneditor-button {
     display: none;
-}
-
-.dx-button-default .dx-button-content {
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-.dx-popup-title .dx-toolbar-label {
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: normal;
 }
 
 .dx-list-slide-menu-buttons-container {
@@ -359,7 +348,7 @@
 
 /* Lookup */
 .dx-lookup {
-    min-height: 42px !important;
+    min-height: 41px !important;
 }
 
 .dx-lookup-arrow {
@@ -487,7 +476,7 @@
 }
 
 .books-list .book-title {
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
 
@@ -639,7 +628,7 @@
     margin-bottom: 6px;
     padding-right: 4px;
 
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
 }
@@ -1046,7 +1035,6 @@
 .tags-choose-popup .dx-toolbar-label,
 .tags-choose-popup .dx-popup-title .dx-toolbar-label {
     color: #fff;
-    font-weight: normal;
 }
 
 .dx-navbar {
@@ -1063,7 +1051,7 @@
 
 .dx-navbar-item-badge {
     background: #38140d;
-    font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
     font-weight: normal;
 }
 

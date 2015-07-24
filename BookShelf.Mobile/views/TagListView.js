@@ -100,7 +100,7 @@
         },
 
         reloadItems: function() {
-            items(BookShelf.db.tags.getAll().slice().sort(function(a, b) { return b.title < a.title }));
+            items(BookShelf.db.tags.getAll().slice().sort(function(a, b) { return a.title.localeCompare(b.title) }));
         },
 
         onShown: function() {

@@ -50,6 +50,9 @@
     <Content Include="css\styles.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\Dropbox.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="index.html" />
     <Content Include="index.css" />
     <Content Include="cordova.js" />
@@ -175,6 +178,7 @@
   <ItemGroup>
     <Folder Include="css\" />
     <Folder Include="css\fonts\" />
+    <Folder Include="images\" />
     <Folder Include="js\" />
     <Folder Include="layouts\" />
     <Folder Include="layouts\Navbar\" />

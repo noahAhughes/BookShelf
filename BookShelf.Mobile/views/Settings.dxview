@@ -11,13 +11,19 @@
                     <div data-bind="dxButton: { onClick: exportData }">
                         <div data-options="dxTemplate: { name: 'content' }">
                             <div class="dx-button-text">
-                                Export to DropBox <div class="need-export-icon dx-icon dx-icon-refresh" data-bind="visible: $root.needExport"></div>
+                                Export to <img class="dropbox-icon" src="../images/Dropbox.png" />Dropbox <div class="need-export-icon dx-icon dx-icon-refresh" data-bind="visible: $root.needExport"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="dx-field">
-                    <div data-bind="dxButton: { text: 'Import from DropBox', onClick: importData }"></div>
+                    <div data-bind="dxButton: { onClick: importData }">
+                        <div data-options="dxTemplate: { name: 'content' }">
+                            <div class="dx-button-text">
+                                Import from <img class="dropbox-icon" src="../images/Dropbox.png" />Dropbox
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

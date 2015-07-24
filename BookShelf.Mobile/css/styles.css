@@ -962,6 +962,31 @@
     background: #d9d9d9;
 }
 
+/* Settings */
+
+.dropbox-icon {
+    height: 14px;
+    display: inline-block;
+    margin-bottom: -1px;
+    margin-right: 1px;
+}
+
+.dx-state-active .dropbox-icon {
+    opacity: .2;
+}
+
+.dx-icon-refresh.need-export-icon {
+    width: 15px;
+    font-size: 15px;
+    line-height: 14px;
+    margin: 0 4px;
+    color: red;
+}
+
+.dx-icon-refresh.need-export-icon:before {
+    font-size: 13px;
+}
+
 /* Theme Styling */
 
 .layout-header .dx-toolbar,
@@ -1053,16 +1078,4 @@
     background: #38140d;
     font-weight: bold;
     font-weight: normal;
-}
-
-.dx-icon-refresh.need-export-icon {
-    width: 15px;
-    font-size: 15px;
-    line-height: 14px;
-    margin: 0 4px;
-    color: red;
-}
-
-.dx-icon-refresh.need-export-icon:before {
-    font-size: 13px;
 }

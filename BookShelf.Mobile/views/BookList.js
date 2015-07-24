@@ -57,13 +57,13 @@
 
         reloadSource: function() {
             source.requireTotalCount(true);
-            this.list.reload();
-            this.list._scrollView._savedScrollOffset = null;
+            viewModel.list.reload();
+            viewModel.list._scrollView._savedScrollOffset = null;
             booksCount(source.totalCount());
         },
 
         listInit: function(args) {
-            var list = this.list = args.component;
+            var list = viewModel.list = args.component;
 
             var $searchbar = $("<div>").addClass("dx-searchbar").append($("<div>").dxTextBox({
                 value: source.searchValue(),
@@ -141,7 +141,7 @@
             }
 
             if(options.reloadBook !== undefined) {
-                $.each(this.list.option("items"), $.proxy(function(index, mappedBook) {
+                $.each(viewModel.list.option("items"), $.proxy(function(index, mappedBook) {
                     if(mappedBook.id !== options.reloadBook)
                         return;
                     this.updateBook(mappedBook.id, index);
@@ -150,7 +150,7 @@
             }
 
             if(options.reloadTag !== undefined) {
-                $.each(this.list.option("items"), $.proxy(function(index, mappedBook) {
+                $.each(viewModel.list.option("items"), $.proxy(function(index, mappedBook) {
                     if($.inArray(options.reloadTag, mappedBook.tags) === -1)
                         return;
                     this.updateBook(mappedBook.id, index);
@@ -160,10 +160,10 @@
 
         updateBook: function(bookId, bookIndexInList) {
             var updatedBook = mapBook(BookShelf.db.books.get(bookId));
-            var books = this.list.option("items");
+            var books = viewModel.list.option("items");
             books.splice(bookIndexInList, 1, updatedBook);
-            var $bookElement = this.list._renderItem(bookIndexInList, updatedBook, this.list.itemsContainer());
-            this.list.itemElements().eq(bookIndexInList).replaceWith($bookElement);
+            var $bookElement = viewModel.list._renderItem(bookIndexInList, updatedBook, viewModel.list.itemsContainer());
+            viewModel.list.itemElements().eq(bookIndexInList).replaceWith($bookElement);
         },
 
         viewRendered: function() {

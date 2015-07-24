@@ -17,7 +17,7 @@
         },
 
         indicatorInit: function(args) {
-            this.indicator = args.component;
+            viewModel.indicator = args.component;
         },
 
         feedbackOn: function(_, e) {

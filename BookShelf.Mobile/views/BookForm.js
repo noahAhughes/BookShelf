@@ -120,7 +120,7 @@
         },
 
         tagsControlInit: function(args) {
-            this.tagsControl = args.component;
+            viewModel.tagsControl = args.component;
         },
 
         fixNativeFocus: function(_, e) {
@@ -133,7 +133,7 @@
         },
 
         viewShown: function() {
-            this.tagsControl && this.tagsControl.element()
+            viewModel.tagsControl && viewModel.tagsControl.element()
                 .off("dxactive.tagsControlBetterActiveState dxinactive.tagsControlBetterActiveState")
                 .on("dxactive.tagsControlBetterActiveState", { timeout: 30 }, function(e) {
                     $(e.currentTarget).addClass("dx-state-active");
@@ -145,7 +145,7 @@
 
         refreshAllTags: function() {
             allTags(BookShelf.db.tags.getAll());
-            this.tagsControl && this.tagsControl.repaint();
+            viewModel.tagsControl && viewModel.tagsControl.repaint();
         },
 
         ratingInit: function(args) {
